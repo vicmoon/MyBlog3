@@ -1,0 +1,20 @@
+{
+  "name": "myblog3",
+  "version": "1.0.0",
+  "description": "MERN Blog application",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Victoria Munteanu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0",
+    "nodemon": "^3.1.4"
+  }
+}
