@@ -1,9 +1,5 @@
-const express = require("express");
-
-const postRoutes = express.Router();
-
 //POST/api/v1/posts/
-postRoutes.post("/", async (req, res) => {
+const postPostController = async (req, res) => {
   try {
     res.json({
       status: "Success",
@@ -12,10 +8,11 @@ postRoutes.post("/", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};
 
 //GET/api/v1/posts/ (all)
-postRoutes.get("/", async (req, res) => {
+
+const allPostsController = async (req, res) => {
   try {
     res.json({
       status: "Success",
@@ -24,10 +21,11 @@ postRoutes.get("/", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};
 
 //GET/api/v1/posts/:id
-postRoutes.get("/:id", async (req, res) => {
+
+const onePostsController = async (req, res) => {
   try {
     res.json({
       status: "Success",
@@ -36,10 +34,9 @@ postRoutes.get("/:id", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};
 
-//DELETE/api/v1/posts/:id
-postRoutes.delete("/:id", async (req, res) => {
+const deletePostsController = async (req, res) => {
   try {
     res.json({
       status: "Success",
@@ -48,10 +45,9 @@ postRoutes.delete("/:id", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};
 
-//PUT/api/v1/posts/:id
-postRoutes.put("/:id", async (req, res) => {
+const editPostsController = async (req, res) => {
   try {
     res.json({
       status: "Success",
@@ -60,6 +56,12 @@ postRoutes.put("/:id", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};
 
-module.exports = postRoutes;
+module.exports = {
+  postPostController,
+  allPostsController,
+  onePostsController,
+  deletePostsController,
+  editPostsController,
+};
