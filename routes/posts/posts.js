@@ -8,7 +8,7 @@ const {
   onePostsController,
   deletePostsController,
   editPostsController,
-} = require("./");
+} = require("../../controllers/posts/postsController");
 
 //POST/api/v1/posts/
 postRoutes.post("/", postPostController);

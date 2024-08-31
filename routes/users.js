@@ -10,7 +10,7 @@ const {
   coverUserController,
   updatePassUserController,
   logoutUserController,
-} = require("../controllers/users/users");
+} = require("../controllers/users/usersController");
 
 //register
 userRoutes.post("/register", registerUserController);
