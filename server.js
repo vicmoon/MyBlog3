@@ -1,5 +1,7 @@
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session");
+const mongoStore = require("connect-mongo");
 const userRoutes = require("./routes/users");
 const postRoutes = require("./routes/posts/posts");
 const commentRoutes = require("./routes/comments/comments");
@@ -14,6 +16,19 @@ require("./config/connectDB");
 app.use(express.json());
 // Middleware to parse URL-encoded bodies (optional, for forms)
 app.use(express.urlencoded({ extended: true }));
+
+//session config  gives access to the req.session in each route
+app.use(
+  session({
+    secret: process.env.SESSION_KEY,
+    resave: false,
+    saveUninitialized: true,
+    store: new mongoStore({
+      mongoUrl: process.env.MONGO_URL,
+      ttl: 24 * 60 * 60, //  saves the user session for 1 day
+    }),
+  })
+);
 
 //ROUTES
 

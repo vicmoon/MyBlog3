@@ -11,6 +11,7 @@ const {
   updatePassUserController,
   logoutUserController,
 } = require("../controllers/users/usersController");
+const loggedIn = require("../middlewares/loggedIn");
 
 //register
 userRoutes.post("/register", registerUserController);
@@ -22,7 +23,7 @@ userRoutes.post("/login", loginUserController);
 userRoutes.get("/:id", detailsUserController);
 
 // GET/api/v1/users/profile/:id
-userRoutes.get("/profile/:id", profileUserController);
+userRoutes.get("/profile/:id", loggedIn, profileUserController);
 
 // PUT/api/v1/users/profile-photo/:id
 userRoutes.put("/profile-photo/:id", photoUserController);

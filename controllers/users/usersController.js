@@ -5,17 +5,18 @@ const appErr = require("../../utils/appError");
 // Register user controller
 //register
 const registerUserController = async (req, res, next) => {
+  console.log(req.session);
   const { fullname, email, password } = req.body;
+  //check if field is empty
+  if (!fullname || !email || !password) {
+    return next(appErr("All fields are required"));
+  }
   try {
     // Check if user exists
     const userExisting = await User.findOne({ email });
 
     if (userExisting) {
       return next(appErr("User already exists"));
-      // return res.json({
-      //   status: "failed",
-      //   data: "User already exists",
-      // });
     }
 
     // Hash password
@@ -42,16 +43,17 @@ const registerUserController = async (req, res, next) => {
   }
 };
 
-const loginUserController = async (req, res) => {
+const loginUserController = async (req, res, next) => {
+  // console.log((req.session.loginUser = "Greenish"));
   const { email, password } = req.body;
+  if (!email || !password) {
+    return next(appErr("Email and password are required"));
+  }
   try {
     // Check if the email exists
     const userFound = await User.findOne({ email }); // Add await here
     if (!userFound) {
-      return res.json({
-        status: "Failed",
-        data: "Invalid login credentials",
-      });
+      return next(appErr("Invalid login credentials"));
     }
 
     // Verify password
@@ -60,12 +62,11 @@ const loginUserController = async (req, res) => {
       userFound.password
     );
     if (!checkPasswordValidity) {
-      return res.json({
-        status: "Failed",
-        data: "Invalid login credentials",
-      });
+      return next(appErr("Invalid login credentials"));
     }
-
+    //save the user info
+    req.session.userAuth = userFound._id;
+    console.log(req.session);
     res.json({
       status: "Success",
       user: userFound,
