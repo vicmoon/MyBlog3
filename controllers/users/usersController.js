@@ -1,74 +1,23 @@
-const bcrypt = require("bcryptjs");
-const User = require("../../model/users/User");
-
-// Register user controller
+//register
 const registerUserController = async (req, res) => {
-  const { fullname, email, password } = req.body;
   try {
-    // Check if user exists
-    const userExisting = await User.findOne({ email });
-    if (userExisting) {
-      return res.json({
-        status: "failed",
-        data: "User already exists",
-      });
-    }
-
-    // Hash password
-    const salt = await bcrypt.genSalt(10); // Await the salt generation
-    const passwordHashed = await bcrypt.hash(password, salt); // Hash the password with the salt
-
-    // Create the user
-    const newUser = await User.create({
-      fullname,
-      email,
-      password: passwordHashed,
-    });
     res.json({
       status: "Success",
-      data: newUser,
+      user: " User registered",
     });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    res.json(error);
   }
 };
 
 const loginUserController = async (req, res) => {
-  const { email, password } = req.body;
   try {
-    // Check if the email exists
-    const userFound = await User.findOne({ email }); // Add await here
-    if (!userFound) {
-      return res.json({
-        status: "Failed",
-        data: "Invalid login credentials",
-      });
-    }
-
-    // Verify password
-    const checkPasswordValidity = await bcrypt.compare(
-      password,
-      userFound.password
-    );
-    if (!checkPasswordValidity) {
-      return res.json({
-        status: "Failed",
-        data: "Invalid login credentials",
-      });
-    }
-
     res.json({
       status: "Success",
-      user: userFound,
+      user: "User logged in",
     });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    res.json(error);
   }
 };
 
