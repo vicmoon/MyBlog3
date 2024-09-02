@@ -3,7 +3,7 @@ const registerUserController = async (req, res) => {
   try {
     res.json({
       status: "Success",
-      user: "Registered",
+      user: " User registered",
     });
   } catch (error) {
     res.json(error);
