@@ -9,8 +9,10 @@ const {
   editCommentsController,
 } = require("../../controllers/comments/commentsController");
 
-//PUT/api/v1/comments/
-commentRoutes.put("/", addCommentsController);
+const loggedIn = require("../../middlewares/loggedIn");
+
+//POST/api/v1/comments/
+commentRoutes.post("/", loggedIn, addCommentsController);
 
 //GET/api/v1/comments/:id
 commentRoutes.get("/:id", getCommentsController);

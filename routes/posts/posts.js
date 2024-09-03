@@ -9,9 +9,10 @@ const {
   deletePostsController,
   editPostsController,
 } = require("../../controllers/posts/postsController");
+const loggedIn = require("../../middlewares/loggedIn");
 
 //POST/api/v1/posts/
-postRoutes.post("/", postPostController);
+postRoutes.post("/", loggedIn, postPostController);
 
 //GET/api/v1/posts/ (all)
 postRoutes.get("/", allPostsController);

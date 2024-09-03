@@ -1,9 +1,36 @@
+const Post = require("../../model/posts/Post");
+const User = require("../../model/users/User");
+
 //POST/api/v1/posts/
 const postPostController = async (req, res) => {
+  const { title, description, category, user } = req.body;
   try {
+    // find the user
+    const userID = req.session.userAuth;
+    const userFound = await User.findById(userID);
+
+    //create the post
+
+    const postCreated = await Post.create({
+      title,
+      description,
+      category,
+      // image,
+      user: userFound._id,
+    });
+
+    // push the post in the array user's posts
+    userFound.posts.push(postCreated._id);
+
+    //save the user because we made changes
+
+    await userFound.save();
+
+    console.log(userID);
+
     res.json({
       status: "Success",
-      user: "Post created",
+      data: postCreated,
     });
   } catch (error) {
     res.json(error);
