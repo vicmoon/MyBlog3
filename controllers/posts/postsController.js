@@ -1,10 +1,14 @@
 const Post = require("../../model/posts/Post");
 const User = require("../../model/users/User");
+const appError = require("../../utils/appError");
 
 //POST/api/v1/posts/
-const postPostController = async (req, res) => {
-  const { title, description, category, user } = req.body;
+const postPostController = async (req, res, next) => {
+  const { title, description, category, image, user } = req.body;
   try {
+    if (!title || !description || !category || !reg.file) {
+      return next(appError("Missing details, all fields are required"));
+    }
     // find the user
     const userID = req.session.userAuth;
     const userFound = await User.findById(userID);
@@ -15,7 +19,7 @@ const postPostController = async (req, res) => {
       title,
       description,
       category,
-      // image,
+      image: req.file.path,
       user: userFound._id,
     });
 
