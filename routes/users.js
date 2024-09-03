@@ -19,11 +19,8 @@ userRoutes.post("/register", registerUserController);
 // POST/api/v1/users/login
 userRoutes.post("/login", loginUserController);
 
-// GET/api/v1/users/:id
-userRoutes.get("/:id", detailsUserController);
-
-// GET/api/v1/users/profile/:id
-userRoutes.get("/profile/:id", loggedIn, profileUserController);
+// GET/api/v1/users/profile
+userRoutes.get("/profile", loggedIn, profileUserController);
 
 // PUT/api/v1/users/profile-photo/:id
 userRoutes.put("/profile-photo/:id", photoUserController);
@@ -38,5 +35,8 @@ userRoutes.put("/update-password/:id", updatePassUserController);
 
 //PUT/api/v1/users/logout/:id
 userRoutes.put("/logout/:id", logoutUserController);
+
+// GET/api/v1/users/:id
+userRoutes.get("/:id", detailsUserController);
 
 module.exports = userRoutes;
