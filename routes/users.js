@@ -1,5 +1,7 @@
 const express = require("express");
 const userRoutes = express.Router();
+const multer = require("multer");
+const storage = require("../config/cloudinary");
 const {
   registerUserController,
   loginUserController,
@@ -13,6 +15,9 @@ const {
 } = require("../controllers/users/usersController");
 const loggedIn = require("../middlewares/loggedIn");
 
+// instance of multer
+const upload = multer({ storage: storage });
+
 //register
 userRoutes.post("/register", registerUserController);
 
@@ -23,7 +28,19 @@ userRoutes.post("/login", loginUserController);
 userRoutes.get("/profile", loggedIn, profileUserController);
 
 // PUT/api/v1/users/profile-photo/:id
-userRoutes.put("/profile-photo/:id", photoUserController);
+userRoutes.put(
+  "/profile-photo/:id",
+  loggedIn,
+  upload.single("profile"),
+  (req, res) => {
+    console.log(req.file); // This should log the file object if successful
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded!" });
+    }
+    // Continue with the rest of the controller logic
+    photoUserController(req, res);
+  }
+);
 
 // PUT/api/v1/users/update/:id
 userRoutes.put("/update/:id", updateUserController);

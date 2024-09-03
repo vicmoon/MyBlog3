@@ -46,6 +46,7 @@ const registerUserController = async (req, res, next) => {
 const loginUserController = async (req, res, next) => {
   // console.log((req.session.loginUser = "Greenish"));
   const { email, password } = req.body;
+  console.log(req.body);
   if (!email || !password) {
     return next(appErr("Email and password are required"));
   }
@@ -114,6 +115,7 @@ const profileUserController = async (req, res) => {
 };
 
 const photoUserController = async (req, res) => {
+  console.log(req.file);
   try {
     res.json({
       status: "Success",
