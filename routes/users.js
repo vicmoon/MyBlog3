@@ -29,7 +29,7 @@ userRoutes.get("/profile", loggedIn, profileUserController);
 
 // PUT/api/v1/users/profile-photo/:id
 userRoutes.put(
-  "/profile-photo/:id",
+  "/profile-photo/",
   loggedIn,
   upload.single("profile"),
   (req, res) => {
@@ -45,7 +45,12 @@ userRoutes.put(
 // PUT/api/v1/users/update/:id
 userRoutes.put("/update/:id", updateUserController);
 // PUT/api/v1/users/cover-photo/:id
-userRoutes.put("/cover-photo/:id", coverUserController);
+userRoutes.put(
+  "/cover-photo/",
+  loggedIn,
+  upload.single("profile"),
+  coverUserController
+);
 
 // PUT/api/v1/users/update-password/:id
 userRoutes.put("/update-password/:id", updatePassUserController);

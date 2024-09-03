@@ -115,14 +115,31 @@ const profileUserController = async (req, res) => {
 };
 
 const photoUserController = async (req, res) => {
-  console.log(req.file);
+  // console.log(req.file);
   try {
+    // find the user to be updated
+    const userID = req.session.userAuth;
+    const userFound = await User.findById(userID);
+    if (!userFound) {
+      return next(appErr("No such user was found", 403));
+    }
+    //update the found user
+    await User.findByIdAndUpdate(
+      userID,
+      {
+        profileImage: req.file.path,
+      },
+      {
+        new: true,
+      }
+    );
     res.json({
       status: "Success",
-      user: "User profile image",
+      data: "You have updated the profile photo",
     });
   } catch (error) {
-    res.json(error);
+    // res.json(error);
+    return next(appErr(error.message));
   }
 };
 
@@ -162,12 +179,29 @@ const updateUserController = async (req, res, next) => {
 
 const coverUserController = async (req, res) => {
   try {
+    // find the user to be updated
+    const userID = req.session.userAuth;
+    const userFound = await User.findById(userID);
+    if (!userFound) {
+      return next(appErr("No such user was found", 403));
+    }
+    //update the found user
+    await User.findByIdAndUpdate(
+      userID,
+      {
+        coverImage: req.file.path,
+      },
+      {
+        new: true,
+      }
+    );
     res.json({
       status: "Success",
-      user: "User cover photo",
+      data: "You have updated the cover photo",
     });
   } catch (error) {
-    res.json(error);
+    // res.json(error);
+    return next(appErr(error.message));
   }
 };
 
