@@ -82,10 +82,16 @@ const loginUserController = async (req, res, next) => {
 };
 
 const detailsUserController = async (req, res) => {
+  // any user will have access
+  // console.log(req.params);
+  // get user id form params (from the controller)
+  const userID = req.params.id;
+  //find the user
+  const user = await User.findById(userID);
   try {
     res.json({
       status: "Success",
-      user: "User details",
+      data: user,
     });
   } catch (error) {
     res.json(error);
@@ -100,7 +106,7 @@ const profileUserController = async (req, res) => {
   try {
     res.json({
       status: "Success",
-      user: user,
+      data: user,
     });
   } catch (error) {
     res.json(error);
@@ -118,14 +124,37 @@ const photoUserController = async (req, res) => {
   }
 };
 
-const updateUserController = async (req, res) => {
+const updateUserController = async (req, res, next) => {
+  const { fullname, email } = req.body;
+
+  //check if the email is taken
+
+  if (email) {
+    const emailTaken = await User.findOne({ email });
+    if (emailTaken) {
+      return next(appErr("The email is already in use", 400));
+    }
+  }
+  // if email is NOT taken, update the user
+
+  const user = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      fullname,
+      email,
+    },
+    {
+      new: true,
+    }
+  );
+
   try {
     res.json({
       status: "Success",
-      user: "User update",
+      data: user,
     });
   } catch (error) {
-    res.json(error);
+    return next(appErr(error.message));
   }
 };
 
@@ -140,14 +169,32 @@ const coverUserController = async (req, res) => {
   }
 };
 
-const updatePassUserController = async (req, res) => {
+const updatePassUserController = async (req, res, next) => {
+  const { password } = req.body;
+
   try {
+    if (!password) {
+      return next(appErr("Password is required"));
+    }
+
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    const passwordHashed = await bcrypt.hash(password, salt);
+
+    // Update the user's password
+    await User.findByIdAndUpdate(
+      req.params.id,
+      { password: passwordHashed },
+      { new: true }
+    );
+
     res.json({
       status: "Success",
-      user: "User update password",
+      message: "The password has been changed",
     });
   } catch (error) {
-    res.json(error);
+    // Pass the error to the next middleware with a relevant message
+    return next(appErr(`Error updating password: ${error.message}`));
   }
 };
 
