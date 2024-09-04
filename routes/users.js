@@ -18,9 +18,27 @@ const loggedIn = require("../middlewares/loggedIn");
 // instance of multer
 const upload = multer({ storage: storage });
 
+//........................................................................
 // render forms
 
-userRoutes.get("/register");
+//login form
+
+userRoutes.get("/login", (req, res) => {
+  res.render("users/login");
+});
+
+//register form
+
+userRoutes.get("/register", (req, res) => {
+  res.render("users/register");
+});
+
+//profile-page form
+
+userRoutes.get("/profile-page", (req, res) => {
+  res.render("users/profile");
+});
+//......................................................................//
 
 //register
 userRoutes.post("/register", registerUserController);
