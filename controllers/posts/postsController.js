@@ -43,27 +43,36 @@ const postPostController = async (req, res, next) => {
 
 //GET/api/v1/posts/ (all)
 
-const allPostsController = async (req, res) => {
+const allPostsController = async (req, res, next) => {
   try {
+    const posts = await Post.find();
     res.json({
       status: "Success",
-      user: "Post list",
+      data: posts,
     });
   } catch (error) {
-    res.json(error);
+    return next(appError(" The posts cannot be found"));
   }
 };
 
 //GET/api/v1/posts/:id
 
-const onePostsController = async (req, res) => {
+const onePostsController = async (req, res, next) => {
   try {
+    // get the ID from the params
+
+    const postID = req.params.id;
+
+    //find the post
+
+    const post = await Post.findById(postID);
+
     res.json({
       status: "Success",
-      user: "Post details",
+      data: post,
     });
   } catch (error) {
-    res.json(error);
+    return next(appError(" The post could not be found"));
   }
 };
 
