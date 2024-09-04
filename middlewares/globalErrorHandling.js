@@ -1,4 +1,4 @@
-const { stack } = require("../routes/users");
+const { stack } = require("../routes/users/users");
 
 const globalErrHandler = (err, req, res, next) => {
   // Extract information from the error object

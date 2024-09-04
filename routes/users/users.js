@@ -1,7 +1,7 @@
 const express = require("express");
 const userRoutes = express.Router();
 const multer = require("multer");
-const storage = require("../config/cloudinary");
+const storage = require("../../config/cloudinary");
 const {
   registerUserController,
   loginUserController,
@@ -12,8 +12,8 @@ const {
   coverUserController,
   updatePassUserController,
   logoutUserController,
-} = require("../controllers/users/usersController");
-const loggedIn = require("../middlewares/loggedIn");
+} = require("../../controllers/users/usersController");
+const loggedIn = require("../../middlewares/loggedIn");
 
 // instance of multer
 const upload = multer({ storage: storage });
