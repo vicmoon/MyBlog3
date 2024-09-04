@@ -38,6 +38,25 @@ userRoutes.get("/register", (req, res) => {
 userRoutes.get("/profile-page", (req, res) => {
   res.render("users/profile");
 });
+
+//upload profile photo form
+
+userRoutes.get("/profile-photo", (req, res) => {
+  res.render("users/uploadProfilePhoto");
+});
+
+//upload cover photo form
+
+userRoutes.get("/cover-photo", (req, res) => {
+  res.render("users/uploadCoverImage");
+});
+
+//update user
+
+userRoutes.get("/update-user", (req, res) => {
+  res.render("users/updateUser");
+});
+
 //......................................................................//
 
 //register
