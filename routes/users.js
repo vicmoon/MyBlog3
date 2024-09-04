@@ -18,6 +18,10 @@ const loggedIn = require("../middlewares/loggedIn");
 // instance of multer
 const upload = multer({ storage: storage });
 
+// render forms
+
+userRoutes.get("/register");
+
 //register
 userRoutes.post("/register", registerUserController);
 
@@ -41,7 +45,6 @@ userRoutes.put(
     photoUserController(req, res);
   }
 );
-
 // PUT/api/v1/users/update/:id
 userRoutes.put("/update/:id", updateUserController);
 // PUT/api/v1/users/cover-photo/:id

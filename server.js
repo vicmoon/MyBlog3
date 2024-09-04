@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
+const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
 const userRoutes = require("./routes/users");
 const postRoutes = require("./routes/posts/posts");
@@ -11,6 +12,14 @@ const app = express();
 require("./config/connectDB");
 
 //middlewares
+
+// configure ejs
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + "/public"));
+
+//serve static files
+app.use(express.static(__dirname + "/public"));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -30,8 +39,14 @@ app.use(
   })
 );
 
-//ROUTES
+// RENDER
 
+//render homepage
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+//ROUTES
 // user Routes
 app.use("/api/v1/users", userRoutes);
 
