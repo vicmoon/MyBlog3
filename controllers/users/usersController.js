@@ -5,8 +5,9 @@ const appErr = require("../../utils/appError");
 // Register user controller
 //register
 const registerUserController = async (req, res, next) => {
-  console.log(req.session);
+  // console.log(req.session);
   const { fullname, email, password } = req.body;
+  console.log(req.body);
   //check if field is empty
   if (!fullname || !email || !password) {
     return next(appErr("All fields are required"));
@@ -29,11 +30,14 @@ const registerUserController = async (req, res, next) => {
       email,
       password: passwordHashed,
     });
-    res.json({
-      status: "Success",
-      data: newUser,
-      user: " User registered",
-    });
+
+    // redirect the user instead of the confirmation
+    res.redirect("/api/v1/users/profile-page");
+    // console.log(newUser);
+    // res.json({
+    //   status: "Success",
+    //   data: newUser,
+    // });
   } catch (error) {
     res.json({
       status: "error",

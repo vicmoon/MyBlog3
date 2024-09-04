@@ -4,14 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/42a182743f.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/profile.css" />
-    <link rel="stylesheet" href="/css/style.css" />
     <title>Profile</title>
   </head>
   <body>
@@ -20,13 +12,13 @@
 
     <div class="profile-container">
       <!-- profile image -->
+
       <div class="profile-img">
-        <img
-          src="https://cdn.pixabay.com/photo/2022/09/26/04/24/swan-7479623_1280.jpg"
-          alt="profile image"
-        />
+        <img src="/public/images/logo.jpg" alt="profile image" />
         <!-- upload profile image icon -->
-        <i class="fas fa-camera upload-btn"></i>
+        <a href="/api/v1/users/profile-photo">
+          <i class="fas fa-camera upload-btn"></i
+        ></a>
       </div>
       <!-- personal details -->
       <div class="personal-container">

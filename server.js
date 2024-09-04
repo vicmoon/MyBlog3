@@ -15,13 +15,10 @@ require("./config/connectDB");
 
 // configure ejs
 app.set("view engine", "ejs");
+// to parse the data from req.body
 app.use(bodyParser.urlencoded({ extended: true }));
+//to service static files
 app.use(express.static(__dirname + "/public"));
-
-// Middleware to parse JSON bodies
-app.use(express.json());
-// Middleware to parse URL-encoded bodies (optional, for forms)
-app.use(express.urlencoded({ extended: true }));
 
 //session config  gives access to the req.session in each route
 app.use(

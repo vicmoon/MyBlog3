@@ -34,9 +34,10 @@ body {
   height: 50px;
   padding: 0 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 20px;
   outline: none;
+  margin-bottom: 10px;
 }
 
 .form-container select {
