@@ -4,16 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/42a182743f.js"
-      crossorigin="anonymous"
-    ></script>
     <!-- CSS -->
     <link rel="stylesheet" href="/css/form.css" />
     <title>Register</title>
   </head>
   <body>
+    <!-- nav -->
+    <%-include('../partials/header.ejs')%>
+
     <div class="form-container">
       <!-- icon -->
       <h1>
@@ -41,5 +39,8 @@
         <p>Already have an account? <a href="/register">Login</a></p>
       </form>
     </div>
+
+    <!-- footer -->
+    <%-include('../partials/footer.ejs')%>
   </body>
 </html>
