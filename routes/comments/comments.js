@@ -12,7 +12,7 @@ const {
 const loggedIn = require("../../middlewares/loggedIn");
 
 //POST/api/v1/comments/
-commentRoutes.post("/", loggedIn, addCommentsController);
+commentRoutes.post("/:id", loggedIn, addCommentsController);
 
 //GET/api/v1/comments/:id
 commentRoutes.get("/:id", getCommentsController);

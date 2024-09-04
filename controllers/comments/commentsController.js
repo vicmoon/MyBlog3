@@ -1,14 +1,14 @@
 const Comment = require("../../model/comments/Comment");
 const Post = require("../../model/posts/Post");
 const User = require("../../model/users/User");
+const appError = require("../../utils/appError");
 
 //POST/api/v1/comments/
-const addCommentsController = async (req, res) => {
-  const { message } = req.body;
+const addCommentsController = async (req, res, next) => {
+  const { message } = req.body; // what the user is sending to the server
 
   try {
     //find the post
-
     const post = await Post.findById(req.params.id);
 
     // create a comment
@@ -19,6 +19,7 @@ const addCommentsController = async (req, res) => {
 
     // push the comment to post
     post.comments.push(comment._id);
+
     // find the user
 
     const user = await User.findById(req.session.userAuth);
@@ -36,7 +37,7 @@ const addCommentsController = async (req, res) => {
       data: comment,
     });
   } catch (error) {
-    res.json(error);
+    return next(appError("An error occurred:", error.message));
   }
 };
 

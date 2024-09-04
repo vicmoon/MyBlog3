@@ -28,9 +28,9 @@ postRoutes.get("/", allPostsController);
 postRoutes.get("/:id", onePostsController);
 
 //DELETE/api/v1/posts/:id
-postRoutes.delete("/:id", deletePostsController);
+postRoutes.delete("/:id", loggedIn, deletePostsController);
 
 //PUT/api/v1/posts/:id
-postRoutes.put("/:id", editPostsController);
+postRoutes.put("/:id", loggedIn, upload.single("file"), editPostsController);
 
 module.exports = postRoutes;
