@@ -53,26 +53,68 @@ const getCommentsController = async (req, res) => {
   }
 };
 //DELETE/api/v1/comments/:id
-const deleteCommentsController = async (req, res) => {
+const deleteCommentsController = async (req, res, next) => {
   try {
+    // find the comment
+    const commentToDelete = await Comment.findById(req.params.id);
+
+    //check if the commentToDelete was created by the logged in user
+
+    if (commentToDelete.user.toString() !== req.session.userAuth.toString()) {
+      // because we are comparing to objects not strings, so we need to convert them to Strings
+      return next(
+        appError("You are not authorized to delete this comment", 403)
+      );
+    }
+    // delete comment
+
+    await Comment.findByIdAndDelete(req.params.id);
+
     res.json({
       status: "Success",
-      user: "Comment deleted",
+      data: "The comment has been deleted.",
     });
   } catch (error) {
-    res.json(error);
+    return next(
+      appError("A problem occurred while deleting the comment, try again")
+    );
   }
 };
 
 //PUT/api/v1/comments/:id
-const editCommentsController = async (req, res) => {
+const editCommentsController = async (req, res, next) => {
   try {
+    //find the comment to edit
+    const commentToEdit = await Comment.findById(req.params.id);
+
+    // if not comment found
+    if (!commentEdited) {
+      return next(appError("Comment was not found"));
+    }
+
+    //check if the commentToEdit was created by the logged in user
+
+    if (commentToEdit.user.toString() !== req.session.userAuth.toString()) {
+      // because we are comparing to objects not strings, so we need to convert them to Strings
+      return next(appError("You are not authorized to edit this comment", 403));
+    }
+    // edit the post
+    const commentEdited = await Comment.findByIdAndUpdate(
+      req.params.id,
+      {
+        message: req.body.message,
+      },
+      {
+        new: true,
+      }
+    );
+
     res.json({
       status: "Success",
-      user: "Comment edited",
+      data: commentEdited,
     });
   } catch (error) {
-    res.json(error);
+    return next(appError("An error occurred while editing the comment", error));
   }
 };
 

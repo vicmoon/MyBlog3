@@ -18,9 +18,9 @@ commentRoutes.post("/:id", loggedIn, addCommentsController);
 commentRoutes.get("/:id", getCommentsController);
 
 //DELETE/api/v1/comments/:id
-commentRoutes.delete("/:id", deleteCommentsController);
+commentRoutes.delete("/:id", loggedIn, deleteCommentsController);
 
 //PUT/api/v1/comments/:id
-commentRoutes.put("/:id", editCommentsController);
+commentRoutes.put("/:id", loggedIn, editCommentsController);
 
 module.exports = commentRoutes;
