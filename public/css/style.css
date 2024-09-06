@@ -4,15 +4,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* Global */
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
   background-color: black;
   color: aliceblue;
+  display: flex; /* Change layout to flex to allow side-by-side layout */
 }
+
+.container-flex {
+  flex-direction: column;
+}
+
 img {
-  width: 100%;
+  max-width: 100%;
 }
 p {
   color: #333;
@@ -22,97 +29,50 @@ p {
 
 /* Nav */
 nav {
-  width: 100%;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Set the width of the sidebar */
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f4f4f4; /* Background color for the sidebar */
+  position: fixed; /* Fix the sidebar to the left */
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 10px;
-}
-
-nav img {
-  width: 100px;
-  margin: 4px;
+  flex-direction: column; /* Make nav items vertical */
+  justify-content: flex-start; /* Align items at the top */
+  padding-top: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   list-style: none;
-  padding: 2px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
+
 nav ul li {
-  padding: 3px;
+  padding: 15px 10px;
 }
+
 nav ul li a {
   text-decoration: none;
+  color: black;
+  display: block;
+  font-size: 1rem;
 }
 
-.create-post-btn {
-  background-color: #ff5a5f;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-/* Header */
-header {
-  width: 100%;
-  height: 80vh;
-  background: url("/images/image.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+nav ul li a:hover {
+  background-color: #ddd; /* Add hover effect */
 }
 
-.header-content {
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-}
-
-.header-content h1 {
-  font-size: 5rem;
-  padding: 10px;
-  margin-top: 20px;
-  color: #14213d;
-}
-
-.header-content a {
-  background: #fff;
-  color: #333;
-  border: 1px solid #333;
-  padding: 15px 20px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* Layout */
-.container-flex {
-  display: flex;
-  width: 100%;
-
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
-  margin-right: auto;
-  margin-left: auto;
-}
-
+/* Main Content */
 main {
-  padding: 10px;
+  margin-left: 200px; /* Push the content to the right of the sidebar */
+  padding: 20px;
+  width: calc(
+    100% - 200px
+  ); /* Adjust width dynamically based on sidebar width */
+  height: 100vh;
+  overflow-y: auto; /* Enable vertical scroll if the content is too long */
 }
 
 .post-content {
@@ -122,13 +82,17 @@ main {
   margin: 10px;
   position: relative;
 }
+
 .latest-post-title {
   font-size: 1.4rem;
   color: #14213d;
   text-align: center;
   margin-bottom: 10px;
   margin-top: 10px;
+  justify-content: center;
+  flex-direction: column;
 }
+
 .post-category span {
   background-color: #ff5a5f;
   color: #fff;
@@ -139,6 +103,7 @@ main {
   position: absolute;
   top: 10px;
 }
+
 .post-info {
   display: flex;
   justify-content: flex-start;
@@ -159,29 +124,6 @@ main {
   color: #062e83;
   margin-right: 10px;
 }
-/* Footer */
-footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-  background-color: #003049;
-  color: #ffff;
-  margin-top: 30px;
-}
-
-footer .about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-footer p {
-  color: #8d99ae;
-}
 
 .logo-text {
   font-size: 4.5rem;
@@ -189,9 +131,12 @@ footer p {
   color: #ffbe0b;
 }
 
-footer .contact {
+.contact {
+  margin-left: 200px; /* Offset by the width of the sidebar */
+  /* width: calc(100% - 200px); */
+  padding: 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -200,47 +145,29 @@ footer .contact {
   font-size: 1.5rem;
 }
 
-footer .contact span {
+.profile-container {
+  margin-left: 200px; /* Offset by the width of the sidebar */
+  /* width: calc(100% - 200px); */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
-}
-footer .contact i {
-  padding: 10px;
-  font-size: 30px;
-}
-
-footer .contact a {
-  text-decoration: none;
-  font-size: 30px;
-  color: #0077b6;
-}
-
-footer .socials a {
-  margin: 10px;
-  font-size: 30px;
-  color: #fcbf49;
-  text-decoration: none;
+  color: #fff;
+  margin-bottom: 1px;
+  font-size: 1.5rem;
 }
 /* Mobile first responsive design */
 @media (min-width: 675px) {
-  nav {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  nav ul {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 20px;
-  }
   .container-flex {
     flex-direction: row;
   }
-  nav ul li {
-    padding: 10px;
-  }
+
   main {
-    width: 70%;
+    width: calc(100% - 200px);
   }
+
   aside {
     width: 30%;
   }

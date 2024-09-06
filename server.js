@@ -6,13 +6,15 @@ const mongoStore = require("connect-mongo");
 const userRoutes = require("./routes/users/users");
 const postRoutes = require("./routes/posts/posts");
 const commentRoutes = require("./routes/comments/comments");
+const booksRoutes = require("./routes/resources/books");
+const signUpsRoutes = require("./routes/newsletter/signups");
 const globalErrHandler = require("./middlewares/globalErrorHandling");
 const app = express();
 
 require("./config/connectDB");
 
 //middlewares
-
+app.use(express.json());
 // configure ejs
 app.set("view engine", "ejs");
 // to parse the data from req.body
@@ -54,6 +56,12 @@ app.use("/api/v1/posts", postRoutes);
 
 //comment Routes
 app.use("/api/v1/comments", commentRoutes);
+
+//resources Routes
+app.use("/api/v1/resources", booksRoutes);
+
+//signups Routes
+app.use("/api/v1/newsletter", signUpsRoutes);
 
 //error handle middlewares
 

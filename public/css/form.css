@@ -1,3 +1,4 @@
+/* Browser Default */
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +8,19 @@
 body {
   background: #f1f1f1;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Center the form vertically */
+  min-height: 100vh; /* Full height to center vertically */
+  padding-left: 200px; /* Ensure space for the sidebar */
 }
 
+/* Form Container */
 .form-container {
   width: 100%;
   max-width: 500px;
   background: #fff;
-  margin: 7% auto;
+  margin: auto; /* Center the form horizontally */
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -21,6 +28,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative; /* Ensure the form is correctly placed within the layout */
 }
 
 .form-container h1 {
@@ -90,7 +98,6 @@ body {
 .form-container button:hover {
   background: #fb8500;
   transform: scale(1.05);
-
   transition: 0.5s;
 }
 
@@ -116,9 +123,11 @@ body {
   margin-right: 10px;
   text-align: center;
 }
+
 .input-wrapper {
   margin-bottom: 20px;
 }
+
 .form-container .error {
   color: red;
   font-size: 1rem;
@@ -126,4 +135,24 @@ body {
 
 .form-container .form-wrapper {
   width: 100%;
+}
+
+/* Adjust footer position */
+
+/* Media Queries for small screens */
+@media (max-width: 675px) {
+  body {
+    padding-left: 0; /* Remove padding for smaller screens */
+    justify-content: flex-start; /* Align content at the top */
+  }
+
+  .form-container {
+    margin-top: 10%;
+    width: 90%; /* Adjust form width for smaller screens */
+  }
+
+  footer {
+    width: 100%; /* Footer takes full width on small screens */
+    margin-left: 0; /* No left margin for the sidebar */
+  }
 }
