@@ -40,6 +40,11 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
+//render contact page
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
 //ROUTES
 // user Routes
 app.use("/api/v1/users", userRoutes);

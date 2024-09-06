@@ -13,6 +13,7 @@ const {
   updatePassUserController,
   logoutUserController,
 } = require("../../controllers/users/usersController");
+
 const loggedIn = require("../../middlewares/loggedIn");
 
 // instance of multer
@@ -24,13 +25,17 @@ const upload = multer({ storage: storage });
 //login form
 
 userRoutes.get("/login", (req, res) => {
-  res.render("users/login");
+  res.render("users/login", {
+    error: "",
+  });
 });
 
 //register form
 
 userRoutes.get("/register", (req, res) => {
-  res.render("users/register");
+  res.render("users/register", {
+    error: "",
+  });
 });
 
 //profile-page form

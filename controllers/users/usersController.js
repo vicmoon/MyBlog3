@@ -10,14 +10,18 @@ const registerUserController = async (req, res, next) => {
   console.log(req.body);
   //check if field is empty
   if (!fullname || !email || !password) {
-    return next(appErr("All fields are required"));
+    return res.render("users/register", {
+      error: "⚠️ All fields are required ⚠️",
+    });
   }
   try {
     // Check if user exists
     const userExisting = await User.findOne({ email });
 
     if (userExisting) {
-      return next(appErr("User already exists"));
+      return res.render("users/register", {
+        error: "⚠️ User already exists ⚠️",
+      });
     }
 
     // Hash password
@@ -50,15 +54,19 @@ const registerUserController = async (req, res, next) => {
 const loginUserController = async (req, res, next) => {
   // console.log((req.session.loginUser = "Greenish"));
   const { email, password } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   if (!email || !password) {
-    return next(appErr("Email and password are required"));
+    return res.render("users/login", {
+      error: "⚠️Email and password are required ⚠️",
+    });
   }
   try {
     // Check if the email exists
     const userFound = await User.findOne({ email }); // Add await here
     if (!userFound) {
-      return next(appErr("Invalid login credentials"));
+      return res.render("users/login", {
+        error: "⚠️Invalid login credentials⚠️",
+      });
     }
 
     // Verify password
@@ -67,16 +75,21 @@ const loginUserController = async (req, res, next) => {
       userFound.password
     );
     if (!checkPasswordValidity) {
-      return next(appErr("Invalid login credentials"));
+      return res.render("users/register", {
+        error: "⚠️Invalid login credentials⚠️",
+      });
     }
     //save the user info
     req.session.userAuth = userFound._id;
-    console.log(req.session);
-    res.json({
-      status: "Success",
-      user: userFound,
-      user: "User logged in",
-    });
+    // console.log(req.session);
+    // res.json({
+    //   status: "Success",
+    //   user: userFound,
+    //   user: "User logged in",
+    // });
+
+    // redirect instead of the confirmation
+    res.redirect("/api/v1/users/profile-page");
   } catch (error) {
     res.json({
       status: "error",

@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
     profileImage: {
       type: String,
     },
+
     coverImage: {
       type: String,
     },
