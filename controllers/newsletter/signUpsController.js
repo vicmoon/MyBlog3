@@ -1,7 +1,5 @@
-const SignUp = require("../model/newsletter/Signups.js");
+const SignUp = require("../../model/newsletter/Signup");
 const appError = require("../../utils/appError");
-
-//POST/api/v1/newsletter/
 
 const addSignUpController = async (req, res, next) => {
   // Log the incoming request body
@@ -11,6 +9,7 @@ const addSignUpController = async (req, res, next) => {
 
   try {
     const signup = await SignUp.create({ name, email });
+
     res.status(201).json({
       data: signup,
     });
@@ -20,6 +19,20 @@ const addSignUpController = async (req, res, next) => {
   }
 };
 
+const getSignUpController = async (req, res) => {
+  try {
+    const signup = await SignUp.find();
+    res.json({
+      status: "Success",
+      data: signup,
+    });
+    console.log(signup);
+  } catch (error) {
+    return next(appError(" The resources cannot be found", error));
+  }
+};
+
 module.exports = {
   addSignUpController,
+  getSignUpController,
 };

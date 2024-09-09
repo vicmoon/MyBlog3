@@ -47,6 +47,11 @@ app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
+// render signup succes
+app.get("/signup_success", (req, res) => {
+  res.render("signup_success");
+});
+
 //ROUTES
 // user Routes
 app.use("/api/v1/users", userRoutes);
@@ -61,7 +66,8 @@ app.use("/api/v1/comments", commentRoutes);
 app.use("/api/v1/resources", booksRoutes);
 
 //signups Routes
-app.use("/api/v1/newsletter", signUpsRoutes);
+
+app.use("/api/v1/signup", signUpsRoutes);
 
 //error handle middlewares
 
