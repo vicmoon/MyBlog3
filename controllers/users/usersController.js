@@ -81,12 +81,6 @@ const loginUserController = async (req, res, next) => {
     }
     //save the user info
     req.session.userAuth = userFound._id;
-    // console.log(req.session);
-    // res.json({
-    //   status: "Success",
-    //   user: userFound,
-    //   user: "User logged in",
-    // });
 
     // redirect instead of the confirmation
     res.redirect("/api/v1/users/profile-page");
