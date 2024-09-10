@@ -118,10 +118,9 @@ const profileUserController = async (req, res) => {
     .populate("posts")
     .populate("comments");
   try {
-    res.json({
-      status: "Success",
-      data: user,
-    });
+    // Log the user object to check if profileImage is available
+    console.log("User profile:", user);
+    res.render("users/profile", { user });
   } catch (error) {
     res.json(error);
   }
@@ -130,6 +129,10 @@ const profileUserController = async (req, res) => {
 const photoUserController = async (req, res) => {
   // console.log(req.file);
   try {
+    // check if file exists
+    if (!req.file) {
+      return next(appErr("No such user was found", 403));
+    }
     // find the user to be updated
     const userID = req.session.userAuth;
     const userFound = await User.findById(userID);
@@ -248,14 +251,10 @@ const updatePassUserController = async (req, res, next) => {
 };
 
 const logoutUserController = async (req, res) => {
-  try {
-    res.json({
-      status: "Success",
-      user: "User logout",
-    });
-  } catch (error) {
-    res.json(error);
-  }
+  // destroy session
+  req.session.destroy(() => {
+    res.redirect("/api/v1/users/login");
+  });
 };
 
 module.exports = {

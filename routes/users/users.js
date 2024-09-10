@@ -40,9 +40,9 @@ userRoutes.get("/register", (req, res) => {
 
 //profile-page form
 
-userRoutes.get("/profile-page", (req, res) => {
-  res.render("users/profile");
-});
+// userRoutes.get("/profile-page", (req, res) => {
+//   res.render("users/profile");
+// });
 
 //upload profile photo form
 
@@ -65,13 +65,16 @@ userRoutes.get("/update-user", (req, res) => {
 //......................................................................//
 
 //register
-userRoutes.post("/register", registerUserController);
+userRoutes.post("/register", upload.single("profile"), registerUserController);
 
 // POST/api/v1/users/login
 userRoutes.post("/login", loginUserController);
 
+//GET/api/v1/users/logout/:id
+userRoutes.get("/logout/", logoutUserController);
+
 // GET/api/v1/users/profile
-userRoutes.get("/profile", loggedIn, profileUserController);
+userRoutes.get("/profile-page", loggedIn, profileUserController);
 
 // PUT/api/v1/users/profile-photo/:id
 userRoutes.put(
@@ -99,9 +102,6 @@ userRoutes.put(
 
 // PUT/api/v1/users/update-password/:id
 userRoutes.put("/update-password/:id", updatePassUserController);
-
-//PUT/api/v1/users/logout/:id
-userRoutes.put("/logout/:id", logoutUserController);
 
 // GET/api/v1/users/:id
 userRoutes.get("/:id", detailsUserController);

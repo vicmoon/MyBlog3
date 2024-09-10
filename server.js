@@ -3,11 +3,13 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
+const methodOverride = require("method-override");
 const userRoutes = require("./routes/users/users");
 const postRoutes = require("./routes/posts/posts");
 const commentRoutes = require("./routes/comments/comments");
 const booksRoutes = require("./routes/resources/books");
 const signUpsRoutes = require("./routes/newsletter/signups");
+const paintingRoutes = require("./routes/paintings/painting");
 const globalErrHandler = require("./middlewares/globalErrorHandling");
 const app = express();
 
@@ -22,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //to service static files
 app.use(express.static(__dirname + "/public"));
 
+// meth0d override
+app.use(methodOverride("_method"));
 //session config  gives access to the req.session in each route
 app.use(
   session({
@@ -34,6 +38,17 @@ app.use(
     }),
   })
 );
+
+// save the login user into locals
+
+app.use((req, res, next) => {
+  if (req.session.userAuth) {
+    res.locals.userAuth = req.session.userAuth;
+  } else {
+    res.locals.userAuth = null;
+  }
+  next();
+});
 
 // RENDER
 
@@ -52,6 +67,10 @@ app.get("/signup_success", (req, res) => {
   res.render("signup_success");
 });
 
+app.get("/paintings", (req, res) => {
+  res.render("paintings");
+});
+
 //ROUTES
 // user Routes
 app.use("/api/v1/users", userRoutes);
@@ -68,6 +87,9 @@ app.use("/api/v1/resources", booksRoutes);
 //signups Routes
 
 app.use("/api/v1/signup", signUpsRoutes);
+
+// paintings routes
+app.use("/api/v1/paintings", paintingRoutes);
 
 //error handle middlewares
 

@@ -11,11 +11,34 @@ body {
   font-size: 1.4rem;
   background-color: black;
   color: aliceblue;
-  display: flex; /* Change layout to flex to allow side-by-side layout */
+  /* Remove global display: flex */
 }
 
+/* Container for Flex Layout */
 .container-flex {
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Grid layout for posts */
+.posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin: 20px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full viewport height */
+  background-color: #ff5a5f; /* Background color */
+  color: white; /* Text color */
+  text-align: center; /* Center text inside */
+  width: 100%; /* Ensure the hero takes full width */
+  flex-direction: column; /* Ensures content is centered vertically */
 }
 
 img {
@@ -28,10 +51,11 @@ p {
 }
 
 /* Nav */
+/* Nav */
 nav {
-  width: 200px; /* Set the width of the sidebar */
+  width: 100px; /* Set the width of the sidebar */
   height: 100vh; /* Full height of the viewport */
-  background-color: #f4f4f4; /* Background color for the sidebar */
+  background-color: #cb80ab; /* Background color for the sidebar */
   position: fixed; /* Fix the sidebar to the left */
   top: 0;
   left: 0;
@@ -55,13 +79,15 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: black;
+  color: aliceblue;
   display: block;
   font-size: 1rem;
 }
 
 nav ul li a:hover {
-  background-color: #ddd; /* Add hover effect */
+  background-color: #e6d9a2;
+  border-radius: 30px;
+  padding: 5px; /* Add hover effect */
 }
 
 /* Main Content */
@@ -69,7 +95,7 @@ main {
   margin-left: 200px; /* Push the content to the right of the sidebar */
   padding: 20px;
   width: calc(
-    100% - 200px
+    100% - 100px
   ); /* Adjust width dynamically based on sidebar width */
   height: 100vh;
   overflow-y: auto; /* Enable vertical scroll if the content is too long */

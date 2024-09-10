@@ -30,7 +30,7 @@ const postPostController = async (req, res, next) => {
 
     await userFound.save();
 
-    console.log(userID);
+    // console.log(userID);
 
     res.json({
       status: "Success",
@@ -45,13 +45,11 @@ const postPostController = async (req, res, next) => {
 
 const allPostsController = async (req, res, next) => {
   try {
-    const posts = await Post.find().populate("comments");
-    res.json({
-      status: "Success",
-      data: posts,
-    });
+    const posts = await Post.find().sort({ createdAt: -1 });
+    // Render the home page with the fetched posts
+    res.render("posts/posts", { posts });
   } catch (error) {
-    return next(appError(" The posts cannot be found"));
+    res.status(500).json({ message: error.message });
   }
 };
 
