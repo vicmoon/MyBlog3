@@ -4,7 +4,7 @@ const appError = require("../../utils/appError");
 
 //POST/api/v1/posts/
 const postPostController = async (req, res, next) => {
-  const { title, description, category, image, user } = req.body;
+  const { title, description, category, image } = req.body;
   try {
     if (!title || !description || !category || !req.file) {
       // return next(appError("Missing details, all fields are required"));
@@ -16,12 +16,12 @@ const postPostController = async (req, res, next) => {
 
     //create the post
 
-    const postCreated = await Post.create({
+    await Post.create({
       title,
       description,
       category,
       image: req.file.path,
-      user: userFound._id,
+      // user: userFound._id,
     });
 
     // // push the post in the array user's posts
@@ -51,23 +51,30 @@ const allPostsController = async (req, res, next) => {
 
 const onePostsController = async (req, res, next) => {
   try {
-    // get the ID from the params
-
+    // Get the ID of the current post from the request params
     const postID = req.params.id;
-    //find the post
-    const post = await Post.findById(postID)
-      .populate("comments")
-      .populate("user");
-    res.render("posts/postDetails", {
-      post,
-      error: "",
+
+    // Find the current post by its ID, populate comments and user
+    const post = await Post.findById(postID).populate("comments");
+
+    if (!post) {
+      return next(appError("Post not found"));
+    }
+
+    // Fetch other posts from the same category, excluding the current post
+    const relatedPosts = await Post.find({
+      category: post.category,
+      _id: { $ne: postID }, // Exclude the current post from the results
     });
-    // res.json({
-    //   status: "Success",
-    //   data: post,
-    // });
+
+    // Render the post details and related posts
+    res.render("posts/postDetails", {
+      post, // The current post
+      relatedPosts, // Posts from the same category
+      error: "", // Optional error handling
+    });
   } catch (error) {
-    return next(appError(" The post could not be found"));
+    return next(appError("The post could not be found"));
   }
 };
 

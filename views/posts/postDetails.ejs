@@ -2,89 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/42a182743f.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/postDetails.css" />
-    <title>Responsive design</title>
+    <link rel="stylesheet" href="/css/postDetails.css" />
+    <title>Post Details</title>
   </head>
   <body>
-    <!-- nav -->
-    <%- include("../partials/header.ejs") %>
-    <!-- content -->
-    <section class="container-flex">
-      <!-- main -->
+    <!-- Fixed Nav Bar -->
+    <header class="header">
+      <nav>
+        <ul class="menu">
+          <%if(userAuth){ %>
+          <li class="nav-item home"><a href="/">Home</a></li>
+          <li class="nav-item home"><a href="/api/v1/users/login">Login</a></li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/logout">Logout</a>
+          </li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/v1/posts/add-post">New Post</a>
+          </li>
+          <li class="nav-item"><a href="/api/v1/posts/">Blog</a></li>
+          <!-- <li class="nav-item">
+            <a href="/api/v1/users/profile-page">About</a>
+          </li> -->
+
+          <% } else { %>
+          <li class="nav-item home"><a href="/">Home</a></li>
+          <div class="nav-right">
+            <!-- <li class="nav-item">
+              <a href="/api/v1/users/profile-page">About</a>
+            </li> -->
+            <li class="nav-item"><a href="/api/v1/posts/">Blog</a></li>
+            <li class="nav-item"><a href="/api/v1/resources">Links</a></li>
+            <li class="nav-item">
+              <a href="/api/v1/signup">Newsletter</a>
+            </li>
+            <li class="nav-item"><a href="/api/v1/paintings">Paintings</a></li>
+            <li class="nav-item"><a href="/contact">Contacts</a></li>
+            <li class="nav-item home">
+              <a href="/api/v1/users/register">Register</a>
+            </li>
+            <li class="nav-item home">
+              <a href="/api/v1/users/login">Login</a>
+            </li>
+
+            <% } %>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Container for Post Content and Related Posts -->
+    <div class="container-flex">
+      <!-- Main Post Content -->
       <main>
         <article class="post-content">
-          <img src="<%=post.image%>" alt="" class="post-image" />
-          <p class="post-info">
-            <span class="post-date">
-              <p id="date"><%= post.createdAt.toLocaleDateString() %></p>
-            </span>
-          </p>
+          <img src="<%= post.image %>" alt="Post image" class="post-image" />
           <h1 class="post-title"><%= post.title %></h1>
+          <p class="post-info">
+            <span class="post-date"
+              ><%= post.createdAt.toLocaleDateString() %></span
+            >
+          </p>
           <p class="post-body"><%= post.description %></p>
         </article>
-        <!-- Comment form -->
-        <div class="comment-form">
-          <h2>Leave a comment</h2>
-          <form action="">
-            <div class="form-group">
-              <input type="text" name="name" id="name" />
-            </div>
-            <button type="submit" class="btn">Submit</button>
-          </form>
-        </div>
-
-        <!-- comments -->
-        <div class="comments">
-          <h2>Comments</h2>
-          <div class="comment">
-            <div class="comment-info">
-              <img
-                src="./images/logo.png"
-                alt=""
-                class="comment-author-image"
-              />
-              <div class="comment-author">
-                <h4>John Doe</h4>
-                <span>January 1, 2020</span>
-              </div>
-            </div>
-            <div class="comment-body">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                quod, voluptatum, quia, voluptas quas voluptates quibusdam
-                voluptatibus quae quidem quos nesciunt. Quisquam, quae
-                voluptatibus. Quisquam, quae voluptatibus.
-              </p>
-              <!-- delete/update icon -->
-              <div class="comment-actions">
-                <a href="#" class="comment-update">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <a href="#" class="comment-delete">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </main>
-      <!-- aside -->
-    </section>
-    <!-- footer -->
-    <%- include("../partials/footer.ejs") %>
+
+      <!-- Related Posts Section -->
+      <section class="related-posts">
+        <h2>Related Posts in <%= post.category %>:</h2>
+
+        <% if (relatedPosts && relatedPosts.length > 0) { %> <%
+        relatedPosts.forEach(function(relatedPost) { %>
+        <article class="related-post-content">
+          <img
+            src="<%= relatedPost.image %>"
+            alt="Related post image"
+            class="post-image"
+          />
+          <h3><%= relatedPost.title %></h3>
+          <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
+            >Read More</a
+          >
+        </article>
+        <% }); %> <% } else { %>
+        <p>No related posts available in this category.</p>
+        <% } %>
+      </section>
+    </div>
   </body>
 </html>
