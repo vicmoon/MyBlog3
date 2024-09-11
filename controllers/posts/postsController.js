@@ -6,12 +6,13 @@ const appError = require("../../utils/appError");
 const postPostController = async (req, res, next) => {
   const { title, description, category, image, user } = req.body;
   try {
-    if (!title || !description || !category || !reg.file) {
-      return next(appError("Missing details, all fields are required"));
+    if (!title || !description || !category || !req.file) {
+      // return next(appError("Missing details, all fields are required"));
+      return res.render("posts/addPost", { error: "All fields are required" });
     }
     // find the user
-    const userID = req.session.userAuth;
-    const userFound = await User.findById(userID);
+    // const userID = req.session.userAuth;
+    // const userFound = await User.findById(userID);
 
     //create the post
 
@@ -23,21 +24,14 @@ const postPostController = async (req, res, next) => {
       user: userFound._id,
     });
 
-    // push the post in the array user's posts
-    userFound.posts.push(postCreated._id);
+    // // push the post in the array user's posts
+    // userFound.posts.push(postCreated._id);
 
-    //save the user because we made changes
-
-    await userFound.save();
-
-    // console.log(userID);
-
-    res.json({
-      status: "Success",
-      data: postCreated,
-    });
+    // //save the user because we made changes
+    // await userFound.save();
+    res.redirect("/");
   } catch (error) {
-    res.json(error);
+    return res.render("posts/addPost", { error: error.message });
   }
 };
 
@@ -63,7 +57,9 @@ const onePostsController = async (req, res, next) => {
 
     //find the post
 
-    const post = await Post.findById(postID).populate("comments");
+    const post = await Post.findById(postID)
+      .populate("comments")
+      .populate("user");
 
     res.json({
       status: "Success",

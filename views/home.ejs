@@ -22,6 +22,37 @@
        <section class="hero" >
         <h1> Welcome to my world</h1>
       </section>
+      <div class="latest-post-title">
+        <h2> Latest posts</h2>
+      </div>
+      
+        <section class="posts-hero">
+          <% if (posts && posts.length > 0) { %> 
+            <% posts.forEach(post => { %>
+          <article class="post-content">
+            <img src="<%= post.image %>" alt="post image" class="post-image" />
+            <p class="post-info">
+              <span class="post-date">
+                <p id="date">
+                  <%= post.createdAt.toLocaleDateString() %>
+                </p>
+              </span>
+            </p>
+            <h1 class="post-title"><%= post.title %></h1>
+            <p class="post-body"><%=truncatePost(post.description)%></p>
+            <!-- Category Badge -->
+            <div class="post-category">
+              <span>Category: <%= post.category %></span>
+            </div>
+            <a href="/posts/<%= post._id %>" class="post-read-more"
+              >Continue Reading...</a
+            >
+          </article>
+          <% }) %> <% } else { %>
+          <p>No posts available.</p>
+          <% } %>
+        </section>
+     
       
     </div>
   </body>

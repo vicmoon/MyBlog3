@@ -27,14 +27,24 @@ body {
   gap: 15px;
   margin: 20px;
 }
+.posts-grid img {
+  border-radius: 30px;
+}
+
+.posts-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-left: 150px;
+}
 
 /* Hero Section */
 .hero {
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
-  height: 100vh; /* Full viewport height */
-  background-color: #ff5a5f; /* Background color */
+  height: 25vh; /* Full viewport height */
+  background-color: #624e88; /* Background color */
   color: white; /* Text color */
   text-align: center; /* Center text inside */
   width: 100%; /* Ensure the hero takes full width */

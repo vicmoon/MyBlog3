@@ -11,9 +11,14 @@ const booksRoutes = require("./routes/resources/books");
 const signUpsRoutes = require("./routes/newsletter/signups");
 const paintingRoutes = require("./routes/paintings/painting");
 const globalErrHandler = require("./middlewares/globalErrorHandling");
+const Post = require("./model/posts/Post");
+const { truncatePost } = require("./utils/helpers");
 const app = express();
 
 require("./config/connectDB");
+
+//helpers
+app.locals.truncatePost = truncatePost;
 
 //middlewares
 app.use(express.json());
@@ -53,8 +58,13 @@ app.use((req, res, next) => {
 // RENDER
 
 //render homepage
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ createdAt: -1 }).limit(5);
+    res.render("home", { posts });
+  } catch (error) {
+    res.render("home", { error: error });
+  }
 });
 
 //render contact page

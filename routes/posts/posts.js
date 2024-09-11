@@ -17,6 +17,13 @@ const loggedIn = require("../../middlewares/loggedIn");
 const upload = multer({
   storage,
 });
+// render Post form
+
+postRoutes.get("/add-post", (req, res) => {
+  res.render("posts/addPost", {
+    error: "",
+  });
+});
 
 //POST/api/v1/posts/
 postRoutes.post("/", loggedIn, upload.single("file"), postPostController); //checks if the user is logged in first,makes the request to save image

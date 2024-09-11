@@ -16,9 +16,10 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: [
-        "react js",
+        "react",
         "html",
         "css",
+        "web development",
         "node js",
         "javascript",
         "books",
