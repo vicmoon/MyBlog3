@@ -54,17 +54,18 @@ const onePostsController = async (req, res, next) => {
     // get the ID from the params
 
     const postID = req.params.id;
-
     //find the post
-
     const post = await Post.findById(postID)
       .populate("comments")
       .populate("user");
-
-    res.json({
-      status: "Success",
-      data: post,
+    res.render("posts/postDetails", {
+      post,
+      error: "",
     });
+    // res.json({
+    //   status: "Success",
+    //   data: post,
+    // });
   } catch (error) {
     return next(appError(" The post could not be found"));
   }

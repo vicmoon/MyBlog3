@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/postDetails.css" />
+    <title>Responsive design</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <%- include("../partials/header.ejs") %>
+    <!-- content -->
+    <section class="container-flex">
+      <!-- main -->
+      <main>
+        <article class="post-content">
+          <img src="<%=post.image%>" alt="" class="post-image" />
+          <p class="post-info">
+            <span class="post-date">
+              <p id="date"><%= post.createdAt.toLocaleDateString() %></p>
+            </span>
+          </p>
+          <h1 class="post-title"><%= post.title %></h1>
+          <p class="post-body"><%= post.description %></p>
+        </article>
+        <!-- Comment form -->
+        <div class="comment-form">
+          <h2>Leave a comment</h2>
+          <form action="">
+            <div class="form-group">
+              <input type="text" name="name" id="name" />
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+
+        <!-- comments -->
+        <div class="comments">
+          <h2>Comments</h2>
+          <div class="comment">
+            <div class="comment-info">
+              <img
+                src="./images/logo.png"
+                alt=""
+                class="comment-author-image"
+              />
+              <div class="comment-author">
+                <h4>John Doe</h4>
+                <span>January 1, 2020</span>
+              </div>
+            </div>
+            <div class="comment-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                quod, voluptatum, quia, voluptas quas voluptates quibusdam
+                voluptatibus quae quidem quos nesciunt. Quisquam, quae
+                voluptatibus. Quisquam, quae voluptatibus.
+              </p>
+              <!-- delete/update icon -->
+              <div class="comment-actions">
+                <a href="#" class="comment-update">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="comment-delete">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- aside -->
+      <aside class="sidebar">
+        <div class="about-me">
+          <h2>Related posts</h2>
+          <img class="avatar" src="./images/pic2.jpg" alt="" />
+
+          <h2 class="about-name"><%= post.category %></h2>
+          <small>FullStack Web Developer</small>
+          <p class="about-me-bio">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum
+            adipisci eligendi nobis itaque ex? Veniam tempore itaque cumque
+            fugiat iusto voluptatibus odit inventore dolorem numquam maxime,
+            repellendus labore corrupti expedita?
+          </p>
+        </div>
+      </aside>
+    </section>
+    <!-- footer -->
+  </body>
+</html>
