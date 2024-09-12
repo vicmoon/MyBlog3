@@ -15,24 +15,45 @@ body {
 }
 
 /* Fixed Nav Bar */
+/* Base styles for the body and general layout */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Sidebar container */
 nav {
-  width: 150px;
+  width: 50px; /* Collapsed width */
   height: 100vh;
   background-color: #cb80ab;
   position: fixed;
   top: 0;
   left: 0;
   padding-top: 20px;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent overflow when collapsed */
+  transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
 }
 
+/* Expand the sidebar on hover */
+nav:hover {
+  width: 150px; /* Expanded width */
+}
+
+/* Style the nav links */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li {
   margin-bottom: 15px;
+  padding-left: 10px;
 }
 
 nav ul li a {
@@ -40,8 +61,29 @@ nav ul li a {
   color: aliceblue;
   padding: 10px;
   display: block;
+  white-space: nowrap; /* Prevent text from wrapping */
+  opacity: 0; /* Initially hidden text */
+  transition: opacity 0.3s ease; /* Smooth text fade-in */
 }
 
+/* Show the text on hover when the sidebar expands */
+nav:hover ul li a {
+  opacity: 1; /* Text becomes visible */
+}
+
+/* Icon or placeholder to show even when collapsed */
+nav ul li a::before {
+  content: "☰"; /* Simple icon, you can replace with actual icons */
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+nav:hover ul li a::before {
+  content: ""; /* Remove icon on hover */
+}
+
+/* Styling when hovering over the links */
 nav ul li a:hover {
   background-color: #e6d9a2;
   border-radius: 5px;
