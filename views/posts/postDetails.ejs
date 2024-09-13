@@ -68,6 +68,16 @@
           </p>
           <p class="post-body"><%= post.description %></p>
         </article>
+
+        <% if (post.user._id.toString() === userAuth.toString()) { %>
+        <form
+          action="/api/v1/posts/<%= post._id %>?_method=DELETE"
+          method="post"
+        >
+          <button>Delete</button>
+        </form>
+        <button>Update</button>
+        <% } %>
       </main>
 
       <!-- Related Posts Section -->

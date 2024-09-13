@@ -80,26 +80,30 @@ const onePostsController = async (req, res, next) => {
 
 const deletePostsController = async (req, res, next) => {
   try {
-    // find the post
-    const postToDelete = await Post.findById(req.params.id);
+    // // find the post
+    // await Post.findById(req.params.id);
 
-    //check if the postToDelete was created by the logged in user
+    // //check if the postToDelete was created by the logged in user
+    // // if (postToDelete.user.toString() !== req.session.userAuth.toString()) {
+    // //   // because we are comparing to objects not strings, so we need to convert them to Strings
+    // //   return next(appError("You are not authorized to delete this post", 403));
+    // // }
 
-    if (postToDelete.user.toString() !== req.session.userAuth.toString()) {
-      // because we are comparing to objects not strings, so we need to convert them to Strings
-      return next(appError("You are not authorized to delete this post", 403));
-    }
     // delete post
 
-    await Post.findById(req.params.id);
-
-    res.json({
-      status: "Success",
-      data: "The post has been deleted",
-    });
+    await Post.findByIdAndDelete(req.params.id);
+    // redirect
+    res.redirect("/");
+    // res.json({
+    //   status: "Success",
+    //   data: "The post has been deleted",
+    // });
   } catch (error) {
     return next(
-      appError("A problem occurred while deleting the post, try again")
+      appError(
+        "A problem occurred while deleting the post, try again",
+        error.message
+      )
     );
   }
 };

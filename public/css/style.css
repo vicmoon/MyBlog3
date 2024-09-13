@@ -35,7 +35,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
-  margin-left: 150px;
+  padding: 20px;
+  margin-left: 100px;
 }
 
 /* Hero Section */
@@ -43,8 +44,8 @@ body {
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
-  height: 100vh; /* Full viewport height */
-  background-image: url("/images/planets.png");
+  height: 150vh; /* Full viewport height */
+  background-image: url("/images/cover1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: white; /* Text color */
@@ -229,7 +230,7 @@ footer {
   margin-top: 10px;
   justify-content: center;
   flex-direction: column;
-  background-image: url("/images/planets.png");
+  background-image: url("/images/cover1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
