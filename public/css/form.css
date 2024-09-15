@@ -31,6 +31,13 @@ body {
   position: relative; /* Ensure the form is correctly placed within the layout */
 }
 
+.form-container .add-post {
+  max-width: 800px;
+}
+.add-post form {
+  width: 100%;
+}
+
 .form-container h1 {
   text-align: center;
   margin: 10px;

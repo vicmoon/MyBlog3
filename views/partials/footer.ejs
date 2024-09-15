@@ -47,12 +47,22 @@
 
   <body>
     <footer>
-        <div class="footer">
-            <% let currentYear = new Date().getFullYear(); %>
-            <footer class="footer"></br>
-              <a href="/contact"> ©️ <%=currentYear%> Victoria Munteanu </a>
-            </footer>
-          </div>
+      <% let currentYear = new Date().getFullYear(); %>
+      <!-- Contact link at the top -->
+      <div class="footer-contact">
+        <a href="/contact">©️ <%= currentYear %> Victoria Munteanu</a>
+      </div>
+
+      <!-- Other footer links below the contact link -->
+      <div class="footer-links">
+        <a href="https://victoriamunteanuportfolio.net/" target="_blank"
+          >[Portfolio]</a
+        >
+        <a href="https://www.linkedin.com/in/victoriamunteanu/" target="_blank"
+          >[LinkedIn]</a
+        >
+        <a href="https://github.com/vicmoon" target="_blank">[GitHub]</a>
+      </div>
     </footer>
   </body>
 </html>
