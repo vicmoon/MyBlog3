@@ -6,13 +6,21 @@
 }
 
 /* Global */
+html,
 body {
+  height: 100%; /* Ensures the background color fills the entire viewport */
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
-  background-color: black;
+  background-color: #201e43; /* Dark background color */
   color: aliceblue;
-  /* Remove global display: flex */
 }
+
+/* Global body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  background-color: #201e43;
+  color: aliceblue;
+} */
 
 /* Container for Flex Layout */
 .container-flex {
@@ -35,7 +43,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
-  margin-left: 150px;
+  padding: 20px;
+  margin-left: 100px;
 }
 
 /* Hero Section */
@@ -44,7 +53,7 @@ body {
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh; /* Full viewport height */
-  background-image: url("/images/planets.png");
+  background-image: url("/images/cover1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: white; /* Text color */
@@ -53,12 +62,15 @@ body {
   flex-direction: column; /* Ensures content is centered vertically */
 }
 
-img {
-  max-width: 100%;
+.posts-hero img {
+  width: 300px; /* Set width of each image */
+  height: 200px; /* Set height of each image */
+  object-fit: cover; /* Crop image to fit within these dimensions */
+  border-radius: 30px;
 }
+
 p {
-  color: #333;
-  line-height: 1.5;
+  color: aliceblue;
   margin-bottom: 1.5rem;
 }
 
@@ -67,7 +79,7 @@ p {
 nav {
   width: 50px; /* Collapsed width */
   height: 100vh;
-  background-color: #cb80ab;
+  background-color: #508c9b;
   position: fixed;
   top: 0;
   left: 0;
@@ -89,10 +101,9 @@ nav ul {
 }
 
 nav ul li {
-  margin-bottom: 1px;
+  margin-bottom: 15px;
   padding-left: 10px;
 }
-
 nav ul li a {
   text-decoration: none;
   color: aliceblue;
@@ -139,9 +150,16 @@ main {
 .post-content {
   padding: 10px;
   width: 400px;
-  background-color: #fff;
+
   margin: 10px;
   position: relative;
+  border-radius: 30px;
+}
+
+.posts-grid img {
+  width: 300px; /* Set width of each image */
+  height: 200px; /* Set height of each image */
+  object-fit: cover; /* Crop image to fit within these dimensions */
   border-radius: 30px;
 }
 
@@ -156,10 +174,10 @@ main {
 }
 
 .post-category span {
-  background-color: #ff5a5f;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
+  background-color: #134b70;
+  color: #eeeeee;
+  padding: 5px;
+  border-radius: 20px;
   font-size: 15px;
   text-transform: uppercase;
   position: absolute;
@@ -229,7 +247,7 @@ footer {
   margin-top: 10px;
   justify-content: center;
   flex-direction: column;
-  background-image: url("/images/planets.png");
+  background-image: url("/images/cover1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

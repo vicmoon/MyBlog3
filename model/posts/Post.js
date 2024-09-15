@@ -16,25 +16,25 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: [
-        "react",
-        "html",
-        "css",
-        "web development",
-        "node js",
-        "javascript",
-        "books",
-        "other",
+        "Dev Diaries",
+        "Creative Zone",
+        "Tech Thoughts",
+        "CSS",
+        "HTML",
+        "Node js",
+        "Javascript",
+        "Books",
+        "Other",
       ],
     },
     image: {
       type: String,
       required: true,
     },
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   required: true,
-    // },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,

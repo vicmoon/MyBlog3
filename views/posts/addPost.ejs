@@ -11,7 +11,20 @@
     ></script>
     <!-- CSS -->
     <link rel="stylesheet" href="/css/form.css" />
+    <!-- Text Editor (Quill) -->
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <title>Create a post</title>
+
+    <style>
+      #editor {
+        height: 300px;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <%- include("../partials/header.ejs") %>
@@ -30,30 +43,36 @@
         <!-- Post Title -->
         <div class="input-wrapper">
           <label for="name">Post Title</label>
-          <input type="text" name="title" id="name" />
+          <input type="text" name="title" id="name" required />
           <!-- err -->
         </div>
 
         <!-- Category -->
         <div class="input-wrapper">
           <label for="category">Category</label>
-          <select name="category" id="category">
-            <option value="react">React</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="node js">Node js</option>
-            <option value="javascript">Javascript</option>
-            <option value="books">Books</option>
-            <option value="other">Other</option>
+          <select name="category" id="category" required>
+            <option value="Dev Diaries">Dev Diaries</option>
+            <option value="Creative Zone">Creative Zone</option>
+            <option value="Tech Thoughts">Tech Thoughts</option>
+            <option value="CSS">CSS</option>
+            <option value="HTML">HTML</option>
+            <option value="Node js">Node js</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Books">Books</option>
+            <option value="Other">Other</option>
           </select>
           <!-- err -->
         </div>
+
+        <!-- Post Body (Quill Editor) -->
         <div class="input-wrapper">
-          <!-- Post Body -->
           <label for="body">Post Body</label>
-          <textarea name="description" id="body" cols="30" rows="10"></textarea>
+          <div id="editor"></div>
+          <!-- Quill editor element -->
+          <input type="hidden" name="description" id="description" />
           <!-- err -->
         </div>
+
         <!-- Post Image -->
         <div class="input-wrapper">
           <label for="image">Post Image</label>
@@ -64,5 +83,18 @@
         <button type="submit">Create</button>
       </form>
     </div>
+
+    <script>
+      // Initialize Quill editor
+      var quill = new Quill("#editor", {
+        theme: "snow",
+      });
+
+      // On form submit, copy the HTML content from the editor to the hidden input
+      document.querySelector("form").onsubmit = function () {
+        var content = document.querySelector("input[name=description]");
+        content.value = quill.root.innerHTML;
+      };
+    </script>
   </body>
 </html>

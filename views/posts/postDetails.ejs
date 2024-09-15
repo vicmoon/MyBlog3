@@ -57,7 +57,7 @@
     <!-- Main Container for Post Content and Related Posts -->
     <div class="container-flex">
       <!-- Main Post Content -->
-      <main>
+      <main class="posts">
         <article class="post-content">
           <img src="<%= post.image %>" alt="Post image" class="post-image" />
           <h1 class="post-title"><%= post.title %></h1>
@@ -66,8 +66,25 @@
               ><%= post.createdAt.toLocaleDateString() %></span
             >
           </p>
-          <p class="post-body"><%= post.description %></p>
+          <p class="post-body"><%- post.description %></p>
         </article>
+        <!-- Debugging output -->
+        <!-- <p>Post user ID: <%= post.user ? post.user._id : 'No user found' %></p>
+        <p>
+          Logged-in user ID: <%= userAuth ? userAuth : 'No user logged in' %>
+        </p> -->
+
+        <!-- Only show buttons if the logged-in user created the post -->
+        <% if (post.user && post.user._id && userAuth &&
+        post.user._id.toString() === userAuth.toString()) { %>
+        <form
+          action="/api/v1/posts/<%= post._id %>?_method=DELETE"
+          method="post"
+        >
+          <button>Delete</button>
+        </form>
+        <button>Update</button>
+        <% } %>
       </main>
 
       <!-- Related Posts Section -->
