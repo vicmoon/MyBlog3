@@ -132,6 +132,7 @@ nav:hover ul li a::before {
 /* Styling when hovering over the links */
 nav ul li a:hover {
   background-color: #e6d9a2;
+  width: 100px;
   border-radius: 5px;
 }
 
