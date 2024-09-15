@@ -6,12 +6,11 @@
 }
 
 body {
-  background: black;
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center; /* Center the form horizontally */
   align-items: center; /* Center the form vertically */
-  min-height: 100vh; /* Full height to center vertically */
+
   padding-left: 200px; /* Ensure space for the sidebar */
 }
 
@@ -31,10 +30,26 @@ body {
   position: relative; /* Ensure the form is correctly placed within the layout */
 }
 
-.form-container .add-post {
-  max-width: 800px;
+.form-container.add-post-container {
+  max-width: calc(100% - 150px); /* Full width minus sidebar width */
+  margin-left: 150px; /* Push the form content to the right, next to the sidebar */
+  padding: 30px;
 }
-.add-post form {
+
+/* Specific Styling for Add Post Form to make it full-width */
+.add-post-container {
+  max-width: 100%; /* Make the Add Post form stretch across the page */
+  width: 100%;
+  padding: 30px; /* Maintain padding */
+  margin-left: 0; /* Ensure no auto-centering for full-width */
+  margin-right: 0; /* Ensure no auto-centering for full-width */
+}
+nav:hover + .add-post-container {
+  max-width: calc(100% - 150px); /* Adjust width when sidebar is expanded */
+  margin-left: 150px; /* Adjust form position when the sidebar expands */
+}
+
+.add-post {
   width: 100%;
 }
 

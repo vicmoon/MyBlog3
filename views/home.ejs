@@ -20,7 +20,7 @@
     <%-include('./partials/header.ejs')%>
        <!-- content -->
        <section class="hero" >
-        <h1> The Journey Within ✨</h1>
+        <h1> Bits and Scribbles</h1>
       </section>
       <div class="latest-post-title">
         <h2> Latest posts</h2>
@@ -39,7 +39,7 @@
               </span>
             </p>
             <h1 class="post-title"><%= post.title %></h1>
-            <p class="post-body"><%=truncatePost(post.description)%></p>
+            <p class="post-body"><%-truncatePost(post.description)%></p>
             <!-- Category Badge -->
             <div class="post-category">
               <span><%= post.category %></span>
