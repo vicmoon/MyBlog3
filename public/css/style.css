@@ -61,7 +61,7 @@ body {
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh; /* Full viewport height */
-  background-image: url("/images/hero.png");
+  background-image: url("/images/pixel.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center; /* Center text inside */
@@ -71,7 +71,8 @@ body {
 
 .hero h1 {
   color: #f9e400;
-  font-size: 8rem;
+  font-family: "Courier New", Courier, Monospace; /* Robotic coding font */
+  font-size: 6rem;
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add shadow to make it pop */
   position: relative;
@@ -79,6 +80,15 @@ body {
   z-index: 2; /* Ensure the text is on top of the image */
 }
 /* Nav */
+
+.logo {
+  display: block;
+  width: 40px; /* Small size when nav is collapsed */
+  margin: 0 auto;
+  border-radius: 50%;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
+}
+
 /* Sidebar container */
 nav {
   width: 50px; /* Collapsed width */
@@ -197,13 +207,13 @@ main {
   margin-bottom: 10px;
   color: #062e83;
 }
-
 .contact {
   background-color: #201e43;
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
-  height: calc(100vh - 20vh); /* Full height minus footer height */
+  height: 100vh;
+  /* height: calc(100vh - 20vh); Full height minus footer height */
   padding: 20px;
 }
 
@@ -211,17 +221,34 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
   margin-left: 100px;
 }
 
 .card {
-  color: whitesmoke;
   padding: 10px;
-  gap: 10px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   max-width: 400px;
+}
+
+.card .btn {
+  background-color: #fcde70;
+  border-radius: 30px;
+  color: #062e83;
+}
+/* Different background colors for each card */
+.card:nth-child(1) {
+  background-color: #4dd8e9; /* Card 1 color */
+}
+
+.card:nth-child(2) {
+  background-color: #b1afff; /* Card 2 color */
+}
+
+.card:nth-child(3) {
+  background-color: #ef9c66; /* Card 3 color */
 }
 
 footer {
@@ -231,7 +258,7 @@ footer {
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   text-align: center;
-  background-image: url("/images/hero.png");
+  background-image: url("/images/pixel.png");
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: auto; /* Pushes the footer to the bottom when content is short */
