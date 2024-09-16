@@ -25,7 +25,7 @@ const addBookController = async (req, res, next) => {
 //GET/api/v1/resources
 const getBookController = async (req, res) => {
   try {
-    const books = await Book.find();
+    const books = await Book.find().sort({ createdAt: -1 });
     res.render("resources", { books });
     // res.json({
     //   status: "Success",

@@ -170,13 +170,14 @@ nav:hover + .add-post-container {
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
 
 .book-card {
-  background-color: #fff;
-  padding: 20px;
+  background-color: #ef9c66;
+  padding: 10px;
+  width: 300px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
