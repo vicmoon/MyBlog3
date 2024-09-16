@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const storage = require("../../config/cloudinary");
 const postRoutes = express.Router();
+const Post = require("../../model/posts/Post");
 
 const {
   postPostController,
@@ -17,12 +18,24 @@ const loggedIn = require("../../middlewares/loggedIn");
 const upload = multer({
   storage,
 });
+
 // render Post form
 
 postRoutes.get("/add-post", (req, res) => {
   res.render("posts/addPost", {
     error: "",
   });
+});
+
+// render form to edit the post
+
+postRoutes.get("/updatePost/:id", async (req, res) => {
+  try {
+    const editedPost = await Post.findById(req.params.id);
+    res.render("posts/editPost", { editedPost, error: "" });
+  } catch (error) {
+    res.render("posts/editPost", { error, post: "" });
+  }
 });
 
 //POST/api/v1/posts/

@@ -61,7 +61,7 @@ body {
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh; /* Full viewport height */
-  background-image: url("/images/pixel.png");
+  background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center; /* Center text inside */
@@ -85,6 +85,7 @@ body {
   display: block;
   width: 40px; /* Small size when nav is collapsed */
   margin: 0 auto;
+  margin-bottom: 20px;
   border-radius: 50%;
   transition: width 0.3s ease; /* Smooth transition for resizing */
 }

@@ -79,6 +79,16 @@ const loginUserController = async (req, res, next) => {
         error: "⚠️Invalid login credentials⚠️",
       });
     }
+
+    // Check if the user logging in is the admin
+    if (userFound.email === "munteanuvictoria1@gmail.com") {
+      // Set session to indicate the user is an admin
+      req.session.isAdmin = true;
+    } else {
+      // Ensure non-admins do not get access to admin functionality
+      req.session.isAdmin = false;
+    }
+
     //save the user info
     req.session.userAuth = userFound._id;
 

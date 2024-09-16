@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/form.css" />
+    <!-- Text Editor (Quill) -->
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <title>Edit post</title>
+
+    <style>
+      #editor {
+        height: 300px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("../partials/header.ejs") %>
+
+    <div class="form-container add-post-container">
+      <h1>Edit post</h1>
+
+      <% if (error) { %>
+      <small class="error">
+        <i class="fas fa-exclamation-circle"></i>
+        <%= error %>
+      </small>
+      <% } %>
+
+      <form
+      action="/api/v1/posts/<%= editedPost._id %>?_method=PUT"
+      method="POST"
+      enctype="multipart/form-data"
+      class="add-post"
+    >
+      <!-- Hidden field to simulate PUT request -->
+      <input type="hidden" name="_method" value="PUT">
+    
+      <!-- Post Title -->
+      <div class="input-wrapper">
+        <label for="name">Post Title</label>
+        <input
+          type="text"
+          value="<%= editedPost?.title %>"
+          name="title"
+          id="name"
+          required
+        />
+      </div>
+    
+      <!-- Category -->
+      <div class="input-wrapper">
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+          <option value="Dev Diaries" <%= editedPost?.category === 'Dev Diaries' ? 'selected' : '' %>>Dev Diaries</option>
+          <option value="Creative Zone" <%= editedPost?.category === 'Creative Zone' ? 'selected' : '' %>>Creative Zone</option>
+          <option value="Tech Thoughts" <%= editedPost?.category === 'Tech Thoughts' ? 'selected' : '' %>>Tech Thoughts</option>
+          <option value="CSS" <%= editedPost?.category === 'CSS' ? 'selected' : '' %>>CSS</option>
+          <option value="HTML" <%= editedPost?.category === 'HTML' ? 'selected' : '' %>>HTML</option>
+          <option value="Node js" <%= editedPost?.category === 'Node js' ? 'selected' : '' %>>Node js</option>
+          <option value="Javascript" <%= editedPost?.category === 'Javascript' ? 'selected' : '' %>>Javascript</option>
+          <option value="Books" <%= editedPost?.category === 'Books' ? 'selected' : '' %>>Books</option>
+          <option value="Other" <%= editedPost?.category === 'Other' ? 'selected' : '' %>>Other</option>
+        </select>
+      </div>
+    
+      <!-- Post Body (Quill Editor) -->
+      <div class="input-wrapper">
+        <label for="body">Post Body</label>
+        <div id="editor"><%- editedPost?.description %></div>
+        <input type="hidden" name="description" id="description" />
+      </div>
+    
+      <!-- Post Image -->
+
+<div class="input-wrapper">
+  <label for="image">Post Image</label>
+
+  <!-- Show current image if it exists -->
+  <% if (editedPost?.image) { %>
+    <div class="current-image">
+      <p>Current Image:</p>
+      <img src="<%= editedPost.image %>" alt="Current Post Image" style="max-width: 300px;">
+    </div>
+  <% } %>
+
+  <!-- File input to upload a new image -->
+  <input type="file" name="file" id="image" />
+</div>
+
+    
+      <button type="submit">Update</button>
+    </form>
+    
+    
+    </div>
+
+    <script>
+      // Initialize Quill editor with the existing post content
+      var quill = new Quill("#editor", {
+        theme: "snow",
+      });
+      quill.root.innerHTML = "<%- editedPost?.description %>";
+
+      // On form submit, copy the HTML content from the editor to the hidden input
+      document.querySelector("form").onsubmit = function () {
+        var content = document.querySelector("input[name=description]");
+        content.value = quill.root.innerHTML;
+      };
+    </script>
+  </body>
+</html>

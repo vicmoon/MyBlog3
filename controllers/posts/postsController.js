@@ -110,37 +110,31 @@ const deletePostsController = async (req, res, next) => {
 
 const editPostsController = async (req, res, next) => {
   const { title, description, category } = req.body;
-  // if (!title || !!description || !category) {
-  //   return next(appError("All fields are required"));
-  // }
+
   try {
-    //find the post to edit
+    // Find the post to edit
     const postToEdit = await Post.findById(req.params.id);
 
-    //check if the postToEdit was created by the logged in user
-
+    // Check if the postToEdit was created by the logged-in user
     if (postToEdit.user.toString() !== req.session.userAuth.toString()) {
-      // because we are comparing to objects not strings, so we need to convert them to Strings
       return next(appError("You are not authorized to edit this post", 403));
     }
-    // edit the post
-    const postEdited = await Post.findByIdAndUpdate(
-      req.params.id,
-      {
-        title,
-        description,
-        category,
-        image: req.path,
-      },
-      {
-        new: true,
-      }
-    );
 
-    res.json({
-      status: "Success",
-      data: postEdited,
+    // Prepare the updated post data
+    const updateData = { title, description, category };
+
+    // If the user uploaded a new image, use the Cloudinary URL
+    if (req.file) {
+      updateData.image = req.file.path; // Cloudinary URL for the uploaded image
+    }
+
+    // Update the post
+    const postEdited = await Post.findByIdAndUpdate(req.params.id, updateData, {
+      new: true, // Return the updated post
     });
+
+    // Redirect to the updated post's page or the list of posts
+    res.redirect(`/api/v1/posts/`);
   } catch (error) {
     return next(
       appError("An error occurred while editing the post, try again")
