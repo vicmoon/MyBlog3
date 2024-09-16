@@ -7,10 +7,11 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: #201e43 !important;
   display: flex;
+
   justify-content: center; /* Center the form horizontally */
   align-items: center; /* Center the form vertically */
-
   padding-left: 200px; /* Ensure space for the sidebar */
 }
 
@@ -18,7 +19,7 @@ body {
 .form-container {
   width: 100%;
   max-width: 500px;
-  background: #fff;
+  background: #b1afff;
   margin: auto; /* Center the form horizontally */
   padding: 30px;
   border-radius: 5px;
@@ -51,6 +52,11 @@ nav:hover + .add-post-container {
 
 .add-post {
   width: 100%;
+}
+
+#editor {
+  height: 300px;
+  margin-bottom: 20px;
 }
 
 .form-container h1 {
@@ -102,14 +108,11 @@ nav:hover + .add-post-container {
   color: #fff;
   cursor: pointer;
   background: #023047;
-
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
-
   width: 100%;
   height: 50px;
   margin-bottom: 20px;
@@ -157,6 +160,43 @@ nav:hover + .add-post-container {
 
 .form-container .form-wrapper {
   width: 100%;
+}
+
+.books-container {
+  max-width: 1500px;
+  margin: auto;
+  padding: 20px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  margin-bottom: 10px;
+}
+
+.book-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.book-card a:hover {
+  text-decoration: underline;
 }
 
 /* Adjust footer position */

@@ -26,11 +26,11 @@ const addBookController = async (req, res, next) => {
 const getBookController = async (req, res) => {
   try {
     const books = await Book.find();
-
-    res.json({
-      status: "Success",
-      data: books,
-    });
+    res.render("resources", { books });
+    // res.json({
+    //   status: "Success",
+    //   data: books,
+    // });
   } catch (error) {
     return next(appError(" The resources cannot be found"));
   }

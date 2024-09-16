@@ -55,6 +55,10 @@ body {
 .posts-hero p {
   color: antiquewhite;
 }
+
+.posts-hero .post-title {
+  color: #cb80ab;
+}
 /* Hero Section */
 .hero {
   display: flex;
@@ -234,6 +238,11 @@ main {
   max-width: 400px;
 }
 
+.card-header,
+.card-title {
+  text-align: center;
+  font-weight: bold;
+}
 .card .btn {
   background-color: #fcde70;
   border-radius: 30px;
@@ -259,9 +268,7 @@ footer {
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   text-align: center;
-  background-image: url("/images/pixel.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #201e43;
   margin-top: auto; /* Pushes the footer to the bottom when content is short */
   width: 100%;
 }
@@ -281,7 +288,7 @@ footer {
 
 .footer-links a {
   text-decoration: none; /* Remove underline */
-  color: #f9e400;
+  color: #16325b;
   font-size: 1.3rem;
   font-weight: bold;
 }

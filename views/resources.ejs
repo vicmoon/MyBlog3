@@ -6,25 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS -->
     <link rel="stylesheet" href="/css/form.css" />
-    <title>Register</title>
+    <title>Books</title>
   </head>
   <body>
     <!-- nav -->
-    <%-include('../partials/header.ejs')%>
+    <%-include('./partials/header.ejs')%>
 
-      <form action="/api/v1/signup" method="POST">
-        <!-- full name -->
-        <label for="name">Title</label>
-        <input type="text" name="title" />
-        <!-- email -->
-        <label for="email">Author</label>
-        <input type="email" name="author" />
-
-        <label for="password">Link</label>
-        <input type="password" name="link" />
-
-       
-      </form>
+    <div class="books-container">
+      <h1>Available Books</h1>
+      <div class="books-grid">
+        <!-- Loop through the books array -->
+        <% books.forEach(function(book) { %>
+        <div class="book-card">
+          <h2><%= book.title %></h2>
+          <p><strong>Author:</strong> <%= book.author %></p>
+          <p>
+            <strong>Link:</strong>
+            <a href="<%= book.link %>" target="_blank">Read More</a>
+          </p>
+        </div>
+        <% }); %>
+      </div>
     </div>
 
     <!-- footer -->
