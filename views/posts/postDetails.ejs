@@ -10,10 +10,15 @@
     <!-- Fixed Nav Bar -->
     <header class="header">
       <nav>
+        <a href="/"><img src="/images/victoria.jpg" class="logo" /></a>
         <ul class="menu">
           <%if(userAuth){ %>
-          <li class="nav-item home"><a href="/">Home</a></li>
-          <li class="nav-item home"><a href="/api/v1/users/login">Login</a></li>
+          <li class="nav-item home">
+            <a href="/">Home</a>
+          </li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/login">Login</a>
+          </li>
           <li class="nav-item home">
             <a href="/api/v1/users/logout">Logout</a>
           </li>
@@ -23,10 +28,10 @@
           <li class="nav-item">
             <a href="/api/v1/posts/add-post">New Post</a>
           </li>
-          <li class="nav-item"><a href="/api/v1/posts/">Blog</a></li>
-          <!-- <li class="nav-item">
-            <a href="/api/v1/users/profile-page">About</a>
-          </li> -->
+          <li class="nav-item">
+            <a href="/api/v1/posts/">Blog</a>
+          </li>
+          <!-- <li class="nav-item"><a href="/api/v1/paintings">Paintings</a></li> -->
 
           <% } else { %>
           <li class="nav-item home"><a href="/">Home</a></li>
@@ -39,14 +44,13 @@
             <li class="nav-item">
               <a href="/api/v1/signup">Newsletter</a>
             </li>
-            <li class="nav-item"><a href="/api/v1/paintings">Paintings</a></li>
             <li class="nav-item"><a href="/contact">Contacts</a></li>
-            <li class="nav-item home">
+            <!-- <li class="nav-item home">
               <a href="/api/v1/users/register">Register</a>
             </li>
             <li class="nav-item home">
               <a href="/api/v1/users/login">Login</a>
-            </li>
+            </li> -->
 
             <% } %>
           </div>

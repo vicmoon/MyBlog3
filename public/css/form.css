@@ -33,18 +33,21 @@ body {
 
 .form-container.add-post-container {
   max-width: calc(100% - 150px); /* Full width minus sidebar width */
-  margin-left: 150px; /* Push the form content to the right, next to the sidebar */
+  margin-left: 150px;
+  margin-right: 100px; /* Push the form content to the right, next to the sidebar */
   padding: 30px;
 }
 
 /* Specific Styling for Add Post Form to make it full-width */
 .add-post-container {
+  background-color: aliceblue;
   max-width: 100%; /* Make the Add Post form stretch across the page */
   width: 100%;
   padding: 30px; /* Maintain padding */
   margin-left: 0; /* Ensure no auto-centering for full-width */
   margin-right: 0; /* Ensure no auto-centering for full-width */
 }
+
 nav:hover + .add-post-container {
   max-width: calc(100% - 150px); /* Adjust width when sidebar is expanded */
   margin-left: 150px; /* Adjust form position when the sidebar expands */

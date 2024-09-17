@@ -16,6 +16,15 @@ body {
   display: flex;
 }
 
+.logo {
+  display: block;
+  width: 40px; /* Small size when nav is collapsed */
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
+}
+
 /* Sidebar container */
 nav {
   width: 50px; /* Collapsed width */
@@ -45,11 +54,10 @@ nav ul li {
   margin-bottom: 15px;
   padding-left: 10px;
 }
-
 nav ul li a {
   text-decoration: none;
   color: aliceblue;
-  padding: 10px;
+  padding: 5px;
   display: block;
   white-space: nowrap; /* Prevent text from wrapping */
   opacity: 0; /* Initially hidden text */
@@ -66,7 +74,7 @@ nav ul li a::before {
   content: ""; /* Simple icon, you can replace with actual icons */
   display: inline-block;
   margin-right: 10px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 nav:hover ul li a::before {
@@ -76,6 +84,7 @@ nav:hover ul li a::before {
 /* Styling when hovering over the links */
 nav ul li a:hover {
   background-color: #e6d9a2;
+  width: 100px;
   border-radius: 5px;
 }
 
