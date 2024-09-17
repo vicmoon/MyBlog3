@@ -39,8 +39,20 @@ const postPostController = async (req, res, next) => {
 
 const allPostsController = async (req, res, next) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 });
-    // Render the home page with the fetched posts
+    const { category } = req.query;
+    let query = {};
+
+    // If a category is provided, apply the filter to the query
+    if (category && category !== "") {
+      query = { category: new RegExp(category, "i") }; // Case-insensitive matching for category
+    }
+
+    // This will now correctly filter based on the query (category)
+    const posts = await Post.find(query).sort({ createdAt: -1 });
+
+    // console.log("Query:", query); // Check that the query contains the correct category filter
+    // console.log("Fetched Posts:", posts); // Check if filtered posts are returned
+
     res.render("posts/posts", { posts });
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -29,6 +29,15 @@ body {
   margin: 20px 20px;
 }
 
+.posts-grid a {
+  text-decoration: none;
+}
+.posts-grid a:hover {
+  color: #f4ce14;
+  transform: scale(1.1); /* Enlarges the text by 10% */
+  transition: transform 0.3s ease; /* Adds a smooth transition */
+}
+
 .posts-grid img {
   width: 500px; /* Set width of each image */
   height: 400px; /* Set height of each image */
@@ -45,7 +54,7 @@ body {
 }
 
 .posts-hero img {
-  width: 300px; /* Set width of each image */
+  width: 400px; /* Set width of each image */
   height: 300px; /* Set height of each image */
   object-fit: cover; /* Crop image to fit within these dimensions */
   border-radius: 30px;
@@ -53,7 +62,7 @@ body {
 }
 
 .posts-hero p {
-  color: antiquewhite;
+  color: whitesmoke;
 }
 
 .posts-hero .post-title {
@@ -189,20 +198,32 @@ main {
 .post-category span {
   background-color: #f4ce14;
   color: #eeeeee;
-  padding: 5px;
+  padding: 10px;
   border-radius: 20px;
   font-size: 15px;
   text-transform: uppercase;
   position: absolute;
-  top: 10px;
+  top: 9px;
+  left: -5px;
 }
-
-.post-info {
+form select {
+  padding: 5px;
+  border-radius: 30px;
+  margin-left: 30px;
+  background-color: #b1afff;
+}
+.post-info span {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   color: rgb(168, 12, 12);
   font-size: 1.2rem;
+}
+.post-date {
+  margin-top: 3px;
+  background-color: #ffeac5;
+  border-radius: 10px;
+  width: 500px;
+  justify-content: flex-end;
 }
 
 .post-content h1 {

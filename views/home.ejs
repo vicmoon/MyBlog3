@@ -38,15 +38,17 @@
                 </p>
               </span>
             </p>
-            <h1 class="post-title"><%= post.title %></h1>
+            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
+              ><h1 class="post-title"><%= post.title %></h1></a
+              >
             <p class="post-body"><%-truncatePost(post.description)%></p>
             <!-- Category Badge -->
             <div class="post-category">
               <span><%= post.category %></span>
             </div>
-            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
+            <!-- <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
               >Continue Reading...</a
-            >
+            > -->
           </article>
           <% }) %> <% } else { %>
           <p>No posts available.</p>

@@ -18,10 +18,9 @@ const postSchema = new mongoose.Schema(
       enum: [
         "Dev Diaries",
         "Creative Zone",
-        "Tech Thoughts",
         "CSS",
         "HTML",
-        "Node js",
+        "Node JS",
         "Javascript",
         "Books",
         "Other",
