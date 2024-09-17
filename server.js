@@ -107,5 +107,5 @@ app.use("/api/v1/paintings", paintingRoutes);
 app.use(globalErrHandler);
 
 //listen server
-const PORT = process.env.PORT || 9000;
-app.listen(PORT, console.log(`Server is running on: ${PORT}`));
+// const PORT = process.env.PORT || 9000;
+// app.listen(PORT, console.log(`Server is running on: ${PORT}`));
