@@ -2,10 +2,10 @@ require("dotenv").config();
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-// Log the environment variables for debugging
-console.log("CLOUDINARY_NAME:", process.env.CLOUDINARY_NAME);
-console.log("CLOUDINARY_KEY:", process.env.CLOUDINARY_KEY);
-console.log("CLOUDINARY_SECRET:", process.env.CLOUDINARY_SECRET);
+// // Log the environment variables for debugging
+// console.log("CLOUDINARY_NAME:", process.env.CLOUDINARY_NAME);
+// console.log("CLOUDINARY_KEY:", process.env.CLOUDINARY_KEY);
+// console.log("CLOUDINARY_SECRET:", process.env.CLOUDINARY_SECRET);
 
 //configure cloudinary
 
