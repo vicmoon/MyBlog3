@@ -1,19 +1,20 @@
-# Use Node.js v14
+# Use Node.js 20
 FROM node:20
 
-# Create app directory
+# Set working directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
-RUN npm install
+# Install only production dependencies
+RUN npm install --only=production
 
-# Bundle app source
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port
+# Expose the port (make sure this matches with your app)
 EXPOSE 9000
 
+# Start the application
 CMD [ "node", "server.js" ]
