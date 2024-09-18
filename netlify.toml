@@ -1,5 +1,10 @@
 [build]
-  functions = "functions"  # Where your serverless functions live
+  functions = "functions"
+
+[dev]
+  command = "npm run start"
+  port = 8888                # Port for Netlify Dev to serve your app
+  functionsPort = 9999        # Port for serverless functions
 
 [[redirects]]
   from = "/api/*"

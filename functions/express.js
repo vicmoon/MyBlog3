@@ -4,7 +4,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
-const serverless = require("express-serverless-handler");
+const serverless = require("serverless-http"); // Replaced with serverless-http
 
 const userRoutes = require("../routes/users/users");
 const postRoutes = require("../routes/posts/posts");
@@ -29,6 +29,7 @@ app.locals.truncatePost = truncatePost;
 app.use(express.json());
 app.set("view engine", "ejs"); // Configure EJS for templating
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // In case of JSON payloads
 app.use(express.static("public")); // Serve static files
 app.use(methodOverride("_method")); // Support for PUT/DELETE requests
 
@@ -52,9 +53,13 @@ app.use((req, res, next) => {
   } else {
     res.locals.userAuth = null;
   }
-  res.locals.isAdmin = req.session.isAdmin;
   next();
 });
+// app.use((req, res, next) => {
+//   console.log(req.session); // Check if session exists and has the correct properties
+//   console.log(req.body); // Check if body contains expected fields
+//   next();
+// });
 
 // Render homepage
 app.get("/", async (req, res) => {
@@ -76,10 +81,10 @@ app.get("/signup_success", (req, res) => {
   res.render("signup_success");
 });
 
-// Render paintings page
-app.get("/paintings", (req, res) => {
-  res.render("paintings");
-});
+// // Render paintings page
+// app.get("/paintings", (req, res) => {
+//   res.render("paintings");
+// });
 
 // API Routes
 app.use("/api/v1/users", userRoutes);
@@ -92,5 +97,5 @@ app.use("/api/v1/paintings", paintingRoutes);
 // Global error handler middleware
 app.use(globalErrHandler);
 
-// Export the app as a serverless function
+// Export the app as a serverless function using serverless-http
 module.exports.handler = serverless(app);
