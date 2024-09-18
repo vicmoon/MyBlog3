@@ -4,18 +4,18 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
-const userRoutes = require("./routes/users/users");
-const postRoutes = require("./routes/posts/posts");
-const commentRoutes = require("./routes/comments/comments");
-const booksRoutes = require("./routes/resources/books");
-const signUpsRoutes = require("./routes/newsletter/signups");
-const paintingRoutes = require("./routes/paintings/painting");
-const globalErrHandler = require("./middlewares/globalErrorHandling");
-const Post = require("./model/posts/Post");
-const { truncatePost } = require("./utils/helpers");
+const userRoutes = require("../routes/users/users");
+const postRoutes = require("../routes/posts/posts");
+const commentRoutes = require("../routes/comments/comments");
+const booksRoutes = require("../routes/resources/books");
+const signUpsRoutes = require("../routes/newsletter/signups");
+const paintingRoutes = require("../routes/paintings/painting");
+const globalErrHandler = require("../middlewares/globalErrorHandling");
+const Post = require("../model/posts/Post");
+const { truncatePost } = require("../utils/helpers");
 const app = express();
 
-require("./config/connectDB");
+require("../config/connectDB");
 
 //helpers
 app.locals.truncatePost = truncatePost;
