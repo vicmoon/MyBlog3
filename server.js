@@ -4,18 +4,18 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
-const userRoutes = require("../routes/users/users");
-const postRoutes = require("../routes/posts/posts");
-const commentRoutes = require("../routes/comments/comments");
-const booksRoutes = require("../routes/resources/books");
-const signUpsRoutes = require("../routes/newsletter/signups");
-const paintingRoutes = require("../routes/paintings/painting");
-const globalErrHandler = require("../middlewares/globalErrorHandling");
-const Post = require("../model/posts/Post");
-const { truncatePost } = require("../utils/helpers");
+const userRoutes = require("./routes/users/users");
+const postRoutes = require("../MyBlog3/routes/posts/posts");
+const commentRoutes = require("../MyBlog3/routes/comments/comments");
+const booksRoutes = require("../MyBlog3/routes/resources/books");
+const signUpsRoutes = require("../MyBlog3/routes/newsletter/signups");
+const paintingRoutes = require("../MyBlog3/routes/paintings/painting");
+const globalErrHandler = require("../MyBlog3/middlewares/globalErrorHandling");
+const Post = require("../MyBlog3/model/posts/Post");
+const { truncatePost } = require("../MyBlog3/utils/helpers");
 const app = express();
 
-require("../config/connectDB");
+require("../MyBlog3/config/connectDB");
 
 //helpers
 app.locals.truncatePost = truncatePost;
@@ -57,6 +57,10 @@ app.use((req, res, next) => {
 });
 
 // RENDER
+
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 
 //render homepage
 app.get("/", async (req, res) => {
