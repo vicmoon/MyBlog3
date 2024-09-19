@@ -101,11 +101,12 @@
         <% if (relatedPosts && relatedPosts.length > 0) { %> <%
         relatedPosts.forEach(function(relatedPost) { %>
         <article class="related-post-content">
-          <img
-            src="<%= relatedPost.image %>"
-            alt="Related post image"
-            class="post-image"
-          />
+          <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"></a>
+            <img
+              src="<%= relatedPost.image %>"
+              alt="Related post image"
+              class="post-image"
+          /></a>
           <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
             ><h3><%= relatedPost.title %></h3></a
           >
