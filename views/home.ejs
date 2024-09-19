@@ -32,16 +32,18 @@
           <article class="post-content">
             <img src="<%= post.image %>" alt="post image" class="post-image" />
             <p class="post-info">
-              <span class="post-date">
-                <p id="date">
+              <div class="post-date">
+                <span id="date">
                   <%= post.createdAt.toLocaleDateString() %>
-                </p>
-              </span>
+                </span>
+              </div>
+              
             </p>
-            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
-              ><h1 class="post-title"><%= post.title %></h1></a
-              >
+            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+              <h1 class="post-title">🔗<%= post.title %></h1>
+            </a>
             <p class="post-body"><%-truncatePost(post.description)%></p>
+
             <!-- Category Badge -->
             <div class="post-category">
               <span><%= post.category %></span>

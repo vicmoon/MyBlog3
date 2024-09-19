@@ -68,6 +68,19 @@ body {
 .posts-hero .post-title {
   color: #cb80ab;
 }
+
+.posts-hero .post-date {
+  display: flex;
+  background-color: #ffeac5;
+  border-radius: 10px;
+  padding: 3px;
+  width: 400px;
+  justify-content: flex-end;
+}
+
+.posts-hero a {
+  text-decoration: none;
+}
 /* Hero Section */
 .hero {
   display: flex;
@@ -206,6 +219,7 @@ main {
   top: 9px;
   left: -5px;
 }
+
 form select {
   padding: 5px;
   border-radius: 30px;
@@ -218,6 +232,7 @@ form select {
   color: rgb(168, 12, 12);
   font-size: 1.2rem;
 }
+
 .post-date {
   margin-top: 3px;
   background-color: #ffeac5;
