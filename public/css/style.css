@@ -85,16 +85,18 @@ body {
 /* Hero Section */
 .hero {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   background-color: #062e83;
+
+  /* Background image */
   background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center; /* Center text inside */
-  width: 100%; /* Ensure the hero takes full width */
-  flex-direction: column; /* Ensures content is centered vertically */
+  text-align: center;
+  width: 100%;
+  flex-direction: column;
 }
 
 .hero h1 {
