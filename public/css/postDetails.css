@@ -151,9 +151,14 @@ button {
   padding: 10px;
 }
 
-.related-posts h2 {
-  color: #ffb84c;
+.related-posts h2,
+h3 {
+  color: #cb80ab;
   margin-bottom: 10px;
+}
+
+.related-posts h3:hover {
+  color: #ffb84c;
 }
 
 .related-post-content {

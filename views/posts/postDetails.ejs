@@ -59,6 +59,7 @@
     </header>
 
     <!-- Main Container for Post Content and Related Posts -->
+
     <div class="container-flex">
       <!-- Main Post Content -->
       <main class="posts">
@@ -105,10 +106,12 @@
             alt="Related post image"
             class="post-image"
           />
-          <h3><%= relatedPost.title %></h3>
           <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
-            >Read</a
+            ><h3><%= relatedPost.title %></h3></a
           >
+          <!-- <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
+            >Read</a
+          > -->
         </article>
         <% }); %> <% } else { %>
         <p>No related posts available in this category.</p>
