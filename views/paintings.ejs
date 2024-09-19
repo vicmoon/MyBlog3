@@ -15,21 +15,19 @@
   </head>
   <body>
     <!-- nav -->
-    <%-include('./partials/header.ejs')%>
+    <%-include('../partials/header.ejs')%>
 
     <div class="form-container">
       <!-- icon -->
-      <h1>Upload Cover Photo</h1>
-      <p>
-        <!-- upload icon -->
-      </p>
-      <small class="error">
-        <i class="fas fa-exclamation-circle"></i>
-        Invalid Credentials
-      </small>
-      <form action="/api/v1/paintings" method="POST">
+      <h1>Upload Painting</h1>
+
+      <form
+        action="/api/v1/paintings"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <label>Select Image</label>
-        <input type="file" name="image" id="image" />
+        <input type="file" name="painting" id="painting" />
         <button type="submit">
           <i class="fas fa-upload">Submit</i>
         </button>

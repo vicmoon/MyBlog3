@@ -9,17 +9,21 @@ const upload = multer({ storage: storage });
 //POST/api/v1/paintings/
 const {
   uploadPaintingController,
+  getPaintingController,
 } = require("../../controllers/paintings/paintingsController");
 
-// render paintings form
-paintingRoutes.get("/paintings", (req, res) => {
-  res.render("paintings");
-});
+// // render paintings form
+// paintingRoutes.get("/paintings", (req, res) => {
+//   res.render("paintings");
+// });
 
 paintingRoutes.post(
   "/paintings",
   upload.single("painting"),
   uploadPaintingController
 );
+
+//GET/api/v1/resources/
+paintingRoutes.get("/", getPaintingController);
 
 module.exports = paintingRoutes;
