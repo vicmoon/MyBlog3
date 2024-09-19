@@ -59,7 +59,7 @@ body {
   height: 300px; /* Set height of each image */
   object-fit: cover; /* Crop image to fit within these dimensions */
   border-radius: 30px;
-  gap: 1-px;
+  gap: 10px;
 }
 
 .posts-hero p {
@@ -88,7 +88,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #062e83;
+  background-color: #201e43;
 
   /* Background image */
   background-image: url("/images/background2.png");
