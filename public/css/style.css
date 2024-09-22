@@ -12,8 +12,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #201e43; /* Same background for all pages */
-  color: aliceblue;
 }
 
 /* Container for Flex Layout */
@@ -165,7 +163,7 @@ nav:hover ul li a {
 
 /* Icon or placeholder to show even when collapsed */
 nav ul li a::before {
-  content: ""; /* Simple icon, you can replace with actual icons */
+  content: "";
   display: inline-block;
   margin-right: 10px;
   font-size: 1rem;
@@ -332,10 +330,25 @@ footer {
   font-weight: bold;
 }
 
+/* Responsive Media Queries */
+
 @media (max-width: 475px) {
   .posts-grid {
-    grid-template-columns: 1fr; /* Stack grid items */
-    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    display: none;
+  }
+
+  .hero {
+    display: none;
+  }
+
+  nav {
+    width: 50vw; /* Half the screen width on mobile */
+    height: 50vw;
   }
 
   .posts-hero {
@@ -343,90 +356,96 @@ footer {
   }
 }
 
-/* Responsive Media Queries */
-
-/* Mobile first approach */
-/* For screens less than 675px (mobile devices) */
 @media (max-width: 675px) {
-  .posts-grid {
-    grid-template-columns: 1fr; /* Stack grid items */
-    margin: 10px;
+  .latest-post-title,
+  .hero,
+  .hero h1,
+  .posts-hero .post-date,
+  .posts-hero .post-body,
+  .posts-grid .post-body {
+    display: none;
   }
 
   .posts-hero {
     grid-template-columns: 1fr; /* Stack hero grid items */
-    margin-left: 0;
+    background-color: #201e43;
+  }
+  .posts-hero img {
+    width: 200px;
+    height: 200px;
   }
 
-  .hero h1 {
-    font-size: 3rem; /* Smaller font size for mobile */
-    margin-left: 0;
+  .posts-grid {
+    grid-template-columns: 1fr; /* Stack grid items */
+    margin: 10px;
+  }
+  .contact {
+    height: auto;
   }
 
   .card-container {
     flex-direction: column; /* Stack cards */
-    margin-left: 0;
+    margin-left: 50px;
   }
-
-  nav {
-    width: 100%; /* Full width for mobile */
+  .card {
+    border-radius: 30px;
+    max-width: 250px;
   }
 
   nav:hover {
-    width: 100%;
-  }
-
-  main {
-    margin-left: 0; /* No margin for mobile */
-    padding: 10px;
+    width: 120px;
   }
 
   footer {
-    height: auto; /* Adjust footer height for mobile */
+    height: 100px;
     text-align: center;
   }
 }
 
 /* For tablets and small desktops (676px to 1024px) */
-@media (min-width: 676px) and (max-width: 1024px) {
+@media (min-width: 676px) and (max-width: 1000px) {
   .posts-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .posts-grid img {
+    width: 300px;
+    height: 300px;
+  }
+  .posts-grid .post-date {
+    width: 300px;
+  }
+  .posts-grid .post-body {
+    display: none;
+  }
+
+  .hero h1 {
+    display: none;
+  }
 
   .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    background-color: #062e83;
-    text-align: center;
-    width: 100%;
-    flex-direction: column;
+    display: none;
+    background-image: none; /* Remove the background image */
+  }
+  .latest-post-title {
+    background-color: #16325b;
   }
   .posts-hero {
+    display: grid;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
-    margin-left: 100px;
-    position: relative;
-    border-radius: 30px;
+
+    background-color: #16325b;
   }
 
   .posts-hero img {
-    width: 300px; /* Set width of each image */
-    height: 300px; /* Set height of each image */
+    width: 200px; /* Set width of each image */
+    height: 200px; /* Set height of each image */
     object-fit: cover; /* Crop image to fit within these dimensions */
     border-radius: 30px;
   }
-  .hero h1 {
-    font-size: 4rem; /* Larger font for tablets */
-    margin-left: 20px;
-  }
+
   .posts-hero .post-date {
-    display: flex;
-    background-color: #ffeac5;
-    border-radius: 8px;
-    padding: 3px;
-    width: 300px;
-    justify-content: flex-end;
+    display: none;
   }
 
   nav {
@@ -442,6 +461,10 @@ footer {
     margin-left: 100px;
     width: calc(100% - 100px);
   }
+  footer {
+    height: 100px;
+    text-align: center;
+  }
 }
 
 /* For large desktops (1025px and above) */
@@ -453,6 +476,9 @@ footer {
   .posts-hero {
     grid-template-columns: 1fr 1fr;
     margin-left: 200px;
+  }
+  .post-date {
+    display: none;
   }
 
   nav {

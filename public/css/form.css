@@ -205,6 +205,13 @@ nav:hover + .add-post-container {
 
 /* Adjust footer position */
 
+@media (max-width: 475px) {
+  .books-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 /* Media Queries for small screens */
 @media (max-width: 675px) {
   body {

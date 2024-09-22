@@ -54,6 +54,7 @@ nav ul li {
   margin-bottom: 15px;
   padding-left: 10px;
 }
+
 nav ul li a {
   text-decoration: none;
   color: aliceblue;
@@ -179,4 +180,36 @@ h3 {
   color: #ffb84c;
   text-decoration: none;
   font-size: 1rem;
+}
+
+/* Move Related Posts below the article on small screens (max-width: 675px) */
+@media (max-width: 675px) {
+  .container-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .posts {
+    width: 100%;
+  }
+
+  .post-content {
+    width: 100%; /* Force post content to full width */
+  }
+
+  .related-posts {
+    width: 100%; /* Full width for related posts */
+    margin-left: 0;
+    margin-top: 20px; /* Add margin to separate from main content */
+  }
+}
+
+/* Adjust layout for medium screens (676px to 1000px) */
+@media (min-width: 676px) and (max-width: 1000px) {
+  .related-posts {
+    width: 300px; /* Fixed width for related posts */
+    margin-left: 10px; /* Small gap from the main content */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
 }
