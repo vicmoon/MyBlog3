@@ -6,18 +6,8 @@
   font-family: "SUSE", sans-serif;
 }
 
-/* Global */
-html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Container for Flex Layout */
-.container-flex {
-  display: flex;
-  flex-direction: row;
+  background-color: #201e43;
 }
 
 /* Grid layout for posts */
@@ -33,8 +23,8 @@ body {
 }
 .posts-grid a:hover {
   color: #f4ce14;
-  transform: scale(1.1); /* Enlarges the text by 10% */
-  transition: transform 0.3s ease; /* Adds a smooth transition */
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .posts-grid img {
@@ -186,6 +176,7 @@ form select {
   margin-bottom: 10px;
   color: #062e83;
 }
+
 .contact {
   background-color: #201e43;
   display: flex;
@@ -200,12 +191,13 @@ form select {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
-  margin-left: 100px;
 }
 
 .card {
+  margin-top: -50px;
   padding: 10px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
@@ -233,6 +225,23 @@ form select {
 
 .card:nth-child(3) {
   background-color: #ef9c66; /* Card 3 color */
+}
+
+/* Ensures that the entire card is clickable and inherits the link styles */
+.card-link {
+  display: block;
+  text-decoration: none; /* Removes underline on text */
+  color: inherit; /* Inherit text color */
+}
+
+.card-link:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+  color: inherit; /* Keeps text color the same on hover */
+}
+
+/* Ensures the button within the card link behaves properly */
+.card-link .btn {
+  pointer-events: none; /* Prevents double-click on button inside the card link */
 }
 
 footer {
@@ -271,8 +280,17 @@ footer {
 
 @media (max-width: 475px) {
   .posts-grid {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .posts-grid img {
+    width: 200px;
+    height: 200px;
+  }
+  .posts-grid .post-date {
+    width: 300px;
+  }
+  .posts-grid .post-body {
+    display: none;
   }
 
   .hero h1 {
@@ -302,9 +320,12 @@ footer {
   .posts-grid .post-body {
     display: none;
   }
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
 
   .posts-hero {
-    width: calc(100% - 100px);
+    width: calc(100% - 150px);
     grid-template-columns: 1fr; /* Stack hero grid items */
     background-color: #201e43;
   }
@@ -313,26 +334,19 @@ footer {
     height: 200px;
   }
 
-  .posts-grid {
-    grid-template-columns: 1fr; /* Stack grid items */
-    margin: 10px;
-  }
-  .contact {
-    height: auto;
-  }
-
   .card-container {
     flex-direction: column; /* Stack cards */
     margin-left: 50px;
+    gap: 20px;
   }
   .card {
     border-radius: 30px;
-
-    max-width: 300px;
+    max-width: 200px;
+    max-height: 200px;
   }
 
-  nav:hover {
-    width: 120px;
+  .card .btn {
+    display: none;
   }
 
   footer {
@@ -342,13 +356,14 @@ footer {
 }
 
 /* For tablets and small desktops (676px to 1024px) */
-@media (min-width: 676px) and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .posts-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    margin-left: 0;
   }
   .posts-grid img {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
   }
   .posts-grid .post-date {
     width: 300px;
@@ -387,19 +402,6 @@ footer {
     display: none;
   }
 
-  nav {
-    width: 70px;
-    height: 100vh;
-  }
-
-  nav:hover {
-    width: 120px;
-  }
-
-  main {
-    margin-left: 100px;
-    width: calc(100% - 100px);
-  }
   footer {
     height: 100px;
     text-align: center;
@@ -418,18 +420,5 @@ footer {
   }
   .post-date {
     display: none;
-  }
-
-  nav {
-    width: 50px;
-  }
-
-  nav:hover {
-    width: 150px;
-  }
-
-  main {
-    margin-left: 200px;
-    width: calc(100% - 200px);
   }
 }
