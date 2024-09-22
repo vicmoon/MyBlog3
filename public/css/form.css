@@ -166,9 +166,9 @@ nav:hover + .add-post-container {
 }
 
 .books-container {
-  max-width: 1500px;
-  margin: auto;
+  max-width: 100%;
   padding: 20px;
+  margin-left: 50px;
 }
 
 .books-grid {
@@ -203,8 +203,6 @@ nav:hover + .add-post-container {
   text-decoration: underline;
 }
 
-/* Adjust footer position */
-
 @media (max-width: 475px) {
   .books-grid {
     display: grid;
@@ -212,6 +210,7 @@ nav:hover + .add-post-container {
     gap: 20px;
   }
 }
+
 /* Media Queries for small screens */
 @media (max-width: 675px) {
   body {

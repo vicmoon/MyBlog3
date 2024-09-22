@@ -18,23 +18,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
-    <title>Home</title>
+    <title>Bits&Scribbles</title>
   </head>
   <body>
-    <!-- nav -->
+   
     <%-include('./partials/header.ejs')%>
-       <!-- content -->
+      
        <section class="hero" >
         <h1> Bits and Scribbles</h1>
       </section>
-      <div class="latest-post-title">
-        <h2> Latest posts</h2>
-      </div>
-      
         <section class="posts-hero">
+          
           <% if (posts && posts.length > 0) { %> 
             <% posts.forEach(post => { %>
-          <article class="post-content">
+          <article class="hero-post-content">
             <img src="<%= post.image %>" alt="post image" class="post-image" />
             <p class="post-info">
               <div class="post-date">

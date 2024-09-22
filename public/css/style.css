@@ -11,11 +11,22 @@ body {
 }
 
 /* Grid layout for posts */
+
+main {
+  background-color: #201e43;
+  color: #eeeeee;
+}
+main form {
+  padding: 20px;
+  margin-left: 160px;
+}
+
 .posts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin: 20px 20px;
+  margin-left: 200px;
 }
 
 .posts-grid a {
@@ -33,13 +44,22 @@ body {
   object-fit: cover; /* Crop image to fit within these dimensions */
   border-radius: 30px;
 }
+.posts-grid .post-title {
+  color: #eeeeee;
+}
+
+.post-grid .post-content {
+  background-color: #d2d6df;
+}
 
 .posts-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
-  padding: 20px;
-  margin-left: 150px;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  padding: 50px;
+  margin: 0;
+  background-color: #201e43;
+  color: #eeeeee;
 }
 
 .posts-hero img {
@@ -49,18 +69,25 @@ body {
   border-radius: 30px;
   gap: 10px;
 }
-
-.posts-hero p {
-  color: whitesmoke;
+.hero-post-content {
+  margin-left: 100px;
+  max-width: 500px;
+  max-height: 500px;
 }
-
+article.hero-post-content {
+  background-color: #624e88;
+  border-radius: 30px;
+  padding: 20px;
+}
 .posts-hero .post-title {
   color: #cb80ab;
+  font-size: 25px;
 }
 
 .posts-hero .post-date {
   display: flex;
   background-color: #ffeac5;
+  color: #062e83;
   border-radius: 10px;
   padding: 3px;
   width: 400px;
@@ -108,16 +135,6 @@ body {
 }
 
 /* Main Content */
-main {
-  margin-left: 200px; /* Push the content to the right of the sidebar */
-  padding: 20px;
-  width: calc(
-    100% - 100px
-  ); /* Adjust width dynamically based on sidebar width */
-  height: 100vh;
-  flex: 1;
-  overflow-y: auto; /* Enable vertical scroll if the content is too long */
-}
 
 .post-content {
   padding: 10px;
@@ -129,10 +146,8 @@ main {
 
 .latest-post-title {
   font-size: 1.4rem;
-  color: #eeeeee;
   text-align: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  background-color: #3d74e9;
   justify-content: center;
   flex-direction: column;
 }
@@ -191,7 +206,7 @@ form select {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
 }
@@ -335,7 +350,7 @@ footer {
   }
 
   .card-container {
-    flex-direction: column; /* Stack cards */
+    flex-direction: column;
     margin-left: 50px;
     gap: 20px;
   }
@@ -343,68 +358,67 @@ footer {
     border-radius: 30px;
     max-width: 200px;
     max-height: 200px;
+    padding: 20px;
   }
 
   .card .btn {
     display: none;
   }
+  .card-body h5 {
+    display: none;
+  }
 
   footer {
     height: 100px;
     text-align: center;
+    font-size: 20px;
   }
 }
 
 /* For tablets and small desktops (676px to 1024px) */
+/* For screens with max width of 1000px */
 @media (max-width: 1000px) {
+  body {
+    background-color: #16325b; /* Set background color */
+    margin: 0; /* Ensure no margin around body */
+    padding: 0;
+  }
+
+  .hero,
+  .posts-hero,
+  .latest-post-title,
   .posts-grid {
-    grid-template-columns: 1fr;
-    margin-left: 0;
-  }
-  .posts-grid img {
-    width: 350px;
-    height: 350px;
-  }
-  .posts-grid .post-date {
-    width: 300px;
-  }
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .hero h1 {
-    display: none;
-  }
-
-  .hero {
-    display: none;
-    background-image: none; /* Remove the background image */
+    margin: 0;
+    padding: 0;
   }
   .latest-post-title {
     background-color: #16325b;
+    margin-bottom: 0;
   }
   .posts-hero {
-    display: grid;
+    margin-top: 0;
+    margin-left: 50px;
+    background-color: #16325b; /* Ensure background color in the posts area */
+    grid-template-columns: 1fr 1fr; /* Stack the grid in one column on smaller screens */
     width: 100%;
-    grid-template-columns: 1fr 1fr;
+  }
 
-    background-color: #16325b;
+  /* Ensuring the whole page uses the full width without margin */
+  .post-content {
+    background-color: #3d74e9; /* Optional: set a background for individual posts */
+    margin: 0 10px; /* Adjust spacing as needed */
+    padding: 20px; /* Add padding for better appearance */
   }
 
   .posts-hero img {
-    width: 200px; /* Set width of each image */
-    height: 200px; /* Set height of each image */
-    object-fit: cover; /* Crop image to fit within these dimensions */
-    border-radius: 30px;
+    width: 200px;
+    height: 200px;
   }
-
   .posts-hero .post-date {
-    display: none;
+    width: 200px;
   }
-
   footer {
-    height: 100px;
-    text-align: center;
+    background-color: #16325b;
   }
 }
 
@@ -416,7 +430,6 @@ footer {
 
   .posts-hero {
     grid-template-columns: 1fr 1fr;
-    margin-left: 200px;
   }
   .post-date {
     display: none;
