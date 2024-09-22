@@ -166,9 +166,9 @@ nav:hover + .add-post-container {
 }
 
 .books-container {
-  max-width: 100%;
-  padding: 20px;
-  margin-left: 50px;
+  width: 100%;
+  padding: 10px;
+  display: grid;
 }
 
 .books-grid {
@@ -204,23 +204,19 @@ nav:hover + .add-post-container {
 }
 
 @media (max-width: 475px) {
-  .books-grid {
-    display: grid;
+  .books-container {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 }
 
 /* Media Queries for small screens */
 @media (max-width: 675px) {
-  body {
-    padding-left: 0; /* Remove padding for smaller screens */
-    justify-content: flex-start; /* Align content at the top */
-  }
-
   .form-container {
     margin-top: 10%;
     width: 90%; /* Adjust form width for smaller screens */
+  }
+  .books-container {
+    grid-template-columns: 1fr;
   }
 
   footer {
