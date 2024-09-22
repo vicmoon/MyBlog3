@@ -1,0 +1,62 @@
+/* Sidebar container */
+nav {
+  width: 50px; /* Collapsed width */
+  height: 100vh;
+  background-color: #508c9b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  overflow: hidden; /* Prevent overflow when collapsed */
+  transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
+}
+
+/* Expand the sidebar on hover */
+nav:hover {
+  width: 150px; /* Expanded width */
+}
+
+/* Style the nav links */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 5px;
+  display: block;
+  white-space: nowrap; /* Prevent text from wrapping */
+  opacity: 0; /* Initially hidden text */
+  transition: opacity 0.3s ease; /* Smooth text fade-in */
+}
+
+/* Show the text on hover when the sidebar expands */
+nav:hover ul li a {
+  opacity: 1; /* Text becomes visible */
+}
+
+/* Icon or placeholder to show even when collapsed */
+nav ul li a::before {
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+nav:hover ul li a::before {
+  content: ""; /* Remove icon on hover */
+}
+
+/* Styling when hovering over the links */
+nav ul li a:hover {
+  background-color: #e6d9a2;
+  width: 100px;
+  border-radius: 5px;
+}
