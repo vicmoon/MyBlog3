@@ -1,3 +1,16 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #062e83;
+  background-image: url("/images/background2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  flex-direction: column;
+}
 .posts-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -19,16 +32,11 @@
 article.hero-post-content {
   background-color: #624e88;
   border-radius: 30px;
-  padding: 20px;
+  padding: 15px;
 }
 .posts-hero .post-title {
   color: #cb80ab;
   font-size: 25px;
-}
-.hero-post-content {
-  margin-left: 100px;
-  max-width: 500px;
-  max-height: 500px;
 }
 
 .posts-hero .post-date {

@@ -1,6 +1,6 @@
-/* Navbar container for all screens */
+/* Sidebar container */
 nav {
-  width: 50px; /* Initial collapsed width */
+  width: 50px; /* Collapsed width */
   height: 100vh;
   background-color: #508c9b;
   position: fixed;
@@ -8,108 +8,120 @@ nav {
   left: 0;
   padding-top: 20px;
   overflow: hidden;
-  transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
-  z-index: 1000; /* Ensures navbar stays on top of other content */
+  transition: width 0.3s ease;
+  z-index: 1000;
 }
 
-/* Expand the navbar on hover for larger screens */
 nav:hover {
-  width: 120px; /* Slightly reduced expanded width to prevent content overlap */
+  width: 150px; /* Expanded width on hover */
 }
 
-/* Menu styles */
+/* Style the nav links */
 nav ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin: 0;
   display: flex;
-  flex-direction: column; /* Ensure items stack vertically */
+  flex-direction: column;
 }
 
-/* Menu items */
 nav ul li {
   margin-bottom: 15px;
   padding-left: 10px;
 }
 
-/* Links inside the navbar */
 nav ul li a {
   text-decoration: none;
   color: aliceblue;
   padding: 5px;
   display: block;
   white-space: nowrap;
-  opacity: 0; /* Initially hidden text */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-/* Show text on hover when the sidebar expands */
+/* Show the text on hover when the sidebar expands */
 nav:hover ul li a {
   opacity: 1;
 }
 
-/* Hamburger icon */
-.hamburger {
-  display: none;
-  cursor: pointer;
-  padding: 10px;
+/* Icon or placeholder to show even when collapsed */
+nav ul li a::before {
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1rem;
 }
 
-.bar {
-  height: 2px;
-  width: 27px;
-  background: white;
-  margin: 5px 0;
-  opacity: 0.8;
+nav:hover ul li a::before {
+  content: "";
 }
 
-/* Responsive behavior for small screens */
-@media (max-width: 650px) {
+/* Styling when hovering over the links */
+nav ul li a:hover {
+  background-color: #e6d9a2;
+  width: 100px;
+  border-radius: 5px;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
   nav {
-    width: 50px; /* Default collapsed width */
-    height: 100vh;
+    width: 100%;
+    height: 50px; /* Sidebar collapsed to top */
+    padding: 0;
+    background-color: #508c9b;
   }
 
-  .hamburger {
-    display: block;
+  nav ul {
+    flex-direction: row; /* Stack horizontally */
+    justify-content: space-around;
+    padding: 0;
   }
 
-  /* When the menu is active (unfolded) */
-  .menu-active {
-    width: 160px; /* Set the width of the unfolded navbar */
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: #508c9b; /* Same background as collapsed state */
-    z-index: 10; /* Ensures it sits on top of other content */
-  }
-
-  /* Adjust the menu to stack items vertically */
-  .menu-active ul {
-    display: flex;
-    flex-direction: column; /* Ensure the items stack vertically */
-    align-items: flex-start; /* Align items to the left */
-    padding-left: 20px; /* Add some padding for better spacing */
-    padding-top: 20px;
-  }
-
-  /* Show the links when the menu is unfolded */
-  .menu-active li a {
-    opacity: 1;
-  }
-
-  /* Hide the menu initially */
-  .menu {
-    display: none;
-  }
-
-  /* Show menu when toggled */
-  .menu-active {
-    display: flex;
+  nav ul li {
+    padding: 10px;
+    margin-bottom: 0;
   }
 
   nav ul li a {
-    opacity: 1; /* Show links without hover on mobile */
+    opacity: 1; /* Ensure links are always visible on small screens */
+  }
+
+  /* Sidebar open state for small screens */
+  .sidebar-active {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
+  }
+
+  .sidebar-active ul {
+    flex-direction: column; /* Stack vertically again */
+  }
+
+  /* Hamburger adjustments for small screens */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  /* Hide sidebar on small screens initially */
+  nav ul {
+    display: none;
+  }
+
+  .sidebar-active ul {
+    display: flex; /* Display the menu when active */
   }
 }

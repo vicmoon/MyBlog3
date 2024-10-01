@@ -6,42 +6,18 @@
   font-family: "SUSE", sans-serif;
 }
 
+/* Global */
+html,
 body {
-  background-color: #201e43;
-}
-
-/* Navbar styles */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
-
-header h1 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
+  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
+/* Container for Flex Layout */
+.container-flex {
+  display: flex;
+  flex-direction: row;
 }
 
 /* Responsive Media Queries for Navbar */
@@ -84,8 +60,8 @@ main form {
 }
 .posts-grid a:hover {
   color: #f4ce14;
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+  transform: scale(1.1); /* Enlarges the text by 10% */
+  transition: transform 0.3s ease; /* Adds a smooth transition */
 }
 
 .posts-grid img {
@@ -159,7 +135,6 @@ form select {
   margin-bottom: 10px;
   color: #062e83;
 }
-
 .contact {
   background-color: #201e43;
   display: flex;
@@ -173,13 +148,12 @@ form select {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  width: 100%;
+  flex-direction: column;
+  gap: 10px; /* Add gap between cards */
+  width: 100%; /* Full width */
 }
 
 .card {
-  margin-top: -50px;
   padding: 10px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -207,23 +181,63 @@ form select {
 }
 
 .card:nth-child(3) {
-  background-color: #ef9c66;
+  background-color: #ef9c66; /* Card 3 color */
+}
+
+/* Ensures that the entire card is clickable and inherits the link styles */
+.card-link {
+  display: block;
+  text-decoration: none; /* Removes underline on text */
+  color: inherit; /* Inherit text color */
+}
+
+.card-link:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+  color: inherit; /* Keeps text color the same on hover */
+}
+
+/* Ensures the button within the card link behaves properly */
+.card-link .btn {
+  pointer-events: none; /* Prevents double-click on button inside the card link */
+}
+
+footer {
+  height: 20vh;
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  background-color: #201e43;
+  margin-top: auto; /* Pushes the footer to the bottom when content is short */
+  width: 100%;
+}
+
+/* Style the /contact link separately */
+.footer-contact {
+  margin-bottom: 10px; /* Add some spacing between /contact and other links */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Style the remaining footer links */
+.footer-links {
+  display: flex;
+  gap: 10px; /* Adds spacing between the remaining links */
+}
+
+.footer-links a {
+  text-decoration: none; /* Remove underline */
+  color: #16325b;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 /* Responsive Media Queries */
 @media (max-width: 475px) {
   .posts-grid {
-    grid-template-columns: 1fr;
-  }
-  .posts-grid img {
-    width: 200px;
-    height: 200px;
-  }
-  .posts-grid .post-date {
-    width: 300px;
-  }
-  .posts-grid .post-body {
-    display: none;
+    display: flex;
+    flex-direction: column;
   }
 
   nav ul {
@@ -249,35 +263,91 @@ form select {
   .posts-grid .post-body {
     display: none;
   }
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
 
   .posts-hero {
     width: calc(100% - 150px);
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack hero grid items */
     background-color: #201e43;
+  }
+  .posts-hero img {
+    width: 200px;
+    height: 200px;
   }
 
   .card-container {
     flex-direction: column;
     margin-left: 50px;
-    gap: 20px;
   }
   .card {
     border-radius: 30px;
     max-width: 200px;
     max-height: 200px;
-    padding: 20px;
+  }
+
+  .card .btn {
+    display: none;
   }
 
   footer {
     height: 100px;
     text-align: center;
-    font-size: 20px;
   }
 }
 
+/* For tablets and small desktops (676px to 1024px) */
+@media (max-width: 1000px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+  .posts-grid img {
+    width: 350px;
+    height: 350px;
+  }
+  .posts-grid .post-date {
+    width: 300px;
+  }
+  .posts-grid .post-body {
+    display: none;
+  }
+
+  .hero h1 {
+    display: none;
+  }
+
+  .hero {
+    display: none;
+    background-image: none; /* Remove the background image */
+  }
+  .latest-post-title {
+    background-color: #16325b;
+  }
+  .posts-hero {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: #16325b;
+  }
+
+  .posts-hero img {
+    width: 200px; /* Set width of each image */
+    height: 200px; /* Set height of each image */
+    object-fit: cover; /* Crop image to fit within these dimensions */
+    border-radius: 30px;
+  }
+
+  .posts-hero .post-date {
+    display: none;
+  }
+
+  footer {
+    height: 100px;
+    text-align: center;
+  }
+}
+
+/* For large desktops (1025px and above) */
 @media (min-width: 1025px) {
   .posts-grid {
     grid-template-columns: 1fr 1fr;
@@ -285,5 +355,18 @@ form select {
 
   .posts-hero {
     grid-template-columns: 1fr 1fr;
+  }
+
+  nav {
+    width: 50px;
+  }
+
+  nav:hover {
+    width: 150px;
+  }
+
+  main {
+    margin-left: 200px;
+    width: calc(100% - 200px);
   }
 }
