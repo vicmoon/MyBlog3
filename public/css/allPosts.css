@@ -1,0 +1,40 @@
+/* Grid layout for posts */
+main {
+  background-color: #201e43;
+  color: #eeeeee;
+}
+main form {
+  padding: 20px;
+  margin-left: 160px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 20px;
+  margin-left: 200px;
+}
+
+.posts-grid a {
+  text-decoration: none;
+}
+.posts-grid a:hover {
+  color: #f4ce14;
+  transform: scale(1.1); /* Enlarges the text by 10% */
+  transition: transform 0.3s ease; /* Adds a smooth transition */
+}
+
+.posts-grid img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+.posts-grid .post-title {
+  color: #eeeeee;
+}
+
+.post-grid .post-content {
+  background-color: #d2d6df;
+}
