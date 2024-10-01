@@ -9,28 +9,32 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #201e43 !important;
   display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  padding-left: 0; /* Ensure space for the sidebar */
+  position: relative;
+}
 
-  justify-content: center; /* Center the form horizontally */
-  align-items: center; /* Center the form vertically */
-  padding-left: 200px; /* Ensure space for the sidebar */
+body.newsletter-page {
+  padding-left: 0; /* Remove sidebar padding */
+  justify-content: center; /* Ensure form is centered horizontally */
 }
 
 /* Form Container */
 .form-container {
+  margin: 0 auto; /* Horizontally center the form */
   width: 100%;
   max-width: 500px;
-  background: #b1afff;
-  margin: auto; /* Center the form horizontally */
   padding: 30px;
+  background: #b1afff;
   border-radius: 5px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Ensure the form is correctly placed within the layout */
 }
-
 .form-container.add-post-container {
   max-width: calc(100% - 150px); /* Full width minus sidebar width */
   margin-left: 150px;
@@ -121,12 +125,12 @@ nav:hover + .add-post-container {
   margin-bottom: 20px;
   margin-top: 20px;
   padding: 0 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .form-container button:hover {
   background: #fb8500;
   transform: scale(1.05);
-  transition: 0.5s;
 }
 
 .form-container button:active {
@@ -203,6 +207,7 @@ nav:hover + .add-post-container {
   text-decoration: underline;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 475px) {
   .books-container {
     grid-template-columns: 1fr;
@@ -215,12 +220,22 @@ nav:hover + .add-post-container {
     margin-top: 10%;
     width: 90%; /* Adjust form width for smaller screens */
   }
-  .books-container {
-    grid-template-columns: 1fr;
-  }
 
   footer {
     width: 100%; /* Footer takes full width on small screens */
     margin-left: 0; /* No left margin for the sidebar */
+  }
+}
+
+/* Small screen adjustments (for all forms) */
+@media (max-width: 768px) {
+  body {
+    padding-left: 0; /* Remove sidebar padding on small screens */
+    justify-content: center;
+  }
+
+  .form-container {
+    width: 90%; /* Make the form take up more width on smaller screens */
+    margin: 0 auto; /* Ensure the form is centered */
   }
 }
