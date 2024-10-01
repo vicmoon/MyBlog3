@@ -10,8 +10,58 @@ body {
   background-color: #201e43;
 }
 
-/* Grid layout for posts */
+/* Navbar styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
 
+header h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Media Queries for Navbar */
+@media (max-width: 768px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Grid layout for posts */
 main {
   background-color: #201e43;
   color: #eeeeee;
@@ -39,9 +89,9 @@ main form {
 }
 
 .posts-grid img {
-  width: 500px; /* Set width of each image */
-  height: 400px; /* Set height of each image */
-  object-fit: cover; /* Crop image to fit within these dimensions */
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
   border-radius: 30px;
 }
 .posts-grid .post-title {
@@ -52,90 +102,7 @@ main form {
   background-color: #d2d6df;
 }
 
-.posts-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 10px;
-  padding: 50px;
-  margin: 0;
-  background-color: #201e43;
-  color: #eeeeee;
-}
-
-.posts-hero img {
-  width: 400px; /* Set width of each image */
-  height: 300px; /* Set height of each image */
-  object-fit: cover; /* Crop image to fit within these dimensions */
-  border-radius: 30px;
-  gap: 10px;
-}
-.hero-post-content {
-  margin-left: 100px;
-  max-width: 500px;
-  max-height: 500px;
-}
-article.hero-post-content {
-  background-color: #624e88;
-  border-radius: 30px;
-  padding: 20px;
-}
-.posts-hero .post-title {
-  color: #cb80ab;
-  font-size: 25px;
-}
-
-.posts-hero .post-date {
-  display: flex;
-  background-color: #ffeac5;
-  color: #062e83;
-  border-radius: 10px;
-  padding: 3px;
-  width: 400px;
-  justify-content: flex-end;
-}
-
-.posts-hero a {
-  text-decoration: none;
-}
-/* Hero Section */
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #201e43;
-
-  /* Background image */
-  background-image: url("/images/background2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  width: 100%;
-  flex-direction: column;
-}
-
-.hero h1 {
-  color: #f9e400;
-  font-family: "Courier New", Courier, Monospace; /* Robotic coding font */
-  font-size: 6rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add shadow to make it pop */
-  position: relative;
-  margin-left: 30px;
-  z-index: 2; /* Ensure the text is on top of the image */
-}
-
-.logo {
-  display: block;
-  width: 40px; /* Small size when nav is collapsed */
-  margin: 0 auto;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  transition: width 0.3s ease; /* Smooth transition for resizing */
-}
-
 /* Main Content */
-
 .post-content {
   padding: 10px;
   width: 400px;
@@ -170,6 +137,7 @@ form select {
   margin-left: 30px;
   background-color: #b1afff;
 }
+
 .post-info span {
   display: flex;
   align-items: center;
@@ -195,10 +163,9 @@ form select {
 .contact {
   background-color: #201e43;
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  /* height: calc(100vh - 20vh); Full height minus footer height */
   padding: 20px;
 }
 
@@ -207,15 +174,15 @@ form select {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 10px; /* Add gap between cards */
-  width: 100%; /* Full width */
+  gap: 10px;
+  width: 100%;
 }
 
 .card {
   margin-top: -50px;
   padding: 10px;
   border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 400px;
 }
 
@@ -229,70 +196,21 @@ form select {
   border-radius: 30px;
   color: #062e83;
 }
+
 /* Different background colors for each card */
 .card:nth-child(1) {
-  background-color: #4dd8e9; /* Card 1 color */
+  background-color: #4dd8e9;
 }
 
 .card:nth-child(2) {
-  background-color: #b1afff; /* Card 2 color */
+  background-color: #b1afff;
 }
 
 .card:nth-child(3) {
-  background-color: #ef9c66; /* Card 3 color */
-}
-
-/* Ensures that the entire card is clickable and inherits the link styles */
-.card-link {
-  display: block;
-  text-decoration: none; /* Removes underline on text */
-  color: inherit; /* Inherit text color */
-}
-
-.card-link:hover {
-  text-decoration: none; /* Ensures no underline on hover */
-  color: inherit; /* Keeps text color the same on hover */
-}
-
-/* Ensures the button within the card link behaves properly */
-.card-link .btn {
-  pointer-events: none; /* Prevents double-click on button inside the card link */
-}
-
-footer {
-  height: 20vh;
-  display: flex;
-  flex-direction: column; /* Arrange children vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center;
-  background-color: #201e43;
-  margin-top: auto; /* Pushes the footer to the bottom when content is short */
-  width: 100%;
-}
-
-/* Style the /contact link separately */
-.footer-contact {
-  margin-bottom: 10px; /* Add some spacing between /contact and other links */
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* Style the remaining footer links */
-.footer-links {
-  display: flex;
-  gap: 10px; /* Adds spacing between the remaining links */
-}
-
-.footer-links a {
-  text-decoration: none; /* Remove underline */
-  color: #16325b;
-  font-size: 1.3rem;
-  font-weight: bold;
+  background-color: #ef9c66;
 }
 
 /* Responsive Media Queries */
-
 @media (max-width: 475px) {
   .posts-grid {
     grid-template-columns: 1fr;
@@ -308,21 +226,17 @@ footer {
     display: none;
   }
 
-  .hero h1 {
-    display: none;
+  nav ul {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero {
-    display: none;
-  }
-
-  nav {
-    width: 50vw; /* Half the screen width on mobile */
-    height: 50vw;
+  nav ul li {
+    margin-bottom: 10px;
   }
 
   .posts-hero {
-    grid-template-columns: 1fr; /* Stack hero grid items */
+    grid-template-columns: 1fr;
   }
 }
 
@@ -341,12 +255,8 @@ footer {
 
   .posts-hero {
     width: calc(100% - 150px);
-    grid-template-columns: 1fr; /* Stack hero grid items */
+    grid-template-columns: 1fr;
     background-color: #201e43;
-  }
-  .posts-hero img {
-    width: 200px;
-    height: 200px;
   }
 
   .card-container {
@@ -361,13 +271,6 @@ footer {
     padding: 20px;
   }
 
-  .card .btn {
-    display: none;
-  }
-  .card-body h5 {
-    display: none;
-  }
-
   footer {
     height: 100px;
     text-align: center;
@@ -375,63 +278,12 @@ footer {
   }
 }
 
-/* For tablets and small desktops (676px to 1024px) */
-/* For screens with max width of 1000px */
-@media (max-width: 1000px) {
-  body {
-    background-color: #16325b; /* Set background color */
-    margin: 0; /* Ensure no margin around body */
-    padding: 0;
-  }
-
-  .hero,
-  .posts-hero,
-  .latest-post-title,
-  .posts-grid {
-    margin: 0;
-    padding: 0;
-  }
-  .latest-post-title {
-    background-color: #16325b;
-    margin-bottom: 0;
-  }
-  .posts-hero {
-    margin-top: 0;
-    margin-left: 50px;
-    background-color: #16325b; /* Ensure background color in the posts area */
-    grid-template-columns: 1fr 1fr; /* Stack the grid in one column on smaller screens */
-    width: 100%;
-  }
-
-  /* Ensuring the whole page uses the full width without margin */
-  .post-content {
-    background-color: #3d74e9; /* Optional: set a background for individual posts */
-    margin: 0 10px; /* Adjust spacing as needed */
-    padding: 20px; /* Add padding for better appearance */
-  }
-
-  .posts-hero img {
-    width: 200px;
-    height: 200px;
-  }
-  .posts-hero .post-date {
-    width: 200px;
-  }
-  footer {
-    background-color: #16325b;
-  }
-}
-
-/* For large desktops (1025px and above) */
 @media (min-width: 1025px) {
   .posts-grid {
-    grid-template-columns: 1fr 1fr; /* 3-column layout for large screens */
+    grid-template-columns: 1fr 1fr;
   }
 
   .posts-hero {
     grid-template-columns: 1fr 1fr;
-  }
-  .post-date {
-    display: none;
   }
 }
