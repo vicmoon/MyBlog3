@@ -65,7 +65,7 @@ app.get("/health", (req, res) => {
 //render homepage
 app.get("/", async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 }).limit(3);
+    const posts = await Post.find().sort({ createdAt: -1 }).limit(5);
     res.render("home", { posts });
   } catch (error) {
     res.render("home", { error: error });

@@ -15,9 +15,15 @@
 .hero h1 {
   font-size: 90px;
   color: #fabc3f;
-  background-color: #cb80ab;
+  background: linear-gradient(135deg, #cb80ab 0%, #e75874 100%);
   padding: 20px;
   border-radius: 30px;
+  font-family: "Monoton", cursive; /* Retro font */
+  text-align: center;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  border: 4px solid #fabc3f;
+  letter-spacing: 5px; /* Spaced out letters */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .posts-hero {
@@ -167,7 +173,6 @@
   }
   .latest-posts {
     font-size: 20px;
-    background-color: #201e43;
     padding: 10px;
     margin: 0;
   }
@@ -212,46 +217,32 @@
 
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .post-content {
-    background-color: #201e43;
-  }
-
   .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    width: 100%;
-    background-color: #201e43;
-    text-align: center;
-    width: 100%;
-    flex-direction: column;
+    display: none;
   }
 
   .hero h1 {
-    font-size: 85px;
+    display: none;
   }
 
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #201e43;
     gap: 10px;
     padding: 70px;
   }
 
   .posts-hero img {
-    width: 400px;
-    height: 400px;
+    width: 80%;
+    height: 80%;
   }
 
-  .post-body {
+  .posts-hero .post-body {
     color: #eeeeee;
   }
 
   .latest-posts {
     font-size: 30px;
-    background-color: #201e43;
     padding: 10px;
     margin: 0;
   }
@@ -260,7 +251,7 @@
     margin-top: 3px;
     background-color: #ffeac5;
     border-radius: 10px;
-    width: 400px;
+    width: 80%;
     justify-content: flex-end;
   }
 
@@ -279,16 +270,17 @@
 
   .posts-hero {
     grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
-    margin-left: 20%;
+    margin-left: 10%;
     padding: 50px;
   }
 
   .posts-hero img {
-    width: 450px; /* Larger images for ultra-wide screens */
-    height: 350px;
+    width: 100%;
+    height: 100%;
   }
-  .post-body {
-    color: #eeeeee;
+
+  .posts-hero .post-date {
+    width: 100%;
   }
 
   footer {
