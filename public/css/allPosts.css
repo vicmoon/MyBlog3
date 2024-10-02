@@ -1,7 +1,6 @@
 /* Grid layout for posts */
 main {
-  background-color: #201e43;
-  color: #eeeeee;
+  color: #062e83;
 }
 main form {
   padding: 20px;
@@ -31,20 +30,58 @@ main form {
   object-fit: cover;
   border-radius: 30px;
 }
-.posts-grid .post-title {
-  color: #eeeeee;
-}
 
-.post-grid .post-content {
-  background-color: #d2d6df;
+.posts-grid .post-title {
+  color: #062e83;
 }
 
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 20px;
+    margin-left: 20%;
+  }
+
+  .posts-grid img {
+    width: 60%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .posts-grid .post-category {
+    display: none;
+  }
+  .posts-grid .post-date span {
+    display: none;
+  }
 }
 
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 20px;
+    margin-left: 20%;
+  }
+
+  .posts-grid img {
+    width: 70%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .posts-grid .post-category {
+    display: none;
+  }
+
+  .posts-grid .post-date span {
+    display: none;
+  }
 }
 
 /* Large devices (tablets, 769px to 1024px) */

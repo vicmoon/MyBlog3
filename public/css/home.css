@@ -1,6 +1,7 @@
 .hero {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   background-color: #062e83;
@@ -9,7 +10,6 @@
   background-size: cover;
   text-align: center;
   width: 100%;
-  flex-direction: column;
 }
 
 .hero h1 {
@@ -22,21 +22,19 @@
 
 .posts-hero {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  margin-left: -10%;
   padding: 50px;
-  background-color: #201e43;
+  max-width: fit-content;
   gap: 10px; /* Adds space between posts */
-  max-width: 1200px; /* Limit max width on larger screens */
-  margin: 0 auto; /* Center the content */
 }
 
 .latest-posts {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #eeeeee;
   margin-top: 10px;
 }
 
@@ -65,6 +63,10 @@
   text-decoration: none;
 }
 
+.posts-hero .post-body {
+  color: #201e43;
+}
+
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
@@ -74,23 +76,28 @@
 
   .hero h1,
   .hero,
-  .latest-posts,
-  .post-date {
+  .latest-posts {
     display: none;
   }
+
   .posts-hero {
     display: flex;
     flex-direction: column;
-    margin-left: 0; /* Center content */
+    margin-left: 0 auto; /* Center content */
     padding: 20px;
+    margin-left: 30%;
   }
 
   .posts-hero img {
-    width: 100%; /* Full width for mobile */
+    width: 60%;
     height: auto;
   }
 
   .post-body {
+    display: none;
+  }
+
+  .posts-hero .post-date {
     display: none;
   }
 
