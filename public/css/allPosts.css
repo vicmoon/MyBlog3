@@ -47,15 +47,8 @@ main form {
 
   .posts-grid img {
     width: 60%;
-    height: auto;
+    height: 60%;
     border-radius: 30px;
-  }
-
-  .posts-grid .post-category {
-    display: none;
-  }
-  .posts-grid .post-date span {
-    display: none;
   }
 }
 

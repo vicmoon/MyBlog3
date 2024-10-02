@@ -132,7 +132,7 @@
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: #201e43;
+    margin-left: 15%;
     gap: 10px;
   }
 
@@ -154,6 +154,7 @@
     padding: 20px;
     font-size: 16px;
   }
+
   .post-date {
     margin-top: 3px;
     background-color: #ffeac5;
@@ -206,12 +207,18 @@
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0;
-    padding: 30px;
+    gap: 10px;
+    padding: 70px;
+    margin-left: 20%;
   }
+
   .posts-hero img {
-    width: 300px; /* Adjust image sizes */
-    height: 300px;
+    width: 80%;
+    height: 80%;
+  }
+
+  .posts-hero .post-date {
+    width: 80%;
   }
 }
 
@@ -230,6 +237,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 70px;
+    margin-left: 20%;
+  }
+
+  .posts-hero .post-body {
+    display: none;
   }
 
   .posts-hero img {
@@ -237,12 +249,8 @@
     height: 80%;
   }
 
-  .posts-hero .post-body {
-    color: #eeeeee;
-  }
-
   .latest-posts {
-    font-size: 30px;
+    font-size: 50px;
     padding: 10px;
     margin: 0;
   }
