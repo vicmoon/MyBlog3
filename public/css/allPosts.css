@@ -38,3 +38,23 @@ main form {
 .post-grid .post-content {
   background-color: #d2d6df;
 }
+
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+}
