@@ -12,29 +12,13 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #201e43;
 }
 
 /* Container for Flex Layout */
 .container-flex {
   display: flex;
   flex-direction: row;
-}
-
-/* Responsive Media Queries for Navbar */
-@media (max-width: 768px) {
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
 }
 
 /* Main Content */
@@ -58,13 +42,6 @@ body {
   left: -5px;
 }
 
-form select {
-  padding: 5px;
-  border-radius: 30px;
-  margin-left: 30px;
-  background-color: #b1afff;
-}
-
 .post-info span {
   display: flex;
   align-items: center;
@@ -86,74 +63,16 @@ form select {
   margin-bottom: 10px;
   color: #062e83;
 }
-.contact {
-  background-color: #201e43;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-}
 
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px; /* Add gap between cards */
-  width: 100%; /* Full width */
-}
-
-.card {
-  padding: 10px;
+form select {
+  padding: 5px;
   border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-}
-
-.card-header,
-.card-title {
-  text-align: center;
-  font-weight: bold;
-}
-.card .btn {
-  background-color: #fcde70;
-  border-radius: 30px;
-  color: #062e83;
-}
-
-/* Different background colors for each card */
-.card:nth-child(1) {
-  background-color: #4dd8e9;
-}
-
-.card:nth-child(2) {
+  margin-left: 30px;
   background-color: #b1afff;
 }
 
-.card:nth-child(3) {
-  background-color: #ef9c66; /* Card 3 color */
-}
-
-/* Ensures that the entire card is clickable and inherits the link styles */
-.card-link {
-  display: block;
-  text-decoration: none; /* Removes underline on text */
-  color: inherit; /* Inherit text color */
-}
-
-.card-link:hover {
-  text-decoration: none; /* Ensures no underline on hover */
-  color: inherit; /* Keeps text color the same on hover */
-}
-
-/* Ensures the button within the card link behaves properly */
-.card-link .btn {
-  pointer-events: none; /* Prevents double-click on button inside the card link */
-}
-
 footer {
-  height: 20vh;
+  height: 10vh;
   display: flex;
   flex-direction: column; /* Arrange children vertically */
   justify-content: center; /* Center content vertically */
@@ -164,7 +83,6 @@ footer {
   width: 100%;
 }
 
-/* Style the /contact link separately */
 .footer-contact {
   margin-bottom: 10px; /* Add some spacing between /contact and other links */
   font-size: 1.5rem;
@@ -182,142 +100,4 @@ footer {
   color: #16325b;
   font-size: 1.3rem;
   font-weight: bold;
-}
-
-/* Responsive Media Queries */
-@media (max-width: 475px) {
-  .posts-grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin-bottom: 10px;
-  }
-
-  .posts-hero {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 675px) {
-  .latest-post-title,
-  .hero,
-  .hero h1,
-  .posts-hero .post-date,
-  .posts-hero .post-body,
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .posts-hero {
-    width: calc(100% - 150px);
-    grid-template-columns: 1fr; /* Stack hero grid items */
-    background-color: #201e43;
-  }
-  .posts-hero img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .card-container {
-    flex-direction: column;
-    margin-left: 50px;
-  }
-  .card {
-    border-radius: 30px;
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-  .card .btn {
-    display: none;
-  }
-
-  footer {
-    height: 100px;
-    text-align: center;
-  }
-}
-
-/* For tablets and small desktops (676px to 1024px) */
-@media (max-width: 1000px) {
-  .posts-grid {
-    grid-template-columns: 1fr;
-    margin-left: 0;
-  }
-  .posts-grid img {
-    width: 350px;
-    height: 350px;
-  }
-  .posts-grid .post-date {
-    width: 300px;
-  }
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .hero h1 {
-    display: none;
-  }
-
-  .hero {
-    display: none;
-    background-image: none; /* Remove the background image */
-  }
-  .latest-post-title {
-    background-color: #16325b;
-  }
-  .posts-hero {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-
-    background-color: #16325b;
-  }
-
-  .posts-hero img {
-    width: 200px; /* Set width of each image */
-    height: 200px; /* Set height of each image */
-    object-fit: cover; /* Crop image to fit within these dimensions */
-    border-radius: 30px;
-  }
-
-  .posts-hero .post-date {
-    display: none;
-  }
-
-  footer {
-    height: 100px;
-    text-align: center;
-  }
-}
-
-/* For large desktops (1025px and above) */
-@media (min-width: 1025px) {
-  .posts-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .posts-hero {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  nav {
-    width: 50px;
-  }
-
-  nav:hover {
-    width: 150px;
-  }
-
-  main {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-  }
 }

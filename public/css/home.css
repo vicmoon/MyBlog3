@@ -11,14 +11,30 @@
   width: 100%;
   flex-direction: column;
 }
+
+.hero h1 {
+  font-size: 90px;
+  color: #fabc3f;
+  background-color: #cb80ab;
+  padding: 20px;
+  border-radius: 30px;
+}
 .posts-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 100vh;
   padding: 50px;
-  margin: 0;
+  margin-left: 15%;
   background-color: #201e43;
   color: #eeeeee;
+}
+
+.latest-posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eeeeee;
+  margin-top: 5px;
 }
 
 .posts-hero img {
@@ -51,4 +67,189 @@ article.hero-post-content {
 
 .posts-hero a {
   text-decoration: none;
+}
+
+/* Responsive Media Queries */
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
+  body {
+    background-color: #062e83;
+  }
+
+  .hero h1,
+  .hero {
+    display: none;
+  }
+  .posts-hero {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0; /* Center content */
+    padding: 20px;
+  }
+
+  .posts-hero img {
+    width: 100%; /* Full width for mobile */
+    height: auto;
+  }
+
+  .latest-posts {
+    display: none; /* Hide on small devices */
+  }
+
+  .post-date {
+    margin-top: 3px;
+    background-color: #ffeac5;
+    border-radius: 10px;
+    width: 250px;
+    justify-content: flex-end;
+  }
+
+  footer {
+    height: 50px;
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    background-color: #201e43;
+    margin-top: auto; /* Pushes the footer to the bottom when content is short */
+    width: 100%;
+  }
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  .hero h1,
+  .hero {
+    display: none;
+  }
+
+  .posts-hero {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Two columns for larger phones/tablets */
+    margin-left: 5%;
+    padding: 30px;
+  }
+
+  .posts-hero img {
+    width: 300px; /* Smaller images for mid-size devices */
+    height: 200px;
+  }
+
+  .latest-posts {
+    margin-top: 20px;
+    font-size: 18px; /* Adjusted for readability */
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 16px;
+  }
+  .post-date {
+    margin-top: 3px;
+    background-color: #ffeac5;
+    border-radius: 10px;
+    width: 300px;
+    justify-content: flex-end;
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html,
+  body {
+    background-color: #201e43;
+  }
+  .hero h1 {
+    font-size: 75px; /* Larger font for tablets */
+  }
+  .hero {
+    display: none;
+  }
+  .latest-posts {
+    font-size: 20px;
+    background-color: #201e43;
+    padding: 10px;
+    margin: 0;
+  }
+  .post-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .posts-hero {
+    grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+    margin: 0;
+    padding: 30px;
+  }
+
+  .posts-hero img {
+    width: 40vh; /* Adjust image sizes */
+    height: 50vh;
+  }
+
+  footer {
+    font-size: 18px;
+    padding: 25px;
+  }
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    background-color: #062e83;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 85px;
+  }
+
+  .posts-hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-left: 12%;
+    padding: 45px;
+  }
+
+  .posts-hero img {
+    width: 400px;
+    height: 300px;
+  }
+
+  footer {
+    font-size: 20px;
+    padding: 30px;
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  .hero h1 {
+    font-size: 100px; /* Large text for ultra-wide monitors */
+  }
+
+  .posts-hero {
+    grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
+    margin-left: 15%;
+    padding: 50px;
+  }
+
+  .posts-hero img {
+    width: 450px; /* Larger images for ultra-wide screens */
+    height: 350px;
+  }
+
+  footer {
+    font-size: 22px;
+    padding: 35px;
+  }
 }

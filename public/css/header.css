@@ -1,19 +1,20 @@
 /* Sidebar container */
 nav {
   width: 50px; /* Collapsed width */
-  height: 100vh;
+  height: 100vh; /* Full height */
   background-color: #508c9b;
   position: fixed;
   top: 0;
   left: 0;
   padding-top: 20px;
   overflow: hidden;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for width and height */
   z-index: 1000;
 }
 
+/* Sidebar expands vertically only */
 nav:hover {
-  width: 150px; /* Expanded width on hover */
+  width: 150px; /* Expanded width */
 }
 
 /* Style the nav links */
@@ -22,7 +23,7 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Always stack items vertically */
 }
 
 nav ul li {
@@ -64,64 +65,82 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-/* Small screen adjustments */
-@media (max-width: 768px) {
+/* Responsive Media Queries */
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
   nav {
-    width: 100%;
-    height: 50px; /* Sidebar collapsed to top */
-    padding: 0;
-    background-color: #508c9b;
+    width: 50px; /* Keep width consistent */
+    height: 100vh; /* Full vertical height */
+  }
+
+  nav:hover {
+    width: 150px; /* Expanded width */
   }
 
   nav ul {
-    flex-direction: row; /* Stack horizontally */
-    justify-content: space-around;
-    padding: 0;
-  }
-
-  nav ul li {
-    padding: 10px;
-    margin-bottom: 0;
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    justify-content: flex-start;
   }
 
   nav ul li a {
-    opacity: 1; /* Ensure links are always visible on small screens */
+    opacity: 0; /* Hidden until hover */
   }
 
-  /* Sidebar open state for small screens */
-  .sidebar-active {
-    height: 100vh;
-    width: 200px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: width 0.3s ease;
+  nav:hover ul li a {
+    opacity: 1; /* Show links on hover */
+  }
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  nav {
+    width: 50px; /* Same width */
+    height: 100vh; /* Keep full height */
   }
 
-  .sidebar-active ul {
-    flex-direction: column; /* Stack vertically again */
+  nav:hover {
+    width: 150px; /* Consistent expansion */
   }
 
-  /* Hamburger adjustments for small screens */
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-
-  .hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-    transition: all 0.3s ease;
-  }
-
-  /* Hide sidebar on small screens initially */
   nav ul {
-    display: none;
+    flex-direction: column; /* Always stack items vertically */
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav {
+    width: 60px; /* Slightly wider for tablets */
   }
 
-  .sidebar-active ul {
-    display: flex; /* Display the menu when active */
+  nav:hover {
+    width: 180px;
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack vertically */
+  }
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  nav {
+    width: 60px; /* Standard width */
+  }
+
+  nav:hover {
+    width: 180px; /* Consistent width on hover */
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  nav {
+    width: 60px; /* Wider sidebar for large screens */
+  }
+
+  nav:hover {
+    width: 180px; /* Larger expanded width */
   }
 }

@@ -1,0 +1,65 @@
+.contact {
+  background-color: #201e43;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px; /* Add gap between cards */
+  width: 100%; /* Full width */
+}
+
+.card {
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+.card-header,
+.card-title {
+  text-align: center;
+  font-weight: bold;
+}
+.card .btn {
+  background-color: #fcde70;
+  border-radius: 30px;
+  color: #062e83;
+}
+
+/* Different background colors for each card */
+.card:nth-child(1) {
+  background-color: #4dd8e9;
+}
+
+.card:nth-child(2) {
+  background-color: #b1afff;
+}
+
+.card:nth-child(3) {
+  background-color: #ef9c66; /* Card 3 color */
+}
+
+/* Ensures that the entire card is clickable and inherits the link styles */
+.card-link {
+  display: block;
+  text-decoration: none; /* Removes underline on text */
+  color: inherit; /* Inherit text color */
+}
+
+.card-link:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+  color: inherit; /* Keeps text color the same on hover */
+}
+
+/* Ensures the button within the card link behaves properly */
+.card-link .btn {
+  pointer-events: none; /* Prevents double-click on button inside the card link */
+}
