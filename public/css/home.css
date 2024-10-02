@@ -19,14 +19,17 @@
   padding: 20px;
   border-radius: 30px;
 }
+
 .posts-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  max-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   padding: 50px;
-  margin-left: 15%;
   background-color: #201e43;
-  color: #eeeeee;
+  gap: 10px; /* Adds space between posts */
+  max-width: 1200px; /* Limit max width on larger screens */
+  margin: 0 auto; /* Center the content */
 }
 
 .latest-posts {
@@ -34,22 +37,15 @@
   justify-content: center;
   align-items: center;
   color: #eeeeee;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .posts-hero img {
-  width: 400px;
-  height: 300px;
-  object-fit: cover;
+  width: 100px;
+  height: 100px;
   border-radius: 30px;
-  gap: 10px;
 }
 
-article.hero-post-content {
-  background-color: #624e88;
-  border-radius: 30px;
-  padding: 15px;
-}
 .posts-hero .post-title {
   color: #cb80ab;
   font-size: 25px;
@@ -61,7 +57,7 @@ article.hero-post-content {
   color: #062e83;
   border-radius: 10px;
   padding: 3px;
-  width: 400px;
+  width: 300px;
   justify-content: flex-end;
 }
 
@@ -77,7 +73,9 @@ article.hero-post-content {
   }
 
   .hero h1,
-  .hero {
+  .hero,
+  .latest-posts,
+  .post-date {
     display: none;
   }
   .posts-hero {
@@ -90,18 +88,6 @@ article.hero-post-content {
   .posts-hero img {
     width: 100%; /* Full width for mobile */
     height: auto;
-  }
-
-  .latest-posts {
-    display: none; /* Hide on small devices */
-  }
-
-  .post-date {
-    margin-top: 3px;
-    background-color: #ffeac5;
-    border-radius: 10px;
-    width: 250px;
-    justify-content: flex-end;
   }
 
   footer {
@@ -120,15 +106,16 @@ article.hero-post-content {
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   .hero h1,
-  .hero {
+  .hero,
+  .latest-posts,
+  .post-date {
     display: none;
   }
-
   .posts-hero {
     display: flex;
-    flex-direction: column; /* Arrange children vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Two columns for larger phones/tablets */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: 5%;
     padding: 30px;
   }
@@ -139,8 +126,8 @@ article.hero-post-content {
   }
 
   .latest-posts {
-    margin-top: 20px;
     font-size: 18px; /* Adjusted for readability */
+    background-color: #062e83;
   }
 
   footer {
@@ -151,7 +138,7 @@ article.hero-post-content {
     margin-top: 3px;
     background-color: #ffeac5;
     border-radius: 10px;
-    width: 300px;
+    width: 200px;
     justify-content: flex-end;
   }
 }
@@ -197,13 +184,17 @@ article.hero-post-content {
 
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .post-content {
+    background-color: #201e43;
+  }
+
   .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 20vh;
     width: 100%;
-    background-color: #062e83;
+    background-color: #201e43;
     text-align: center;
     width: 100%;
     flex-direction: column;
@@ -214,18 +205,29 @@ article.hero-post-content {
   }
 
   .posts-hero {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #201e43;
     gap: 10px;
-    margin-left: 12%;
+    max-width: 100%;
     padding: 45px;
   }
 
   .posts-hero img {
-    width: 400px;
+    width: 300px;
     height: 300px;
+  }
+  .latest-posts {
+    font-size: 20px;
+    background-color: #201e43;
+    padding: 10px;
+    margin: 0;
   }
 
   footer {
+    height: 20px;
     font-size: 20px;
     padding: 30px;
   }

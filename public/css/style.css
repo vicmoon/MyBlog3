@@ -24,7 +24,7 @@ body {
 /* Main Content */
 .post-content {
   padding: 10px;
-  width: 400px;
+  width: 400px; /* Adjusted in media queries */
   margin: 10px;
   position: relative;
   border-radius: 30px;
@@ -46,19 +46,19 @@ body {
   display: flex;
   align-items: center;
   color: rgb(168, 12, 12);
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Adjusted in media queries */
 }
 
 .post-date {
   margin-top: 3px;
   background-color: #ffeac5;
   border-radius: 10px;
-  width: 500px;
+  width: 500px; /* Adjusted in media queries */
   justify-content: flex-end;
 }
 
 .post-content h1 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Adjusted in media queries */
   font-weight: bold;
   margin-bottom: 10px;
   color: #062e83;
@@ -84,7 +84,7 @@ footer {
 }
 
 .footer-contact {
-  margin-bottom: 10px; /* Add some spacing between /contact and other links */
+  margin-bottom: 10px; /* Add some spacing between contact and other links */
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -100,4 +100,201 @@ footer {
   color: #16325b;
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+/* Responsive Media Queries */
+
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
+  .post-content {
+    width: 100%; /* Full width on small screens */
+    margin: 5px;
+  }
+
+  .post-category span {
+    font-size: 12px; /* Smaller text for mobile */
+    padding: 5px;
+  }
+
+  .post-info span {
+    font-size: 1rem; /* Reduced font size */
+  }
+
+  .post-date {
+    display: none; /* Full width for date span */
+  }
+
+  .post-content h1 {
+    font-size: 1.2rem; /* Smaller heading for mobile */
+  }
+
+  form select {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .footer-contact {
+    font-size: 1.2rem;
+  }
+
+  .footer-links {
+    flex-direction: column; /* Stack footer links vertically */
+    gap: 5px;
+  }
+
+  .footer-links a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  .post-content {
+    width: 90%;
+  }
+
+  .post-category span {
+    font-size: 13px;
+    padding: 7px;
+  }
+
+  .post-info span {
+    font-size: 1.1rem;
+  }
+
+  .post-date {
+    width: 100%;
+  }
+
+  .post-content h1 {
+    font-size: 1.3rem;
+  }
+
+  form select {
+    width: auto;
+    margin-left: 20px;
+  }
+
+  .footer-contact {
+    font-size: 1.4rem;
+  }
+
+  .footer-links {
+    gap: 8px;
+  }
+
+  .footer-links a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .post-content {
+    width: 85%;
+  }
+
+  .post-category span {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .post-info span {
+    font-size: 1.15rem;
+  }
+
+  .post-date {
+    width: 400px; /* More compact date span for tablets */
+  }
+
+  .post-content h1 {
+    font-size: 1.4rem;
+  }
+
+  form select {
+    padding: 8px;
+  }
+
+  .footer-contact {
+    font-size: 1.5rem;
+  }
+
+  .footer-links {
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 1.3rem;
+  }
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .post-content {
+    width: 70%; /* Keep content more compact */
+  }
+
+  .post-category span {
+    font-size: 15px;
+  }
+
+  .post-info span {
+    font-size: 1.2rem;
+  }
+
+  .post-date {
+    width: 450px;
+  }
+
+  .post-content h1 {
+    font-size: 1.5rem;
+  }
+
+  form select {
+    padding: 10px;
+  }
+
+  .footer-contact {
+    font-size: 1.6rem;
+  }
+
+  .footer-links a {
+    font-size: 1.4rem;
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  .post-content {
+    width: 60%;
+  }
+
+  .post-category span {
+    font-size: 16px;
+  }
+
+  .post-info span {
+    font-size: 1.3rem;
+  }
+
+  .post-date {
+    width: 500px;
+  }
+
+  .post-content h1 {
+    font-size: 1.7rem;
+  }
+
+  form select {
+    padding: 12px;
+  }
+
+  .footer-contact {
+    font-size: 1.7rem;
+  }
+
+  .footer-links a {
+    font-size: 1.5rem;
+  }
 }
