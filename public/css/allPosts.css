@@ -1,11 +1,4 @@
 /* Grid layout for posts */
-main {
-  color: #062e83;
-}
-main form {
-  padding: 20px;
-  margin-left: 160px;
-}
 
 .posts-grid {
   display: grid;
@@ -58,13 +51,45 @@ main form {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
+    margin-left: 30%;
+  }
+
+  .posts-grid img {
+    width: 70%;
+    height: 70%;
+    border-radius: 30px;
+  }
+
+  .posts-grid .post-category {
+    display: none;
+  }
+  .posts-grid .post-body {
+    display: none;
+  }
+
+  .posts-grid .post-date {
+    display: none;
+  }
+
+  form select {
+    margin-left: 30%;
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .posts-grid {
+    margin-left: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin: 20px 20px;
     margin-left: 20%;
   }
 
   .posts-grid img {
-    width: 70%;
-    height: auto;
+    width: 90%;
+    height: 80%;
     border-radius: 30px;
   }
 
@@ -72,17 +97,43 @@ main form {
     display: none;
   }
 
-  .posts-grid .post-date span {
+  .posts-grid .post-date {
+    width: 90%;
+  }
+
+  .posts-grid .post-body {
     display: none;
   }
 }
 
-/* Large devices (tablets, 769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-}
-
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .posts-grid {
+    margin-left: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 20px;
+    margin-left: 20%;
+  }
+
+  .posts-grid img {
+    width: 90%;
+    height: 80%;
+    border-radius: 30px;
+  }
+
+  .posts-grid .post-category {
+    display: none;
+  }
+
+  .posts-grid .post-date {
+    width: 90%;
+  }
+
+  .posts-grid .post-body {
+    display: none;
+  }
 }
 
 /* Ultra large devices (large desktops and monitors, 1441px and up) */
