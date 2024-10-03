@@ -3,133 +3,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Press Start 2P", cursive; /* Retro pixel font */
 }
 
-/* Base styles for the body and general layout */
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #201e43;
   color: #333;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Courier New", Courier, monospace;
 }
-
-.logo {
-  display: block;
-  width: 40px; /* Small size when nav is collapsed */
-  margin: 0 auto;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  transition: width 0.3s ease; /* Smooth transition for resizing */
-}
-
-/* Sidebar container */
-nav {
-  width: 50px; /* Collapsed width */
-  height: 100vh;
-  background-color: #508c9b;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 20px;
-  overflow: hidden; /* Prevent overflow when collapsed */
-  transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
-}
-
-/* Expand the sidebar on hover */
-nav:hover {
-  width: 150px; /* Expanded width */
-}
-
-/* Style the nav links */
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  margin-bottom: 15px;
-  padding-left: 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: aliceblue;
-  padding: 5px;
-  display: block;
-  white-space: nowrap; /* Prevent text from wrapping */
-  opacity: 0; /* Initially hidden text */
-  transition: opacity 0.3s ease; /* Smooth text fade-in */
-}
-
-/* Show the text on hover when the sidebar expands */
-nav:hover ul li a {
-  opacity: 1; /* Text becomes visible */
-}
-
-/* Icon or placeholder to show even when collapsed */
-nav ul li a::before {
-  content: ""; /* Simple icon, you can replace with actual icons */
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 1rem;
-}
-
-nav:hover ul li a::before {
-  content: ""; /* Remove icon on hover */
-}
-
-/* Styling when hovering over the links */
-nav ul li a:hover {
-  background-color: #e6d9a2;
-  width: 100px;
-  border-radius: 5px;
-}
-
-/* Flex Container for Post and Related Posts */
+/* Flex Container */
 .container-flex {
   display: flex;
   justify-content: space-between;
-  margin-left: 160px; /* Space for the nav bar */
+  margin-left: 0; /* Removed left margin for full-width */
   padding: 20px;
-  width: calc(100% - 160px);
+  width: 100%;
 }
 
-/* Main Post Content - Stretches across the container */
-main {
-  width: calc(100% - 350px);
-  margin-top: 40px; /* Use most of the container, leaving space for related posts */
-}
-
-button {
-  display: flex;
-  justify-content: row;
-  padding: 5px;
-  border-radius: 20px;
-  gap: 5px;
-}
-
+/* Main Post Content */
 .post-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.post-image {
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  width: 100%; /* Main content width minus related posts width */
+  flex-grow: 1; /* Allow the post content to take up available space */
 }
 
 .post-title {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #2b2d42;
+  text-shadow: 2px 2px 0 #ffb84c;
 }
 
 .post-info {
@@ -139,35 +45,42 @@ button {
 
 .post-body {
   font-size: 1.2rem;
-  line-height: 1.6;
+  line-height: 1.8;
   text-align: justify;
+  background-color: #fff7d6;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+/* Post Image */
+.post-image {
+  width: 100%; /* Ensure image fills the post container */
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 /* Related Posts Section */
 .related-posts {
-  width: 300px; /* Fixed width for related posts */
-  margin-left: 10px; /* Small gap from the main content */
+  width: 90%; /* Fixed width for related posts */
+  background-color: #4d5869;
+  padding: 15px;
+  border-radius: 8px;
+  border: 3px solid #ffb84c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  padding: 10px;
-}
-
-.related-posts h2,
-h3 {
-  color: #cb80ab;
-  margin-bottom: 10px;
-}
-
-.related-posts h3:hover {
-  color: #ffb84c;
+  margin-left: 20px; /* Space between main content and related posts */
 }
 
 .related-post-content {
-  background-color: #fff;
+  background-color: #fffcf2;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 2px solid #333;
   margin-bottom: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .related-post-content img {
@@ -176,40 +89,138 @@ h3 {
   margin-bottom: 10px;
 }
 
+.related-posts h2,
+.related-posts h3 {
+  color: #cb80ab;
+  margin-bottom: 10px;
+}
+
+.related-posts h3:hover {
+  color: #ffb84c;
+}
+
 .post-read-more {
   color: #ffb84c;
   text-decoration: none;
   font-size: 1rem;
 }
 
-/* Move Related Posts below the article on small screens (max-width: 675px) */
-@media (max-width: 675px) {
+/* --------------------------------------- */
+/* MEDIA QUERIES */
+/* --------------------------------------- */
+
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
   .container-flex {
-    display: flex;
     flex-direction: column;
-  }
-  .posts {
-    width: 100%;
+    padding: 10px;
   }
 
   .post-content {
-    width: 100%; /* Force post content to full width */
+    width: 100%;
   }
 
   .related-posts {
-    width: 100%; /* Full width for related posts */
-    margin-left: 0;
-    margin-top: 20px; /* Add margin to separate from main content */
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .post-title {
+    font-size: 2rem;
+  }
+
+  .post-body {
+    font-size: 1rem;
+  }
+
+  .related-post-content {
+    margin-bottom: 10px;
   }
 }
 
-/* Adjust layout for medium screens (676px to 1000px) */
-@media (min-width: 676px) and (max-width: 1000px) {
-  .related-posts {
-    width: 300px; /* Fixed width for related posts */
-    margin-left: 10px; /* Small gap from the main content */
-    display: flex;
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  .container-flex {
     flex-direction: column;
-    padding: 10px;
+    padding: 15px;
+  }
+
+  .post-content {
+    width: 100%;
+  }
+
+  .related-posts {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .post-title {
+    font-size: 2rem;
+  }
+
+  .post-body {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-flex {
+    flex-direction: row;
+    width: calc(100% - 20px);
+  }
+
+  .post-content {
+    width: calc(100% - 350px);
+  }
+
+  .related-posts {
+    width: 300px;
+  }
+
+  .post-title {
+    font-size: 2.3rem;
+  }
+}
+
+/* Extra large devices (desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .container-flex {
+    flex-direction: row;
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .post-content {
+    width: calc(100% - 350px);
+  }
+
+  .related-posts {
+    width: 350px;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  .container-flex {
+    flex-direction: row;
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+
+  .post-content {
+    width: calc(100% - 350px);
+  }
+
+  .related-posts {
+    width: 350px;
+  }
+
+  .post-title {
+    font-size: 2.8rem;
   }
 }
