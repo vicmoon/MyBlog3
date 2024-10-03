@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
+   
     <link rel="stylesheet" href="/css/contact.css" />
 
     <script
@@ -23,13 +23,17 @@
   <body>
     <!-- nav -->
     <%-include('./partials/header.ejs')%>
-
+     
     <section class="contact">
+      
       <div class="card-container">
         <div class="card">
-          <div class="card-header">
-            Portfolio <i class="fa-solid fa-briefcase"></i>
-          </div>
+          <a href="https://victoriamunteanuportfolio.net/" class="btn-primary">
+            <div class="card-header">
+              Portfolio <i class="fa-solid fa-briefcase"></i>
+            </div>
+          </a>
+          
           <div class="card-body">
             <h5 class="card-title">Explore My Work</h5>
             <p class="card-text">
@@ -43,9 +47,11 @@
           </div>
         </div>
         <div class="card">
+          <a  href="https://www.linkedin.com/in/victoriamunteanu/" class="btn-primary">
           <div class="card-header">
             LinkedIn <i class="fa-brands fa-linkedin"></i></i>
           </div>
+        </a>
           <div class="card-body">
             <h5 class="card-title">Connect with Me</h5>
             <p class="card-text">
@@ -59,7 +65,9 @@
           </div>
         </div>
         <div class="card">
+          <a  href="https://github.com/vicmoon" class="btn-primary">
           <div class="card-header">GitHub <i class="fa-brands fa-github"></i></div>
+          </a>
           <div class="card-body">
             <h5 class="card-title">See My Code in Action</h5>
             <p class="card-text">

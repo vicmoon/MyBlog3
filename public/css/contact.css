@@ -1,10 +1,14 @@
+body {
+  padding-top: 20px; /* Adds padding to the top of the entire page */
+  background-color: #201e43 !important;
+}
+
 .contact {
-  background-color: #201e43;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Prevents content from going beyond screen */
+  margin: 0 auto; /* Centers the container */
+  padding: 10px;
+  display: grid;
 }
 
 .card-container {
@@ -14,6 +18,8 @@
   flex-direction: row;
   gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
+  flex-wrap: wrap; /* Ensures the cards wrap to the next row if needed */
+  padding-top: 50px; /* Add padding to ensure space at the top */
 }
 
 .card {
@@ -21,6 +27,9 @@
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 400px;
+  width: 100%; /* Full width for small screens */
+  box-sizing: border-box; /* Include padding in the total width */
+  margin: 10px; /* Ensure some margin between cards */
 }
 
 .card-header,
@@ -28,6 +37,7 @@
   text-align: center;
   font-weight: bold;
 }
+
 .card .btn {
   background-color: #fcde70;
   border-radius: 30px;
@@ -62,4 +72,91 @@
 /* Ensures the button within the card link behaves properly */
 .card-link .btn {
   pointer-events: none; /* Prevents double-click on button inside the card link */
+}
+
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
+  body {
+    padding-top: 20px; /* Reduce padding for small screens */
+  }
+
+  h5,
+  p {
+    display: none;
+  }
+  .btn {
+    display: none !important;
+  }
+
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 15px; /* Add more gap between stacked cards */
+    padding: 0 10px; /* Ensure the cards don't touch the edges of the screen */
+    padding-top: 50px; /* Ensure space at the top */
+  }
+
+  .card {
+    max-width: 50%; /* Make sure the cards take full width */
+    padding: 15px;
+    margin: 0 auto 15px auto; /* Center cards and add bottom margin */
+  }
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Increase gap */
+    padding: 0 20px; /* Padding on the sides */
+    padding-top: 50px; /* Ensure space at the top */
+  }
+
+  .card {
+    max-width: 300px; /* Cards take up to 300px width */
+    width: 100%; /* Ensure the cards are full width */
+    margin: 0 auto 15px auto; /* Center cards */
+  }
+  h5 {
+    display: none;
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-container {
+    flex-direction: row; /* Cards align in a row */
+    justify-content: space-evenly; /* Space them out evenly */
+    padding: 0 40px; /* Add side padding */
+    padding-top: 50px; /* Ensure space at the top */
+  }
+
+  .card {
+    max-width: 350px; /* Slightly larger cards */
+  }
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .card-container {
+    justify-content: space-between; /* Ensure good space between cards */
+    padding: 0 50px; /* Add more padding for larger screens */
+    padding-top: 50px; /* Ensure space at the top */
+  }
+
+  .card {
+    max-width: 400px; /* Maintain 400px card width */
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  .card-container {
+    justify-content: space-around; /* Space out cards well on ultra large screens */
+    padding: 0 80px; /* Add even more padding */
+    padding-top: 50px; /* Ensure space at the top */
+  }
+
+  .card {
+    max-width: 450px; /* Increase card width slightly */
+  }
 }
