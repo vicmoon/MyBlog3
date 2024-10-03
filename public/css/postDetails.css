@@ -13,11 +13,13 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 /* Flex Container */
-.container-flex {
+.container {
   display: flex;
-  justify-content: space-between;
+  align-items: space-around;
+  justify-content: center;
   margin-left: 0; /* Removed left margin for full-width */
-  padding: 20px;
+  margin-top: 20px;
+  padding: 10px;
   width: 100%;
 }
 
@@ -26,8 +28,9 @@ body {
   padding: 25px;
   border-radius: 12px;
   border: 2px solid #333;
+  margin-left: 20%;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  width: 100%; /* Main content width minus related posts width */
+  width: 1200px; /* Main content width minus related posts width */
   flex-grow: 1; /* Allow the post content to take up available space */
 }
 
@@ -63,8 +66,8 @@ body {
 
 /* Related Posts Section */
 .related-posts {
-  width: 90%; /* Fixed width for related posts */
-  background-color: #4d5869;
+  width: 500px; /* Fixed width for related posts */
+  background-color: #394457;
   padding: 15px;
   border-radius: 8px;
   border: 3px solid #ffb84c;
