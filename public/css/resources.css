@@ -1,0 +1,103 @@
+body {
+  padding-top: 20px; /* Adds padding to the top of the entire page */
+  background-color: #201e43 !important;
+}
+
+.books-container {
+  width: 100%;
+  max-width: 1200px; /* Prevents content from going beyond screen */
+  margin: 0 auto; /* Centers the container */
+  padding: 10px;
+  display: grid;
+}
+
+/* Responsive grid configuration */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Dynamically adjust columns */
+  gap: 20px;
+}
+
+.book-card {
+  background-color: #ef9c66;
+  padding: 10px;
+  width: 100%; /* Ensures card width is fluid */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  margin-bottom: 10px;
+}
+
+.book-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.book-card a:hover {
+  text-decoration: underline;
+}
+
+/* Small devices (phones, 0px to 475px) */
+@media (max-width: 475px) {
+  .books-grid {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    gap: 10px;
+  }
+
+  .book-card h2 {
+    font-size: 1.2rem; /* Smaller title for phones */
+  }
+}
+
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    gap: 15px;
+  }
+
+  .book-card h2 {
+    font-size: 1.3rem; /* Adjust title size */
+  }
+}
+
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
+    gap: 20px;
+  }
+
+  .book-card h2 {
+    font-size: 1.4rem; /* Slightly larger titles */
+  }
+}
+
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
+    gap: 25px;
+  }
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
+  .books-grid {
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Four columns for ultra large screens */
+    gap: 30px;
+  }
+}

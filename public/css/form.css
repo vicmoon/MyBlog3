@@ -169,73 +169,22 @@ nav:hover + .add-post-container {
   width: 100%;
 }
 
-.books-container {
-  width: 100%;
-  padding: 10px;
-  display: grid;
-}
-
-.books-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.book-card {
-  background-color: #ef9c66;
-  padding: 10px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.book-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.book-card p {
-  margin-bottom: 10px;
-}
-
-.book-card a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.book-card a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Adjustments */
+/* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
-  .books-container {
-    grid-template-columns: 1fr;
-  }
 }
 
-/* Media Queries for small screens */
-@media (max-width: 675px) {
-  .form-container {
-    margin-top: 10%;
-    width: 90%; /* Adjust form width for smaller screens */
-  }
-
-  footer {
-    width: 100%; /* Footer takes full width on small screens */
-    margin-left: 0; /* No left margin for the sidebar */
-  }
+/* Medium devices (larger phones and small tablets, 476px to 768px) */
+@media (min-width: 476px) and (max-width: 768px) {
 }
 
-/* Small screen adjustments (for all forms) */
-@media (max-width: 768px) {
-  body {
-    padding-left: 0; /* Remove sidebar padding on small screens */
-    justify-content: center;
-  }
+/* Large devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
 
-  .form-container {
-    width: 90%; /* Make the form take up more width on smaller screens */
-    margin: 0 auto; /* Ensure the form is centered */
-  }
+/* Extra large devices (small desktops, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+}
+
+/* Ultra large devices (large desktops and monitors, 1441px and up) */
+@media (min-width: 1441px) {
 }
