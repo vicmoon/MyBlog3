@@ -62,7 +62,8 @@ body {
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   .books-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    margin-left: 10%;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
   }
 
@@ -74,7 +75,8 @@ body {
 /* Large devices (tablets, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .books-grid {
-    grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
+    margin-left: 8%;
+    grid-template-columns: repeat(2, 1fr); /* Three columns for tablets */
     gap: 20px;
   }
 
@@ -86,6 +88,7 @@ body {
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .books-grid {
+    margin-left: 7%;
     grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
     gap: 25px;
   }
@@ -94,6 +97,7 @@ body {
 /* Ultra large devices (large desktops and monitors, 1441px and up) */
 @media (min-width: 1441px) {
   .books-grid {
+    margin-left: 4%;
     grid-template-columns: repeat(
       4,
       1fr
