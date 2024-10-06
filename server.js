@@ -5,22 +5,24 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
-const userRoutes = require("../routes/users/users");
-const postRoutes = require("../routes/posts/posts");
-const commentRoutes = require("../routes/comments/comments");
-const booksRoutes = require("../routes/resources/books");
-const signUpsRoutes = require("../routes/newsletter/signups");
-const paintingRoutes = require("../routes/paintings/painting");
-const globalErrHandler = require("../middlewares/globalErrorHandling");
-const Post = require("../model/posts/Post");
-const { truncatePost } = require("../utils/helpers");
+const userRoutes = require("./routes/users/users");
+const postRoutes = require("./routes/posts/posts");
+const commentRoutes = require("./routes/comments/comments");
+const booksRoutes = require("./routes/resources/books");
+const signUpsRoutes = require("./routes/newsletter/signups");
+const paintingRoutes = require("./routes/paintings/painting");
+const globalErrHandler = require("./middlewares/globalErrorHandling");
+const Post = require("./model/posts/Post");
+const { truncatePost } = require("./utils/helpers");
 const path = require("path");
-require("../config/connectDB");
+require("./config/connectDB");
 
 const app = express();
 
 // Set the views directory explicitly using an absolute path
-app.set("views", path.join(__dirname, "../views"));
+app.set("views", path.join(__dirname, "/views"));
+//to serve static files
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Set the view engine (e.g., EJS, Pug, Handlebars, etc.)
 app.set("view engine", "ejs"); // Assuming you're using EJS, change if needed.
@@ -34,8 +36,6 @@ app.use(express.json());
 app.set("view engine", "ejs");
 // to parse the data from req.body
 app.use(bodyParser.urlencoded({ extended: true }));
-//to serve static files
-app.use(express.static(path.join(__dirname, "../public")));
 
 // method override
 app.use(methodOverride("_method"));
