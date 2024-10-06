@@ -20,7 +20,7 @@ require("../config/connectDB");
 const app = express();
 
 // Set the views directory explicitly using an absolute path
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../views"));
 
 // Set the view engine (e.g., EJS, Pug, Handlebars, etc.)
 app.set("view engine", "ejs"); // Assuming you're using EJS, change if needed.
@@ -35,7 +35,7 @@ app.set("view engine", "ejs");
 // to parse the data from req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 //to serve static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // method override
 app.use(methodOverride("_method"));
