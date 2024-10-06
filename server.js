@@ -14,9 +14,14 @@ const globalErrHandler = require("./middlewares/globalErrorHandling");
 const Post = require("./model/posts/Post");
 const { truncatePost } = require("./utils/helpers");
 const app = express();
-
+const path = require("path");
 require("./config/connectDB");
 
+// Set the views directory explicitly using an absolute path
+app.set("views", path.join(__dirname, "views"));
+
+// Set the view engine (e.g., EJS, Pug, Handlebars, etc.)
+app.set("view engine", "ejs"); // Assuming you're using EJS, change if needed.
 //helpers
 app.locals.truncatePost = truncatePost;
 
