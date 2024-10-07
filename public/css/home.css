@@ -23,6 +23,8 @@ body {
   color: #fabc3f;
   background: linear-gradient(135deg, #cb80ab 0%, #e75874 100%);
   padding: 20px;
+  opacity: 0.9;
+  z-index: 1;
   border-radius: 30px;
   font-family: "Monoton", cursive; /* Retro font */
   text-align: center;
