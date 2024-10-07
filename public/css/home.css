@@ -11,7 +11,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #062e83;
-  background-image: url("/images/background2.png");
+  background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -48,6 +48,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  color: #eeeeee;
+  margin-top: 15px;
 }
 
 .posts-hero img {
@@ -147,7 +149,7 @@ body {
   }
 
   .latest-posts {
-    font-size: 18px; /* Adjusted for readability */
+    font-size: 15px;
     background-color: #062e83;
   }
 
