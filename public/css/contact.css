@@ -18,6 +18,7 @@ body {
   flex-direction: row;
   gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
+  height: 100vh;
   flex-wrap: wrap; /* Ensures the cards wrap to the next row if needed */
   padding-top: 50px; /* Add padding to ensure space at the top */
 }
@@ -138,20 +139,20 @@ body {
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .card-container {
-    justify-content: space-between; /* Ensure good space between cards */
+    justify-content: space-evenly; /* Ensure good space between cards */
     padding: 0 50px; /* Add more padding for larger screens */
     padding-top: 50px; /* Ensure space at the top */
   }
 
   .card {
-    max-width: 400px; /* Maintain 400px card width */
+    max-width: 300px; /* Maintain 400px card width */
   }
 }
 
 /* Ultra large devices (large desktops and monitors, 1441px and up) */
 @media (min-width: 1441px) {
   .card-container {
-    justify-content: space-around; /* Space out cards well on ultra large screens */
+    justify-content: space-evenly; /* Space out cards well on ultra large screens */
     padding: 0 80px; /* Add even more padding */
     padding-top: 50px; /* Ensure space at the top */
   }

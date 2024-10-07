@@ -72,7 +72,11 @@ form select {
   }
 
   form select {
-    top: 4%; /* Adjust top positioning for larger tablets */
+    position: relative; /* Change to relative positioning */
+    top: 0; /* Reset top */
+    left: auto; /* Reset left */
+    transform: none; /* Remove transformation */
+    margin: 10px; /* Add some margin for spacing */
     padding: 9px;
     font-size: 18px;
   }
@@ -105,7 +109,7 @@ form select {
     display: none;
   }
   form select {
-    top: 4%; /* Adjust top positioning for larger tablets */
+    top: 3%; /* Adjust top positioning for larger tablets */
     padding: 9px;
     font-size: 18px;
   }
