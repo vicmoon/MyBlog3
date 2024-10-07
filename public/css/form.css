@@ -18,7 +18,6 @@ body {
 
 /* Form Container */
 .form-container {
-  margin: 0 auto; /* Horizontally center the form */
   width: 100%;
   max-width: 500px; /* Limit the form width */
   padding: 30px;
@@ -29,21 +28,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-/* Add Post Container Full Width (Remove Margin) */
-.form-container.add-post-container {
-  max-width: 100%; /* Allow the form to take full width if needed */
-  margin: 0; /* Remove margins */
-  padding: 30px;
-}
-
-/* Specific Styling for Add Post Form */
-.add-post-container {
-  background-color: aliceblue;
-  max-width: 600px; /* Set max-width to keep the form neat */
-  width: 100%;
-  padding: 30px;
+  margin: 0 auto; /* Ensure horizontal centering */
 }
 
 /* Form Elements */
@@ -64,10 +49,6 @@ body {
   font-size: 18px;
   outline: none;
   margin-bottom: 20px;
-}
-
-.form-container textarea {
-  height: 100px;
 }
 
 .form-container button {

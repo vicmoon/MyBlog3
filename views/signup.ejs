@@ -4,17 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- CSS -->
     <link rel="stylesheet" href="/css/form.css" />
-    <title>Newsletter</title>
+    <title>Login</title>
   </head>
   <body>
     <!-- nav -->
     <%-include('./partials/header.ejs')%>
 
-    <div class="form-container newsletter">
+    <div class="form-container">
       <!-- icon -->
-      <h1>Sign up for updates 🗞️</h1>
+      <h1>Register for updates 🗞️</h1>
 
       <% if (error) { %>
       <small class="error">
@@ -31,8 +36,5 @@
         <button type="submit">Sign up!</button>
       </form>
     </div>
-
-    <!-- footer -->
-    <%-include('./partials/footer.ejs')%>
   </body>
 </html>
