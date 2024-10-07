@@ -50,6 +50,7 @@ body {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .books-grid {
+    margin-left: 15%;
     grid-template-columns: 1fr; /* Single column for small screens */
     gap: 10px;
   }

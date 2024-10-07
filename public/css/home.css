@@ -1,3 +1,9 @@
+body {
+  background-color: #201e43 !important;
+  padding: 0;
+  margin: 0;
+}
+
 .hero {
   display: flex;
   justify-content: center;
@@ -70,9 +76,8 @@
 }
 
 .posts-hero .post-body {
-  color: #201e43;
+  color: #eeeeee;
 }
-
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
@@ -139,10 +144,6 @@
   .posts-hero img {
     width: 300px; /* Smaller images for mid-size devices */
     height: 200px;
-  }
-
-  .post-body {
-    display: none;
   }
 
   .latest-posts {
