@@ -1,37 +1,29 @@
-/* Global Styles */
-* {
+body {
+  background-color: #fffcf2; /* Paper-like background color */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Press Start 2P", cursive; /* Retro pixel font */
+  font-family: Arial, sans-serif; /* Optional for better appearance */
 }
 
-body {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: "Courier New", Courier, monospace;
-}
 /* Flex Container */
 .container {
   display: flex;
-  align-items: space-around;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content */
   justify-content: center;
-  margin-left: 0; /* Removed left margin for full-width */
-  margin-top: 20px;
-  padding: 10px;
   width: 100%;
+  padding: 20px;
 }
 
 /* Main Post Content */
 .post-content {
+  width: 80%; /* Set a default width for the post content */
+  max-width: 1200px; /* Maximum width on larger screens */
   padding: 25px;
   border-radius: 12px;
-  border: 2px solid #333;
-  margin-left: 20%;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  width: 1200px; /* Main content width minus related posts width */
-  flex-grow: 1; /* Allow the post content to take up available space */
+  background-color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add some shadow for visibility */
+  margin-bottom: 20px; /* Space below the post content */
 }
 
 .post-title {
@@ -42,23 +34,12 @@ body {
 }
 
 .post-info {
-  margin-bottom: 20px;
-  color: gray;
-}
-
-.post-body {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-  background-color: #fff7d6;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid #333;
+  display: none;
 }
 
 /* Post Image */
 .post-image {
-  width: 100%; /* Ensure image fills the post container */
+  width: 100%; /* Make image responsive */
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -66,7 +47,8 @@ body {
 
 /* Related Posts Section */
 .related-posts {
-  width: 500px; /* Fixed width for related posts */
+  width: 80%; /* Ensure related posts take up full width below post content */
+  max-width: 1200px;
   background-color: #394457;
   padding: 15px;
   border-radius: 8px;
@@ -74,7 +56,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  margin-left: 20px; /* Space between main content and related posts */
+  margin-top: 20px;
 }
 
 .related-post-content {
@@ -114,18 +96,10 @@ body {
 
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
-  .container-flex {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .post-content {
-    width: 100%;
-  }
-
+  .post-content,
   .related-posts {
-    width: 100%;
-    margin-top: 20px;
+    margin-left: 30px;
+    width: 95%; /* Make the content and related posts take full width */
   }
 
   .post-title {
@@ -143,22 +117,14 @@ body {
 
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
-  .container-flex {
-    flex-direction: column;
-    padding: 15px;
-  }
-
-  .post-content {
-    width: 100%;
-  }
-
+  .post-content,
   .related-posts {
-    width: 100%;
-    margin-top: 20px;
+    margin-left: 15%;
+    width: 80%; /* Slightly reduce width */
   }
 
   .post-title {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .post-body {
@@ -168,38 +134,9 @@ body {
 
 /* Large devices (tablets, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .container-flex {
-    flex-direction: row;
-    width: calc(100% - 20px);
-  }
-
-  .post-content {
-    width: calc(100% - 350px);
-  }
-
+  .post-content,
   .related-posts {
-    width: 300px;
-  }
-
-  .post-title {
-    font-size: 2.3rem;
-  }
-}
-
-/* Extra large devices (desktops, 1025px to 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .container-flex {
-    flex-direction: row;
-    margin-left: 150px;
-    width: calc(100% - 150px);
-  }
-
-  .post-content {
-    width: calc(100% - 350px);
-  }
-
-  .related-posts {
-    width: 350px;
+    width: 85%; /* More space for larger devices */
   }
 
   .post-title {
@@ -207,20 +144,11 @@ body {
   }
 }
 
-/* Ultra large devices (large desktops and monitors, 1441px and up) */
-@media (min-width: 1441px) {
-  .container-flex {
-    flex-direction: row;
-    margin-left: 180px;
-    width: calc(100% - 180px);
-  }
-
-  .post-content {
-    width: calc(100% - 350px);
-  }
-
+/* Extra large devices (desktops, 1025px and up) */
+@media (min-width: 1025px) {
+  .post-content,
   .related-posts {
-    width: 350px;
+    width: 80%; /* Set default width for desktops */
   }
 
   .post-title {
