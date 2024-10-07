@@ -12,179 +12,126 @@ body {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 100vh; /* Full viewport height */
-  padding-left: 0; /* Ensure space for the sidebar */
-  position: relative;
-}
-
-body.newsletter-page {
-  padding-left: 0; /* Remove sidebar padding */
-  justify-content: center; /* Ensure form is centered horizontally */
+  padding: 0; /* No padding to center the form */
+  margin: 0;
 }
 
 /* Form Container */
 .form-container {
   margin: 0 auto; /* Horizontally center the form */
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Limit the form width */
   padding: 30px;
   background: #b1afff;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+/* Add Post Container Full Width (Remove Margin) */
 .form-container.add-post-container {
-  max-width: calc(100% - 150px); /* Full width minus sidebar width */
-  margin-left: 150px;
-  margin-right: 100px; /* Push the form content to the right, next to the sidebar */
+  max-width: 100%; /* Allow the form to take full width if needed */
+  margin: 0; /* Remove margins */
   padding: 30px;
 }
 
-/* Specific Styling for Add Post Form to make it full-width */
+/* Specific Styling for Add Post Form */
 .add-post-container {
   background-color: aliceblue;
-  max-width: 100%; /* Make the Add Post form stretch across the page */
+  max-width: 600px; /* Set max-width to keep the form neat */
   width: 100%;
-  padding: 30px; /* Maintain padding */
-  margin-left: 0; /* Ensure no auto-centering for full-width */
-  margin-right: 0; /* Ensure no auto-centering for full-width */
+  padding: 30px;
 }
 
-nav:hover + .add-post-container {
-  max-width: calc(100% - 150px); /* Adjust width when sidebar is expanded */
-  margin-left: 150px; /* Adjust form position when the sidebar expands */
-}
-
-.add-post {
-  width: 100%;
-}
-
-#editor {
-  height: 300px;
-  margin-bottom: 20px;
-}
-
+/* Form Elements */
 .form-container h1 {
   text-align: center;
-  margin: 10px;
+  margin-bottom: 20px;
   font-size: 1.6rem;
 }
 
-.form-container input {
+.form-container input,
+.form-container select,
+.form-container textarea {
   width: 100%;
   height: 50px;
   padding: 0 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
-  margin-bottom: 10px;
-}
-
-.form-container select {
-  width: 100%;
-  height: 50px;
   margin-bottom: 20px;
-  padding: 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
 }
 
 .form-container textarea {
-  width: 100%;
   height: 100px;
-  margin-bottom: 20px;
-  padding: 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-}
-
-.form-container input[type="submit"] {
-  background: #333;
-  color: #fff;
-  cursor: pointer;
 }
 
 .form-container button {
   color: #fff;
+  background-color: #023047;
   cursor: pointer;
-  background: #023047;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
   width: 100%;
   height: 50px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: none;
   margin-top: 20px;
-  padding: 0 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .form-container button:hover {
-  background: #fb8500;
+  background-color: #fb8500;
   transform: scale(1.05);
 }
 
 .form-container button:active {
-  background: #023047;
+  background-color: #023047;
   transform: scale(1);
 }
 
-.form-container a {
-  color: #333;
-  text-decoration: none;
-}
-
-.no-account-link {
-  text-align: center;
-  margin-top: 20px;
-  color: indigo;
-}
-
-.form-container .fa-user {
-  color: #333;
-  font-size: 40px;
-  margin-right: 10px;
-  text-align: center;
-}
-
-.input-wrapper {
-  margin-bottom: 20px;
-}
-
-.form-container .error {
-  color: red;
-  font-size: 1rem;
-}
-
-.form-container .form-wrapper {
-  width: 100%;
-}
+/* Responsive Adjustments */
 
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
+  .form-container {
+    padding: 20px;
+    max-width: 90%; /* Ensure form doesn't take full width */
+  }
+
+  body {
+    padding: 20px; /* Add padding to ensure no content is cut off */
+  }
 }
 
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+    max-width: 90%;
+  }
 }
 
 /* Large devices (tablets, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .form-container {
+    max-width: 80%;
+  }
 }
 
 /* Extra large devices (small desktops, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .form-container {
+    max-width: 600px;
+  }
 }
 
 /* Ultra large devices (large desktops and monitors, 1441px and up) */
 @media (min-width: 1441px) {
+  .form-container {
+    max-width: 600px;
+  }
 }

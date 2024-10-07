@@ -53,7 +53,7 @@ form select {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .posts-grid {
-    margin-top: 90px;
+    margin-top: 100px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
@@ -61,9 +61,13 @@ form select {
     margin-left: 20%;
   }
 
+  .post-info {
+    display: none;
+  }
+
   .posts-grid img {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     border-radius: 30px;
   }
 
@@ -120,7 +124,7 @@ form select {
   }
 
   .posts-grid img {
-    width: 90%;
+    width: 80%;
     height: 80%;
     border-radius: 30px;
   }
@@ -130,7 +134,7 @@ form select {
   }
 
   .posts-grid .post-date {
-    width: 90%;
+    width: 80%;
   }
 
   .posts-grid .post-body {
@@ -149,14 +153,14 @@ form select {
     margin-top: 100px;
     margin-left: 20%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin: 20px 20px;
     margin-left: 20%;
   }
 
   .posts-grid img {
-    width: 90%;
+    width: 80%;
     height: 80%;
     border-radius: 30px;
   }
