@@ -20,11 +20,9 @@ body {
 
 .hero h1 {
   font-size: 90px;
-  color: #fabc3f;
-  background: linear-gradient(135deg, #cb80ab 0%, #e75874 100%);
+  color: #fabc3f; /* Opaque text */
+  background: rgba(203, 128, 171, 0.5); /* 50% transparent background */
   padding: 20px;
-  opacity: 0.9;
-  z-index: 1;
   border-radius: 30px;
   font-family: "Monoton", cursive; /* Retro font */
   text-align: center;
