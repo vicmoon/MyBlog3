@@ -47,22 +47,17 @@ body {
 
 /* Related Posts Section */
 .related-posts {
-  width: 80%; /* Ensure related posts take up full width below post content */
-  max-width: 400px;
-  background-color: #394457;
+  width: 100%;
   color: #fffcf2;
   padding: 15px;
   border-radius: 8px;
-  border: 3px solid #ffb84c;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 20px;
 }
 
 .related-post-content {
-  background-color: #fffcf2;
-
+  background-color: #dbd2b0;
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #333;

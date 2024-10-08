@@ -11,8 +11,6 @@
     <!-- Fixed Nav Bar -->
     <%- include("../partials/header.ejs") %>
 
-    <!-- Main Container for Post Content and Related Posts -->
-
     <div class="container">
       <!-- Main Post Content -->
       <main class="posts">
@@ -26,12 +24,6 @@
           </p>
           <p class="post-body"><%- post.description %></p>
         </article>
-        <!-- Debugging output -->
-        <!-- <p>Post user ID: <%= post.user ? post.user._id : 'No user found' %></p>
-        <p>
-          Logged-in user ID: <%= userAuth ? userAuth : 'No user logged in' %>
-        </p> -->
-
         <!-- Only show buttons if the logged-in user created the post -->
         <% if (post.user && post.user._id && userAuth &&
         post.user._id.toString() === userAuth.toString()) { %>
@@ -49,8 +41,6 @@
 
       <!-- Related Posts Section -->
       <section class="related-posts">
-        <h2>Related in: <%= post.category %></h2>
-
         <% if (relatedPosts && relatedPosts.length > 0) { %> <%
         relatedPosts.forEach(function(relatedPost) { %>
         <article class="related-post-content">

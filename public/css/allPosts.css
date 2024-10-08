@@ -1,5 +1,7 @@
 /* Grid layout for posts */
-
+body {
+  background-color: #201e43 !important;
+}
 .posts-grid {
   margin-top: 100px; /* Add margin to move posts down below the select */
   display: grid;
@@ -26,8 +28,12 @@
 }
 
 .posts-grid .post-title {
-  color: #062e83;
+  color: #f4f6ff;
   font-size: 20px;
+}
+
+.posts-grid .post-body {
+  color: #f4f6ff;
 }
 
 form select {

@@ -78,7 +78,7 @@ body {
 }
 
 .posts-hero .post-body {
-  color: #eeeeee;
+  color: #eeeeee !important;
 }
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
@@ -280,7 +280,7 @@ body {
   }
 
   .posts-hero {
-    grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
+    grid-template-columns: 1fr 1fr; /* Keep three columns */
     margin-left: 10%;
     padding: 50px;
   }
