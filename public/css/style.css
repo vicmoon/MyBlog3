@@ -64,7 +64,6 @@ body {
 }
 
 footer {
-
   height: 9vh;
   display: flex;
   flex-direction: column; /* Arrange children vertically */
@@ -76,11 +75,7 @@ footer {
   width: 100%;
 }
 
-.footer-contact {
-  margin-bottom: 10px; /* Add some spacing between contact and other links */
-  font-size: 20px;
-  font-weight: bold;
-}
+
 
 /* Responsive Media Queries */
 
@@ -114,18 +109,7 @@ footer {
     padding: 10px;
   }
 
-  .footer-contact {
-    font-size: 1.2rem;
-  }
-
-  .footer-links {
-    flex-direction: column; /* Stack footer links vertically */
-    gap: 5px;
-  }
-
-  .footer-links a {
-    font-size: 1.1rem;
-  }
+  
 }
 
 /* Medium devices (larger phones and small tablets, 476px to 768px) */

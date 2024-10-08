@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color: #062e83;
+  background-color: #201e43;
   background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -83,27 +83,31 @@ body {
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
-  body {
-    background-color: #062e83;
-  }
-
   .hero h1,
-  .hero,
-  .latest-posts {
+  .hero {
     display: none;
   }
 
   .posts-hero {
     display: flex;
     flex-direction: column;
-    margin-left: 0 auto; /* Center content */
     padding: 20px;
-    margin-left: 30%;
+    margin-left: 15%;
+  }
+  .latest-posts {
+    display: flex;
+    flex-direction: row;
   }
 
   .posts-hero img {
-    width: 60%;
-    height: auto;
+    display: none;
+  }
+
+  .posts-hero .post-category {
+    display: none;
+  }
+  .posts-hero .post-title {
+    font-size: 20px;
   }
 
   .post-body {
@@ -115,7 +119,7 @@ body {
   }
 
   footer {
-    height: 50px;
+    height: 30px;
     display: flex;
     flex-direction: column; /* Arrange children vertically */
     justify-content: center; /* Center content vertically */
@@ -149,8 +153,7 @@ body {
   }
 
   .latest-posts {
-    font-size: 15px;
-    background-color: #062e83;
+    font-size: 20px;
   }
 
   footer {
@@ -193,8 +196,8 @@ body {
   }
 
   .posts-hero img {
-    width: 300px; /* Adjust image sizes */
-    height: 300px;
+    width: 80%;
+    height: 80%;
   }
   .post-body {
     color: #eeeeee;
