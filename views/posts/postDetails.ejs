@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/postDetails.css" />
 
+    <!-- Quill CSS -->
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+
     <title>Post Details</title>
   </head>
   <body>
@@ -22,9 +28,14 @@
               ><%= post.createdAt.toLocaleDateString() %></span
             >
           </p>
-          <p class="post-body"><%- post.description %></p>
+
+          <!-- Wrap post description with Quill class to apply styles -->
+          <div class="ql-editor post-body">
+            <%- post.description %>
+            <!-- Render the HTML content with Quill styles -->
+          </div>
         </article>
-        <!-- Only show buttons if the logged-in user created the post -->
+
         <% if (post.user && post.user._id && userAuth &&
         post.user._id.toString() === userAuth.toString()) { %>
         <form
@@ -49,13 +60,11 @@
               src="<%= relatedPost.image %>"
               alt="Related post image"
               class="post-image"
-          /></a>
+            />
+          </a>
           <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
             ><h3><%= relatedPost.title %></h3></a
           >
-          <!-- <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
-            >Read</a
-          > -->
         </article>
         <% }); %> <% } else { %>
         <p>No related posts available in this category.</p>

@@ -33,37 +33,40 @@
         <h1> Bits and Scribbles</h1>
       </section>
       <h3 class="latest-posts">Latest posts</h3>
-        <section class="posts-hero">
-          <% if (posts && posts.length > 0) { %> 
-            <% posts.forEach(post => { %>
-          <article class="post-content">
-            <img src="<%= post.image %>" alt="post image" class="post-image" />
-            <p class="post-info">
-              <div class="post-date">
-                <span id="date">
-                  <%= post.createdAt.toLocaleDateString() %>
-                </span>
-              </div>
+      <section class="posts-hero">
+        <% if (posts && posts.length > 0) { %> 
+          <% posts.forEach(post => { %>
+            <article class="post-content">
+              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+                <img src="<%= post.image %>" alt="post image" class="post-image" />
+              </a>
               
-            </p>
-            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
-              <h1 class="post-title">🔗<%= post.title %></h1>
-            </a>
-            <p class="post-body"><%-truncatePost(post.description)%></p>
+              <p class="post-info">
+                <div class="post-date">
+                  <span id="date">
+                    <%= post.createdAt.toLocaleDateString() %>
+                  </span>
+                </div>
+              </p>
+              
+              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+                <h1 class="post-title">🔗<%= post.title %></h1>
+              </a>
+      
+              <!-- Styled Post Body (truncated) -->
+              <div class="post-body"><%- truncatePost(post.description) %></div>
 
-            <!-- Category Badge -->
-            <div class="post-category">
-              <span><%= post.category %></span>
-            </div>
-            <!-- <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
-              >Continue Reading...</a
-            > -->
-          </article>
-          
-          <% }) %> <% } else { %>
+      
+              <!-- Category Badge -->
+              <div class="post-category">
+                <span><%= post.category %></span>
+              </div>
+            </article>
+          <% }) %> 
+        <% } else { %>
           <p>No posts available.</p>
-          <% } %>
-        </section>
+        <% } %>
+      </section>
      
         <%-include('./partials/footer.ejs')%>
     </div>

@@ -29,6 +29,7 @@ const postPostController = async (req, res, next) => {
 
     //save the user because we made changes
     await userFound.save();
+    console.log("Post created");
     res.redirect("/");
   } catch (error) {
     return res.render("posts/addPost", { error: error.message });
@@ -76,7 +77,7 @@ const onePostsController = async (req, res, next) => {
     const relatedPosts = await Post.find({
       category: post.category,
       _id: { $ne: postID },
-    });
+    }).limit(7);
 
     // Render the post details
     res.render("posts/postDetails", {

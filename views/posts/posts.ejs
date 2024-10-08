@@ -30,11 +30,9 @@
         <select id="category" name="category" onchange="this.form.submit()">
           <option value="/">All</option>
           <option value="Dev Diaries">Dev Diaries</option>
-          <option value="Stories">Stories</option>
-          <!-- <option value="CSS">CSS</option>
-          <option value="HTML">HTML</option> -->
-          <!-- <option value="Node JS">Node JS</option>
-          <option value="Javascript">Javascript</option> -->
+          <option value="Creative Zone">Creative Zone</option>
+          <option value="Node JS">Node JS</option>
+          <option value="Javascript">Javascript</option>
           <option value="Books">Books</option>
           <option value="Other">Other</option>
         </select>
@@ -54,10 +52,11 @@
           <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
             <h1 class="post-title">🔗<%= post.title %></h1>
           </a>
-          <p class="post-body">
+          <div class="post-body">
             <%- post.description.length > 100 ? post.description.substring(0,
             100) + "..." : post.description %>
-          </p>
+          </div>
+
           <div class="post-category">
             <span><%= post.category %></span>
           </div>

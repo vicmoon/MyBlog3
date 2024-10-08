@@ -80,6 +80,7 @@ body {
 .posts-hero .post-body {
   color: #eeeeee !important;
 }
+
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
