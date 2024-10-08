@@ -93,9 +93,8 @@ body {
 
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
-  .post-content,
-  .related-posts {
-    margin-left: 30px;
+  .post-content {
+    margin-left: 10%;
     width: 95%; /* Make the content and related posts take full width */
   }
 
@@ -109,6 +108,12 @@ body {
 
   .related-post-content {
     margin-bottom: 10px;
+  }
+
+  .related-posts {
+    margin-left: 10%;
+    flex-direction: column;
+    width: 80%;
   }
 }
 
@@ -139,6 +144,9 @@ body {
   }
   .post-title {
     font-size: 2.5rem;
+  }
+  .related-posts {
+    flex-direction: column;
   }
 }
 

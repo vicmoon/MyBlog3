@@ -24,7 +24,6 @@ body {
   background: rgba(203, 128, 171, 0.5); /* 50% transparent background */
   padding: 20px;
   border-radius: 30px;
-  font-family: "Monoton", cursive; /* Retro font */
   text-align: center;
   text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
   border: 4px solid #fabc3f;
