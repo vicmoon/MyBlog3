@@ -79,13 +79,7 @@ form select {
   }
 
   form select {
-    position: relative; /* Change to relative positioning */
-    top: 0; /* Reset top */
-    left: auto; /* Reset left */
-    transform: none; /* Remove transformation */
-    margin: 10px; /* Add some margin for spacing */
-    padding: 9px;
-    font-size: 18px;
+    display: none;
   }
 }
 
