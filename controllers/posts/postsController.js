@@ -142,7 +142,7 @@ const editPostsController = async (req, res, next) => {
     }
 
     // Update the post
-    const postEdited = await Post.findByIdAndUpdate(req.params.id, updateData, {
+    await Post.findByIdAndUpdate(req.params.id, updateData, {
       new: true, // Return the updated post
     });
 
