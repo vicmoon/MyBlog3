@@ -39,7 +39,7 @@ postRoutes.get("/updatePost/:id", async (req, res) => {
 });
 
 //POST/api/v1/posts/
-postRoutes.post("/", loggedIn, upload.single("file"), postPostController); //checks if the user is logged in first,makes the request to save image
+postRoutes.post("/", loggedIn, upload.single("file"), postPostController);
 
 //GET/api/v1/posts/ (all)
 postRoutes.get("/", allPostsController);
