@@ -50,10 +50,6 @@ const allPostsController = async (req, res, next) => {
 
     // This will now correctly filter based on the query (category)
     const posts = await Post.find(query).sort({ createdAt: -1 });
-
-    // console.log("Query:", query); // Check that the query contains the correct category filter
-    // console.log("Fetched Posts:", posts); // Check if filtered posts are returned
-
     res.render("posts/posts", { posts });
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -65,9 +65,6 @@ app.use((req, res, next) => {
 });
 
 // RENDER
-app.get("/health", (req, res) => {
-  res.status(200).send("OK");
-});
 
 // Render homepage
 app.get("/", async (req, res) => {

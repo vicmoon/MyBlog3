@@ -13,6 +13,7 @@ const {
 } = require("../../controllers/posts/postsController");
 
 const loggedIn = require("../../middlewares/loggedIn");
+
 // instance of multer
 
 const upload = multer({
