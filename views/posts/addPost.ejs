@@ -94,9 +94,25 @@
     </div>
 
     <script>
-      // Initialize Quill editor
+      // Initialize Quill editor with additional toolbar options
+      var toolbarOptions = [
+        [{ 'font': [] }],
+        [{ 'header': [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'],        // Text formats
+        [{ 'color': [] }, { 'background': [] }],          // Text color/background
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],     // Lists
+        [{ 'indent': '-1'}, { 'indent': '+1' }],          // Indent/Unindent
+        [{ 'align': [] }],
+        ['code-block'],                                    // Adds code block option// Alignment
+        ['link', 'image', 'video', 'formula'],            // Links, Images, Videos, Formulas
+        ['clean']                                         // Clear formatting
+      ];
+
       var quill = new Quill("#editor", {
         theme: "snow",
+        modules: {
+          toolbar: toolbarOptions
+        }
       });
 
       // On form submit, copy the HTML content from the editor to the hidden input
