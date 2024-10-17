@@ -18,6 +18,8 @@
       href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
       rel="stylesheet"
     />
+    <!-- Add the Quill Image Resize Module via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <title>Create a post</title>
@@ -54,7 +56,6 @@
         <div class="input-wrapper">
           <label for="name">Post Title</label>
           <input type="text" name="title" id="name" required />
-          <!-- err -->
         </div>
 
         <!-- Category -->
@@ -96,28 +97,28 @@
     <script>
       // Initialize Quill editor with additional toolbar options
       var toolbarOptions = [
-        [{ 'font': [] }],
-        [{ 'header': [1, 2, 3, false] }],
-        ['bold', 'italic', 'underline', 'strike'],        // Text formats
-        [{ 'color': [] }, { 'background': [] }],          // Text color/background
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],     // Lists
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // Indent/Unindent
-        [{ 'align': [] }],
-        ['code-block'],                                    // Adds code block option// Alignment
-        ['link', 'image', 'video', 'formula'],            // Links, Images, Videos, Formulas
-        ['clean']                                         // Clear formatting
+        [{ font: [] }],
+        [{ header: [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'], // Text formats
+        [{ color: [] }, { background: [] }], // Text color/background
+        [{ list: 'ordered' }, { list: 'bullet' }], // Lists
+        [{ indent: '-1' }, { indent: '+1' }], // Indent/Unindent
+        [{ align: [] }],
+        ['code-block'], // Adds code block option// Alignment
+        ['link', 'image', 'video'], // Links, Images, Videos, Formulas
+        ['clean'], // Clear formatting
       ];
 
-      var quill = new Quill("#editor", {
-        theme: "snow",
+      var quill = new Quill('#editor', {
+        theme: 'snow',
         modules: {
-          toolbar: toolbarOptions
-        }
+          toolbar: toolbarOptions,
+        },
       });
 
       // On form submit, copy the HTML content from the editor to the hidden input
-      document.querySelector("form").onsubmit = function () {
-        var content = document.querySelector("input[name=description]");
+      document.querySelector('form').onsubmit = function () {
+        var content = document.querySelector('input[name=description]');
         content.value = quill.root.innerHTML;
       };
     </script>
