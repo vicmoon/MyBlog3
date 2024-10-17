@@ -1,30 +1,26 @@
 body {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: center; /* Align items at the top */
-  align-items: center; /* Center items horizontally */
-
+  flex-direction: row; /* Layout elements side by side */
+  justify-content: flex-start; /* Align the main content and side nav */
   padding: 0;
   margin: 0;
-  padding-top: 60px; /* Space for nav bar */
+  height: 100vh; /* Full height of the viewport */
 }
 
-/* Form Container */
 .form-container {
   margin-left: 20%;
-  width: 100%;
-  height: auto;
+  margin-top: 20%;
+  margin-bottom: 10%;
+  width: 70%; /* Take up the remaining 60% of the page width */
+  height: 100vh; /* Full height */
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  position: relative; /* Added */
-  z-index: 10; /* Higher than nav */
 }
 
-/* Form Elements */
 .form-container h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -55,6 +51,7 @@ body {
   border: none;
   margin-top: 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .form-container button:hover {
