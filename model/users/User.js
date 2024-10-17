@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 //Schema
 const userSchema = new mongoose.Schema(
@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema(
     coverImage: {
       type: String,
     },
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   },
   {
     timestamps: true,
@@ -31,6 +31,6 @@ const userSchema = new mongoose.Schema(
 );
 
 //compile the schema to form a model
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

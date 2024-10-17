@@ -1,6 +1,6 @@
-const Post = require('../../model/posts/Post');
-const User = require('../../model/users/User');
-const appError = require('../../utils/appError');
+const Post = require("../../model/posts/Post");
+const User = require("../../model/users/User");
+const appError = require("../../utils/appError");
 
 //POST/api/v1/posts/
 const postPostController = async (req, res, next) => {
@@ -8,7 +8,7 @@ const postPostController = async (req, res, next) => {
   try {
     if (!title || !description || !category || !req.file) {
       // return next(appError("Missing details, all fields are required"));
-      return res.render('posts/addPost', { error: 'All fields are required' });
+      return res.render("posts/addPost", { error: "All fields are required" });
     }
     // find the user
     const userID = req.session.userAuth;
@@ -29,10 +29,10 @@ const postPostController = async (req, res, next) => {
 
     //save the user because we made changes
     await userFound.save();
-    console.log('Post created');
-    res.redirect('/');
+    console.log("Post created");
+    res.redirect("/");
   } catch (error) {
-    return res.render('posts/addPost', { error: error.message });
+    return res.render("posts/addPost", { error: error.message });
   }
 };
 
@@ -44,28 +44,29 @@ const allPostsController = async (req, res, next) => {
     let query = {};
 
     // If a category is provided, apply the filter to the query
-    if (category && category !== '') {
-      query = { category: new RegExp(category, 'i') }; // Case-insensitive matching for category
+    if (category && category !== "") {
+      query = { category: new RegExp(category, "i") }; // Case-insensitive matching for category
     }
 
     // This will now correctly filter based on the query (category)
     const posts = await Post.find(query).sort({ createdAt: -1 });
-    res.render('posts/posts', { posts });
+    res.render("posts/posts", { posts });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 //GET/api/v1/posts/:id  (details)
+
 const onePostsController = async (req, res, next) => {
   try {
     const postID = req.params.id;
 
     // Find the post by its ID and populate the user and comments
-    const post = await Post.findById(postID).populate('user'); // Populate user field
+    const post = await Post.findById(postID).populate("user"); // Populate user field
 
     if (!post) {
-      return next(appError('Post not found', 404));
+      return next(appError("Post not found", 404));
     }
 
     // Fetch related posts from the same category
@@ -75,14 +76,44 @@ const onePostsController = async (req, res, next) => {
     }).limit(7);
 
     // Render the post details
-    res.render('posts/postDetails', {
+    res.render("posts/postDetails", {
       post,
       relatedPosts,
       userAuth: req.session.userAuth,
-      error: '', // Clear any error message if the post is found
+      error: "", // Clear any error message if the post is found
     });
   } catch (error) {
-    return next(appError('The post could not be found', 500));
+    return next(appError("The post could not be found", 500));
+  }
+};
+
+const deletePostsController = async (req, res, next) => {
+  try {
+    // find the post
+    const postToDelete = await Post.findById(req.params.id);
+
+    // check if the postToDelete was created by the logged in user
+    if (postToDelete.user.toString() !== req.session.userAuth.toString()) {
+      // because we are comparing to objects not strings, so we need to convert them to Strings
+      return next(appError("You are not authorized to delete this post", 403));
+    }
+
+    // delete post
+
+    await Post.findByIdAndDelete(req.params.id);
+    // redirect
+    res.redirect("/");
+    // res.json({
+    //   status: "Success",
+    //   data: "The post has been deleted",
+    // });
+  } catch (error) {
+    return next(
+      appError(
+        "A problem occurred while deleting the post, try again",
+        error.message
+      )
+    );
   }
 };
 
@@ -95,7 +126,7 @@ const editPostsController = async (req, res, next) => {
 
     // Check if the postToEdit was created by the logged-in user
     if (postToEdit.user.toString() !== req.session.userAuth.toString()) {
-      return next(appError('You are not authorized to edit this post', 403));
+      return next(appError("You are not authorized to edit this post", 403));
     }
 
     // Prepare the updated post data
@@ -115,37 +146,7 @@ const editPostsController = async (req, res, next) => {
     res.redirect(`/api/v1/posts/`);
   } catch (error) {
     return next(
-      appError('An error occurred while editing the post, try again')
-    );
-  }
-};
-
-const deletePostsController = async (req, res, next) => {
-  try {
-    // find the post
-    const postToDelete = await Post.findById(req.params.id);
-
-    // check if the postToDelete was created by the logged in user
-    if (postToDelete.user.toString() !== req.session.userAuth.toString()) {
-      // because we are comparing to objects not strings, so we need to convert them to Strings
-      return next(appError('You are not authorized to delete this post', 403));
-    }
-
-    // delete post
-
-    await Post.findByIdAndDelete(req.params.id);
-    // redirect
-    res.redirect('/');
-    // res.json({
-    //   status: "Success",
-    //   data: "The post has been deleted",
-    // });
-  } catch (error) {
-    return next(
-      appError(
-        'A problem occurred while deleting the post, try again',
-        error.message
-      )
+      appError("An error occurred while editing the post, try again")
     );
   }
 };
