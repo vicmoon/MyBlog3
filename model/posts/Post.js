@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 //title, desc, category, image
 const postSchema = new mongoose.Schema(
@@ -15,15 +15,7 @@ const postSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: [
-        "Dev Diaries",
-        "Creative Zone",
-        "Node JS",
-        "Stories",
-        "Javascript",
-        "Books",
-        "Other",
-      ],
+      enum: ['Dev Diaries', 'Creative Zone', 'Stories', 'Books', 'Variety'],
     },
     image: {
       type: String,
@@ -31,12 +23,12 @@ const postSchema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
+        ref: 'Comment',
       },
     ],
   },
@@ -47,7 +39,7 @@ const postSchema = new mongoose.Schema(
 
 //compile schema to form model
 
-const Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model('Post', postSchema);
 
 //export model
 module.exports = Post;

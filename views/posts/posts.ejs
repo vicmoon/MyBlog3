@@ -28,15 +28,14 @@
     <main>
       <form method="GET" action="/api/v1/posts">
         <select id="category" name="category" onchange="this.form.submit()">
-          <option value="/">All</option>
-          <option value="Dev Diaries">Dev Diaries</option>
-          <option value="Creative Zone">Creative Zone</option>
-          <option value="Node JS">Node JS</option>
-          <option value="Javascript">Javascript</option>
-          <option value="Books">Books</option>
-          <option value="Other">Other</option>
+          <option value="" <%= !category ? 'selected' : '' %>>All</option>
+          <option value="Dev Diaries" <%= category === 'Dev Diaries' ? 'selected' : '' %>>Dev Diaries</option>
+          <option value="Creative Zone" <%= category === 'Creative Zone' ? 'selected' : '' %>>Creative Zone</option>
+          <option value="Books" <%= category === 'Books' ? 'selected' : '' %>>Books</option>
+          <option value="Other" <%= category === 'Variety' ? 'selected' : '' %>>Variety</option>
         </select>
       </form>
+      
 
       <section class="posts-grid">
         <% if (posts && posts.length > 0) { %> <% posts.forEach(post => { %>
