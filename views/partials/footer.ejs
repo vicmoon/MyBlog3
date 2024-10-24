@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -13,14 +12,13 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-      gtag("config", "G-KK1QFKBGG6");
+      gtag('js', new Date());
+      gtag('config', 'G-KK1QFKBGG6');
     </script>
 
     <!-- Fontawesome -->
     <script
-      src="https://kit.fontawesome.com/42a182743f.js"
-      crossorigin="anonymous"
+    <script src="https://kit.fontawesome.com/ff3c1f3b6f.js" crossorigin="anonymous"></script>
     ></script>
 
     <!-- Google fonts (merged into one request) -->
@@ -49,8 +47,9 @@
     <footer>
       <% let currentYear = new Date().getFullYear(); %>
       <!-- Contact link at the top -->
-      <div class="footer-contact">
-        <a href="/contact">©️ <%= currentYear %> Victoria Munteanu</a>
+      <div class="footer">
+        <a href="/contact"> &copy; </i> Victoria Munteanu <%=currentYear %></a
+        >
       </div>
     </footer>
   </body>

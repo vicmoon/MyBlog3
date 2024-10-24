@@ -11,7 +11,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #201e43;
-  background-image: url("/images/background.png");
+  background-image: url('/images/background.png');
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -200,7 +200,7 @@ body {
     height: 80%;
   }
   .post-body {
-    color: #eeeeee;
+    display: none;
   }
 
   footer {
@@ -296,7 +296,9 @@ body {
   .posts-hero .post-date {
     width: 100%;
   }
-
+  .posts-hero .post-body {
+    display: none;
+  }
   footer {
     font-size: 22px;
     padding: 35px;

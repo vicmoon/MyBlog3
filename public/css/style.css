@@ -32,10 +32,10 @@ body {
 .post-category span {
   background-color: #f4ce14;
   color: #10375C;
-  padding: 5px;
+  padding: 4px;
   border-radius: 20px;
   font-size: 15px;
-  text-transform: uppercase;
+  
   position: absolute;
   top: 9px;
   left: -5px;
@@ -71,6 +71,7 @@ footer {
   align-items: center; /* Center content horizontally */
   text-align: center;
   background-color: #201e43;
+  font-size: 18px;
   margin-top: auto; /* Pushes the footer to the bottom when content is short */
   width: 100%;
 }
