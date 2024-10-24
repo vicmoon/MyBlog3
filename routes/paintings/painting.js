@@ -1,29 +1,27 @@
-const express = require("express");
+const express = require('express');
 const paintingRoutes = express.Router();
-const multer = require("multer");
-const storage = require("../../config/cloudinary");
+const multer = require('multer');
+const storage = require('../../config/cloudinary');
 
-// instance of multer
+// Instance of multer
 const upload = multer({ storage: storage });
 
-//POST/api/v1/paintings/
+// POST/api/v1/paintings/
 const {
   uploadPaintingController,
   getPaintingController,
-} = require("../../controllers/paintings/paintingsController");
+} = require('../../controllers/paintings/paintingsController');
 
-// // render paintings form
-// paintingRoutes.get("/paintings", (req, res) => {
-//   res.render("paintings");
-// });
+// Render paintings form
+paintingRoutes.get('/add-painting', (req, res) => {
+  // console.log('GET /add-painting route hit');
+  res.render('addPainting');
+});
 
-paintingRoutes.post(
-  "/paintings",
-  upload.single("painting"),
-  uploadPaintingController
-);
+// Handle POST request for uploading a painting
+paintingRoutes.post('/', upload.single('painting'), uploadPaintingController);
 
-//GET/api/v1/resources/
-paintingRoutes.get("/", getPaintingController);
+// GET/api/v1/resources/ (or paintings)
+paintingRoutes.get('/', getPaintingController);
 
 module.exports = paintingRoutes;

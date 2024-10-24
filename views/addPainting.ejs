@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/uploadPhoto.css" />
+    <title>Upload Painting</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <%-include('./partials/header.ejs')%>
+
+    <div class="form-container">
+      <!-- icon -->
+      <h1>Upload Painting</h1>
+
+      <form
+        action="/api/v1/paintings"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" required />
+
+        <label for="painting">Select Image</label>
+        <input type="file" name="painting" id="painting" required />
+
+        <button type="submit">
+          <i class="fas fa-upload">Submit</i>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
