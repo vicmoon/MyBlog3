@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Paintings</title>
+    <title>Paintings Gallery</title>
+    <link rel="stylesheet" href="/css/paintings.css" />
   </head>
   <body>
-    <h1>All Paintings</h1>
-
-    <div class="paintings-list">
+    <div class="carousel">
       <% paintings.forEach(function(painting) { %>
-      <div class="painting">
-        <h2><%= painting.title %></h2>
+      <div class="carousel-item">
         <img src="<%= painting.paintingImage %>" alt="<%= painting.title %>" />
       </div>
       <% }); %>
+    </div>
+    <div class="back-button">
+      <a href="/">Back</a>
     </div>
   </body>
 </html>

@@ -1,0 +1,61 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gallery container */
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjust spacing between images */
+  justify-content: center; /* Center align the images */
+  padding: 20px;
+}
+
+/* Individual item styling */
+.carousel-item {
+  flex: 1 1 200px; /* Each item takes 1 part of available space, min-width: 200px */
+  max-width: 300px; /* Set a max-width to control size */
+  overflow: hidden; /* Crop overflowing images */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.carousel-item img {
+  width: 100%; /* Make images responsive */
+  height: auto;
+  display: block;
+}
+
+/* Hover effect */
+.carousel-item:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Back button styling */
+/* .backbutton {
+  text-align: center;
+  margin: 20px 0;
+} */
+
+.back-button {
+  display: block;
+  margin: 40px auto 20px auto;
+  max-width: 100px;
+  padding: 10px;
+  background-color: #b1afff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+.back-button:hover {
+  background-color: #a18fee;
+  transform: scale(1.05);
+}

@@ -48,14 +48,14 @@ nav:hover ul li a {
 
 /* Icon or placeholder to show even when collapsed */
 nav ul li a::before {
-  content: "";
+  content: '';
   display: inline-block;
   margin-right: 10px;
   font-size: 1rem;
 }
 
 nav:hover ul li a::before {
-  content: "";
+  content: '';
 }
 
 /* Styling when hovering over the links */
