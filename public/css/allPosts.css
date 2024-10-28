@@ -211,4 +211,7 @@ form select {
 
 /* Ultra large devices (large desktops and monitors, 1441px and up) */
 @media (min-width: 1441px) {
+  .posts-grid .post-body {
+    display: none;
+  }
 }
