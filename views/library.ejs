@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paintings Gallery</title>
-    <link rel="stylesheet" href="/css/paintings.css" />
+    <title>Virtual Library</title>
+    <link rel="stylesheet" href="/css/library.css" />
   </head>
   <body>
     <div class="back-button">
       <a href="/">Back</a>
     </div>
     <div class="carousel">
-      <% paintings.forEach(function(painting) { %>
+      <% library.forEach(function(book) { %>
       <div class="carousel-item">
-        <img src="<%= painting.paintingImage %>" alt="<%= painting.title %>" />
+        <img src="<%= book.bookCover %>" alt="<%= book.title %>" />
+        <p class="book-title"><%= book.title %></p>
       </div>
       <% }); %>
     </div>

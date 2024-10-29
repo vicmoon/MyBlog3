@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Audiowide', sans-serif;
+  background-color: #fff1db;
 }
 
 /* Gallery container */
@@ -35,13 +37,17 @@
   transform: scale(1.05); /* Slight zoom on hover */
 }
 
+.book-title {
+  margin-top: 8px;
+  text-align: center;
+}
+
 .back-button {
   display: block;
   margin: 40px auto 20px auto;
   max-width: 100px;
-  padding: 10px;
-  background-color: #b1afff;
-  color: #fff;
+  padding: 8px;
+  background-color: #feee91;
   text-decoration: none;
   border-radius: 30px;
   font-size: 18px;
@@ -50,6 +56,6 @@
   transition: background-color 0.3s ease;
 }
 .back-button:hover {
-  background-color: #a18fee;
+  background-color: #1640d6;
   transform: scale(1.05);
 }

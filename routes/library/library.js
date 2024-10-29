@@ -8,20 +8,20 @@ const upload = multer({ storage: storage });
 
 // POST/api/v1/paintings/
 const {
-  uploadPaintingController,
-  getPaintingController,
-} = require('../../controllers/paintings/paintingsController');
+  uploadBookController,
+  getBookController,
+} = require('../../controllers/library/libraryController');
 
 // Render paintings form
-libraryRoutes.get('/add-painting', (req, res) => {
+libraryRoutes.get('/add-book', (req, res) => {
   // console.log('GET /add-painting route hit');
-  res.render('addPainting');
+  res.render('addBook');
 });
 
 // Handle POST request for uploading a painting
-libraryRoutes.post('/', upload.single('painting'), uploadPaintingController);
+libraryRoutes.post('/', upload.single('book'), uploadBookController);
 
 // GET/api/v1/resources/ (or paintings)
-libraryRoutes.get('/', getPaintingController);
+libraryRoutes.get('/', getBookController);
 
 module.exports = libraryRoutes;

@@ -1,4 +1,5 @@
 const Painting = require('../../model/painting/Painting');
+const appError = require('../../utils/appError');
 
 const uploadPaintingController = async (req, res, next) => {
   const { title } = req.body;

@@ -7,6 +7,7 @@ const librarySchema = new mongoose.Schema({
   },
   bookCover: {
     type: String,
+    required: true,
   },
 });
 
