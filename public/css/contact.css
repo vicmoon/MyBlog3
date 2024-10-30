@@ -1,7 +1,7 @@
 body {
   padding-top: 20px; /* Adds padding to the top of the entire page */
   background-color: #201e43 !important;
-  font-family: "Audiowide", sans-serif;
+  font-family: 'Audiowide', sans-serif;
 }
 
 .contact {
@@ -79,11 +79,10 @@ body {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   body {
-    padding-top: 20px; /* Reduce padding for small screens */
+    padding-top: 10px; /* Reduce padding for small screens */
   }
 
-  h5,
-  p {
+  h5 {
     display: none;
   }
   .btn {
@@ -94,11 +93,12 @@ body {
     flex-direction: column; /* Stack cards vertically */
     gap: 15px; /* Add more gap between stacked cards */
     padding: 0 10px; /* Ensure the cards don't touch the edges of the screen */
-    padding-top: 50px; /* Ensure space at the top */
+    margin-left: 5%;
   }
 
   .card {
-    max-width: 50%; /* Make sure the cards take full width */
+    max-width: 300px; /* Make sure the cards take full width */
+    width: 100%;
     padding: 15px;
     margin: 0 auto 15px auto; /* Center cards and add bottom margin */
   }
@@ -109,8 +109,9 @@ body {
   .card-container {
     flex-direction: column; /* Stack cards vertically */
     gap: 20px; /* Increase gap */
-    padding: 0 20px; /* Padding on the sides */
+    padding: 0 30px; /* Padding on the sides */
     padding-top: 50px; /* Ensure space at the top */
+    margin-left: 5%;
   }
 
   .card {

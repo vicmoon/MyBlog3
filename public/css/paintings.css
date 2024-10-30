@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #fff1db;
 }
 
 /* Gallery container */
@@ -39,17 +40,27 @@
   display: block;
   margin: 40px auto 20px auto;
   max-width: 100px;
-  padding: 10px;
-  background-color: #b1afff;
-  color: #fff;
+  padding: 12px 24px;
+  background-color: #fff6e3; /* Button background */
+  color: #1a1a19; /* Text color */
   text-decoration: none;
   border-radius: 30px;
   font-size: 18px;
   text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.back-button span {
+  background-color: transparent; /* Text background */
+  padding: 4px 8px;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
 }
+
 .back-button:hover {
-  background-color: #a18fee;
-  transform: scale(1.05);
+  background-color: #dff2eb; /* Darker button background */
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
