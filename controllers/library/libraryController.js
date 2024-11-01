@@ -26,7 +26,7 @@ const uploadBookController = async (req, res, next) => {
 
 const getBookController = async (req, res, next) => {
   try {
-    const library = await Library.find().sort({ createdAt: -1 });
+    const library = await Library.find().sort({ createdAt: 1 });
     res.render('library', { library });
   } catch (error) {
     return next(appError('The books cannot be found'));
