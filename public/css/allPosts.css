@@ -95,7 +95,7 @@ form select {
     grid-template-columns: 1fr;
     gap: 10px;
     margin: 20px 20px;
-    margin-left: 20%;
+    margin-left: 30%;
   }
 
   .post-info,
@@ -107,6 +107,11 @@ form select {
     width: 70%;
     height: 70%;
     border-radius: 30px;
+  }
+  .posts-grid .post-title {
+    font-size: 18px;
+    max-width: 200px;
+    margin-top: 10px;
   }
 
   form select {
@@ -140,6 +145,12 @@ form select {
   .posts-grid .post-date {
     display: none;
   }
+
+  .posts-grid .post-title {
+    font-size: 18px;
+    max-width: 230px;
+  }
+
   form select {
     top: 3%; /* Adjust top positioning for larger tablets */
     padding: 9px;
@@ -176,6 +187,11 @@ form select {
   .posts-grid .post-body {
     display: none;
   }
+
+  .posts-grid .post-title {
+    display: none;
+  }
+
   form select {
     top: 1%; /* Adjust top positioning for larger tablets */
     padding: 9px;
