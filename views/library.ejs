@@ -17,5 +17,41 @@
       <% }); %>
     </div>
     <a href="/" class="back-button"><span>Back</span></a>
+
+    <script>
+      document.querySelectorAll('.carousel-item img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          // Create an overlay div to hold the full-size image
+          const overlay = document.createElement('div');
+          overlay.style.position = 'fixed';
+          overlay.style.top = 0;
+          overlay.style.left = 0;
+          overlay.style.width = '100%';
+          overlay.style.height = '100%';
+          overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+          overlay.style.display = 'flex';
+          overlay.style.alignItems = 'center';
+          overlay.style.justifyContent = 'center';
+          overlay.style.cursor = 'pointer';
+
+          // Create an image element for the full-size image
+          const fullImg = document.createElement('img');
+          fullImg.src = img.src;
+          fullImg.style.maxWidth = '90%';
+          fullImg.style.maxHeight = '90%';
+
+          // Append full-size image to overlay
+          overlay.appendChild(fullImg);
+
+          // Add event listener to close overlay when clicked
+          overlay.addEventListener('click', function () {
+            document.body.removeChild(overlay);
+          });
+
+          // Append overlay to the body
+          document.body.appendChild(overlay);
+        });
+      });
+    </script>
   </body>
 </html>

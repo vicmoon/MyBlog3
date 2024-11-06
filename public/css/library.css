@@ -34,7 +34,7 @@
 
 /* Hover effect */
 .carousel-item:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);
 }
 
 .book-title {
