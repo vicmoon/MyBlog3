@@ -1,6 +1,7 @@
 /* Grid layout for posts */
 body {
   background-color: #201e43 !important;
+  font-family: 'Audiowide', sans-serif;
 }
 
 .posts-grid {

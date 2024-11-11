@@ -2,7 +2,7 @@ body {
   background-color: #fffcf2; /* Paper-like background color */
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; /* Optional for better appearance */
+  font-family: 'Audiowide', sans-serif !important; /* Optional for better appearance */
 }
 
 /* Flex Container */
