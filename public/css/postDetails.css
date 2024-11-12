@@ -38,7 +38,7 @@ body {
 /* Main Post Content */
 .post-content {
   width: 80%; /* Set a default width for the post content */
-  max-width: 1200px; /* Maximum width on larger screens */
+  /* Maximum width on larger screens */
   padding: 25px;
   border-radius: 12px;
   background-color: white;
@@ -128,8 +128,8 @@ body {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .post-content {
-    margin-left: 10%;
-    width: 95%; /* Make the content and related posts take full width */
+    margin-left: 30%;
+    width: 65%; /* Make the content and related posts take full width */
   }
 
   .post-title {
