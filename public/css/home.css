@@ -107,7 +107,7 @@ body {
     margin-left: 15%;
   }
 
-  .posts-hero .post-category {
+  .post-category span {
     display: none;
   }
   .posts-hero .post-title {

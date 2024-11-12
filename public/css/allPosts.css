@@ -37,6 +37,16 @@ body {
 .posts-grid .post-body {
   color: #f4f6ff;
 }
+.post-category span {
+  background-color: #f4ce14;
+  color: #10375c;
+  padding: 4px;
+  border-radius: 20px;
+  font-size: 15px;
+  position: absolute;
+  top: 9px;
+  left: -5px;
+}
 
 /* Style for the Back button */
 .back-button {

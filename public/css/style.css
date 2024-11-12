@@ -29,17 +29,17 @@ body {
   border-radius: 30px;
 }
 
-.post-category span {
+/* .post-category span {
   background-color: #f4ce14;
   color: #10375C;
   padding: 4px;
   border-radius: 20px;
   font-size: 15px;
-  
+  display: none;
   position: absolute;
   top: 9px;
   left: -5px;
-}
+} */
 
 .post-info span {
   display: flex;
