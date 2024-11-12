@@ -34,7 +34,12 @@
           <div class="bar"></div>
         </div>
 
-        <!-- Dynamic menu with EJS for authentication checks -->
+        <!-- Indicator icon to show that the sidebar can be expanded -->
+        <!-- <div class="indicator-icon">
+          <i class="fas fa-chevron-right"></i>
+        </div> -->
+
+        <!-- Menu items list -->
         <ul class="menu" id="menu">
           <% if (userAuth) { %>
           <li class="nav-item home"><a href="/">Home</a></li>
@@ -52,7 +57,6 @@
           <% } else { %>
           <li class="nav-item home"><a href="/">Home</a></li>
           <li class="nav-item"><a href="/api/v1/posts/">Blog</a></li>
-          <!-- <li class="nav-item"><a href="/api/v1/resources">Links</a></li> -->
           <li class="nav-item"><a href="/api/v1/signup">Sign Up</a></li>
           <li class="nav-item"><a href="/api/v1/paintings">Paintings</a></li>
           <li class="nav-item"><a href="/api/v1/library">Library</a></li>

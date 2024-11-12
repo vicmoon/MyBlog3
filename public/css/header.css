@@ -1,3 +1,19 @@
+.hamburger {
+  cursor: pointer;
+  z-index: 1001;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #fef3e2; /* White color for contrast */
+  margin: 5px 0;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
 /* Sidebar container */
 nav {
   width: 50px; /* Collapsed width */
@@ -6,7 +22,9 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 20px;
+  padding-top: 20px 10px;
+  padding-left: 20px; /* Add padding to prevent blocking the hamburger */
+  box-sizing: border-box;
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for width and height */
   z-index: 1000;
@@ -15,6 +33,11 @@ nav {
 /* Sidebar expands vertically only */
 nav:hover {
   width: 150px; /* Expanded width */
+}
+/* Hide the hamburger icon when the sidebar is expanded */
+nav:hover .hamburger {
+  opacity: 0; /* Hide hamburger when hovering (expanded state) */
+  pointer-events: none; /* Make sure it's not clickable */
 }
 
 /* Style the nav links */
@@ -28,7 +51,6 @@ nav ul {
 
 nav ul li {
   margin-bottom: 15px;
-  padding-left: 10px;
 }
 
 nav ul li a {
