@@ -96,7 +96,7 @@ nav ul li a:hover {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   nav {
-    width: 50px; /* Keep width consistent */
+    width: 60px; /* Keep width consistent */
     height: 100vh; /* Full vertical height */
   }
 
@@ -122,7 +122,7 @@ nav ul li a:hover {
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   nav {
-    width: 50px; /* Same width */
+    width: 60px; /* Same width */
     height: 100vh; /* Keep full height */
   }
 
