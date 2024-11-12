@@ -28,6 +28,11 @@ nav {
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for width and height */
   z-index: 1000;
+  border-right: 2px solid #cb9df0;
+  border-style: dashed;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
 }
 
 /* Sidebar expands vertically only */
