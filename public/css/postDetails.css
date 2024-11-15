@@ -29,6 +29,8 @@ body {
 
 /* Main Post Content */
 .post-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   width: 100%; /* Set a default width for the post content */
   padding: 10px;
   margin-top: 3%;
@@ -116,6 +118,15 @@ body {
 /* MEDIA QUERIES */
 /* --------------------------------------- */
 
+@media (max-width: 375px) {
+  .post-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-left: 30%;
+    width: 50%; /* Make the content and related posts take full width */
+  }
+}
+
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .post-content {
@@ -171,7 +182,7 @@ body {
 /* Large devices (tablets, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .post-content {
-    margin-top: 5%;
+    margin-top: 10%;
     margin-left: 17%;
     width: 65%; /* More space for larger devices */
   }
@@ -189,6 +200,7 @@ body {
 /* Extra large devices (desktops, 1025px and up) */
 @media (min-width: 1025px) {
   .post-content {
+    margin-top: 5%;
     width: 80%; /* Set default width for desktops */
   }
 
@@ -199,8 +211,9 @@ body {
   .post-title {
     font-size: 2.8rem;
   }
-  .related-post-content {
-    width: 60%;
-    margin-bottom: 10px;
+  .related-posts {
+    margin-left: 25%;
+    flex-direction: column;
+    width: 50%;
   }
 }
