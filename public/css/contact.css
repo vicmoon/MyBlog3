@@ -93,7 +93,7 @@ body {
     flex-direction: column; /* Stack cards vertically */
     gap: 15px; /* Add more gap between stacked cards */
     padding: 0 10px; /* Ensure the cards don't touch the edges of the screen */
-    margin-left: 5%;
+    margin-left: 9%;
   }
 
   .card {

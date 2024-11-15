@@ -81,7 +81,6 @@ body {
 /* Related Posts Section */
 .related-posts {
   width: 100%;
-  height: 50%;
   color: #fffcf2;
   padding: 15px;
   border-radius: 8px;
@@ -128,8 +127,9 @@ body {
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .post-content {
-    margin-left: 30%;
-    width: 65%; /* Make the content and related posts take full width */
+    flex-direction: column;
+    margin-left: 10%;
+    width: 100%; /* Make the content and related posts take full width */
   }
 
   .post-title {
@@ -155,15 +155,15 @@ body {
 @media (min-width: 476px) and (max-width: 768px) {
   .post-content {
     margin-left: 10%;
-    width: 95%; /* Make the content and related posts take full width */
+    width: 85%; /* Make the content and related posts take full width */
   }
 
   .post-title {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .post-body {
-    font-size: 1rem;
+    font-size: 13px;
   }
 
   .related-post-content {
