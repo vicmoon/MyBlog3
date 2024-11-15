@@ -7,7 +7,7 @@ body {
 .posts-grid {
   margin-top: 100px; /* Add margin to move posts down below the select */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   margin: 20px 20px;
   margin-left: 200px;
@@ -175,7 +175,7 @@ form select {
     margin-top: 150px;
     margin-left: 20%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin: 20px 20px;
     margin-left: 20%;
@@ -216,7 +216,7 @@ form select {
     margin-top: 100px;
     margin-left: 20%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin: 20px 20px;
     margin-left: 20%;
