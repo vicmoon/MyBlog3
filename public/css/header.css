@@ -9,7 +9,7 @@
 .hamburger .bar {
   width: 25px;
   height: 3px;
-  background-color: #fef3e2; /* White color for contrast */
+  background-color: #1a1a1d; /* White color for contrast */
   margin: 5px 0;
   transition: all 0.3s ease; /* Smooth transition */
 }
@@ -18,7 +18,7 @@
 nav {
   width: 50px; /* Collapsed width */
   height: 100vh; /* Full height */
-  background-color: #508c9b;
+  background-color: #fab12f;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,7 +28,7 @@ nav {
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for width and height */
   z-index: 1000;
-  border-right: 2px solid #cb9df0;
+  border-right: 2px solid #a6aebf;
   border-style: dashed;
   border-top: 0;
   border-left: 0;
@@ -60,7 +60,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: aliceblue;
+  color: #1a1a1d;
   padding: 5px;
   display: block;
   white-space: nowrap;
