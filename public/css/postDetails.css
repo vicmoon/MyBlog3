@@ -124,12 +124,12 @@ body {
   .post-content {
     word-wrap: break-word;
     overflow-wrap: break-word;
-    margin-left: 30%;
-    width: 75%; /* Make the content and related posts take full width */
+    margin-left: 38%;
+    width: 80%;
   }
 
   .related-post-content {
-    width: 250px;
+    width: 230px;
   }
 }
 
@@ -137,7 +137,7 @@ body {
 @media (max-width: 475px) {
   .post-content {
     margin-left: 18%;
-    width: 75%; /* Make the content and related posts take full width */
+    width: 75%;
   }
 
   .post-title {
@@ -153,9 +153,13 @@ body {
   }
 
   .related-posts {
-    margin-left: 21%;
+    margin-left: 24%;
     flex-direction: column-reverse;
     width: 40%;
+  }
+
+  .related-post-content {
+    width: 220px;
   }
   .post-read-more h3 {
     font-size: 18px;
@@ -170,7 +174,7 @@ body {
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   .post-content {
-    margin-left: 15%;
+    margin-left: 19%;
     width: 75%; /* Make the content and related posts take full width */
   }
 
@@ -187,7 +191,7 @@ body {
   }
 
   .related-posts {
-    margin-left: 30%;
+    margin-left: 28%;
     flex-direction: column;
     width: 60%;
     justify-content: space-around;
