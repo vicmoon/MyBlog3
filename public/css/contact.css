@@ -7,7 +7,7 @@ body {
 .contact {
   width: 100%;
   max-width: 1200px; /* Prevents content from going beyond screen */
-  margin: 0 auto; /* Centers the container */
+
   padding: 10px;
   display: grid;
 }
@@ -20,7 +20,7 @@ body {
   gap: 10px; /* Add gap between cards */
   width: 100%; /* Full width */
   height: 100vh;
-  flex-wrap: wrap; /* Ensures the cards wrap to the next row if needed */
+  /* Ensures the cards wrap to the next row if needed */
   padding-top: 50px; /* Add padding to ensure space at the top */
 }
 
@@ -28,10 +28,8 @@ body {
   padding: 10px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  width: 100%; /* Full width for small screens */
+  width: 400px;
   box-sizing: border-box; /* Include padding in the total width */
-  margin: 10px; /* Ensure some margin between cards */
 }
 
 .card-header,
@@ -91,16 +89,16 @@ body {
 
   .card-container {
     flex-direction: column; /* Stack cards vertically */
+    justify-content: center;
+    width: 100%;
     gap: 15px; /* Add more gap between stacked cards */
-    padding: 0 10px; /* Ensure the cards don't touch the edges of the screen */
+    padding: 10px; /* Ensure the cards don't touch the edges of the screen */
     margin-left: 9%;
   }
 
   .card {
-    max-width: 300px; /* Make sure the cards take full width */
-    width: 100%;
+    max-width: 250px; /* Make sure the cards take full width */
     padding: 15px;
-    margin: 0 auto 15px auto; /* Center cards and add bottom margin */
   }
 }
 
