@@ -174,7 +174,7 @@ body {
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   .post-content {
-    margin-left: 19%;
+    margin-left: 16%;
     width: 75%; /* Make the content and related posts take full width */
   }
 
@@ -202,7 +202,7 @@ body {
 @media (min-width: 769px) and (max-width: 1024px) {
   .post-content {
     margin-top: 10%;
-    margin-left: 17%;
+    margin-left: 19%;
     width: 65%; /* More space for larger devices */
   }
 
@@ -221,6 +221,7 @@ body {
 @media (min-width: 1025px) {
   .post-content {
     margin-top: 5%;
+    margin-left: 35%;
     width: 80%; /* Set default width for desktops */
   }
 
@@ -236,5 +237,29 @@ body {
     flex-direction: row;
     width: 50%;
     justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 1034px) {
+  .post-content {
+    margin-top: 5%;
+    margin-left: 12%;
+    width: 80%; /* Set default width for desktops */
+  }
+}
+
+@media (min-width: 1156px) {
+  .post-content {
+    margin-top: 5%;
+    margin-left: 12%;
+    width: 80%; /* Set default width for desktops */
+  }
+}
+
+@media (min-width: 1556px) {
+  .post-content {
+    margin-top: 5%;
+    margin-left: 12%;
+    width: 80%; /* Set default width for desktops */
   }
 }
