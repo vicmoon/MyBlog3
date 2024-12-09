@@ -233,12 +233,18 @@ form select {
   }
 
   .posts-grid .post-date {
-    width: 90%;
+    width: 80%;
+    padding: 2px;
   }
 
   .posts-grid .post-body {
     display: none;
   }
+
+  .posts-grid .post-title {
+    width: 80%;
+  }
+
   form select {
     top: 1%; /* Adjust top positioning for larger tablets */
     padding: 9px;

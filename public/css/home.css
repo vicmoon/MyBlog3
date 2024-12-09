@@ -241,7 +241,7 @@ body {
 
   .posts-hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     padding: 70px;
     margin-left: 20%;
@@ -270,6 +270,10 @@ body {
     justify-content: flex-end;
   }
 
+  .posts-hero .post-title {
+    width: 85%;
+  }
+
   footer {
     height: 20px;
     font-size: 20px;
@@ -284,7 +288,7 @@ body {
   }
 
   .posts-hero {
-    grid-template-columns: 1fr 1fr; /* Keep three columns */
+    grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
     margin-left: 10%;
     padding: 50px;
   }
