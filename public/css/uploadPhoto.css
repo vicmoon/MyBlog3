@@ -6,7 +6,7 @@
 
 body {
   background: #f1f1f1;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .form-container {
@@ -61,7 +61,7 @@ body {
   outline: none;
 }
 
-.form-container input[type="submit"] {
+.form-container input[type='submit'] {
   background: #333;
   color: #fff;
   cursor: pointer;

@@ -3,11 +3,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Audiowide', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 body {
-  font-family: 'Audiowide', sans-serif;
   background-color: #201e43 !important;
   display: flex;
   justify-content: center; /* Center horizontally */
