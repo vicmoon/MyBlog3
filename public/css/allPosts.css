@@ -5,17 +5,25 @@ body {
 }
 
 .posts-grid {
-  margin-top: 100px; /* Add margin to move posts down below the select */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  margin: 20px 20px;
-  margin-left: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: -10%;
+  padding: 50px;
+  max-width: fit-content;
+  gap: 10px; /* Adds space between posts */
 }
 
 .posts-grid a {
   text-decoration: none;
 }
+
+.posts-grid .post-date {
+  margin-top: 5px;
+  width: 100%;
+}
+
 .posts-grid a:hover {
   color: #f4ce14;
   transform: scale(1.1); /* Enlarges the text by 10% */
@@ -23,9 +31,10 @@ body {
 }
 
 .posts-grid img {
-  width: 500px;
-  height: 400px;
-  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensures consistent image size and fills the container */
+  display: block;
   border-radius: 30px;
 }
 

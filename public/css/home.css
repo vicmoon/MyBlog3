@@ -33,52 +33,93 @@ body {
 
 .posts-hero {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-left: -10%;
-  padding: 50px;
-  max-width: fit-content;
-  gap: 10px; /* Adds space between posts */
+  flex-wrap: wrap;
+  justify-content: center; /* Center-align items */
+  gap: 20px; /* Space between items */
+  margin-left: -50px; /* Adjust left alignment */
 }
-
-.latest-posts {
+.posts-hero > * {
+  flex: 1 1 200px; /* Each item takes up at least 200px, but can shrink/grow */
+  max-width: 300px; /* Optional: Limit the max width of each item */
+}
+.posts-hero .post {
   display: flex;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
   align-items: center;
-  margin-top: 10px;
-  color: #eeeeee;
-  margin-top: 15px;
+  text-align: center;
+  gap: 10px;
+  width: 200px;
 }
 
 .posts-hero img {
   width: 100%;
   height: 100%;
-  border-radius: 30px;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: block;
+}
+
+.posts-hero .post {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden; /* Ensure content stays within bounds */
+}
+
+.posts-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: block;
+}
+
+.posts-hero .post-title {
+  position: absolute;
+  top: 50%; /* Position at the vertical center */
+  left: 50%; /* Position at the horizontal center */
+  transform: translate(-50%, -50%); /* Center the element perfectly */
+  width: 90%; /* Optional: Limit width for better readability */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: white;
+  text-align: center;
+  padding: 5px 10px; /* Add padding for better readability */
+  font-size: 18px;
+  font-weight: bold;
+
+  /* Add a blur effect */
+  backdrop-filter: blur(5px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
 }
 
 .posts-hero .post-title {
   color: #cb80ab;
   font-size: 25px;
 }
-
 .posts-hero .post-date {
-  display: flex;
-  background-color: #ffeac5;
-  color: #062e83;
-  border-radius: 10px;
-  padding: 3px;
-  width: 300px;
-  justify-content: flex-end;
+  display: none;
 }
 
 .posts-hero a {
   text-decoration: none;
 }
-
-/* .posts-hero .post-body {
-  color: #eeeeee;
-} */
 
 /* Responsive Media Queries */
 /* Small devices (phones, 0px to 475px) */
@@ -101,10 +142,14 @@ body {
   }
 
   .posts-hero img {
-    width: 70%;
-    height: 70%;
-    border-radius: 30px;
-    margin-left: 15%;
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    border: 2px solid white; /* White solid border */
+    border-radius: 5px; /* Optional: Slight rounding for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 10px; /* Add spacing between images */
+    display: block; /* Prevent inline space issues */
   }
 
   .post-category span {
@@ -145,6 +190,11 @@ body {
     gap: 10px;
   }
 
+  .posts-hero .post-title {
+    font-size: 16px; /* Slightly smaller font */
+    backdrop-filter: blur(7px); /* Increased blur for better readability */
+    padding: 15px 15px; /* Adjust padding for better spacing */
+  }
   .posts-hero img {
     width: 300px; /* Smaller images for mid-size devices */
     height: 200px;
@@ -197,6 +247,11 @@ body {
     width: 80%;
     height: 80%;
   }
+  .posts-hero .post-title {
+    font-size: 18px;
+    backdrop-filter: blur(6px); /* Moderate blur */
+    padding: 8px 12px; /* Slight padding adjustment */
+  }
   .post-body {
     display: none;
   }
@@ -217,12 +272,17 @@ body {
   }
 
   .posts-hero img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
   }
 
   .posts-hero .post-date {
     width: 80%;
+  }
+
+  .posts-hero .post-title {
+    font-size: 20px;
+    backdrop-filter: blur(5px); /* Slightly reduced blur */
   }
   .post-body p {
     display: none;
@@ -251,9 +311,14 @@ body {
     display: none;
   }
 
+  .posts-hero .post-title {
+    font-size: 22px;
+    backdrop-filter: blur(4px); /* Minimal blur for readability */
+  }
+
   .posts-hero img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
   }
 
   .latest-posts {
@@ -270,10 +335,6 @@ body {
     justify-content: flex-end;
   }
 
-  .posts-hero .post-title {
-    width: 85%;
-  }
-
   footer {
     height: 20px;
     font-size: 20px;
@@ -288,18 +349,29 @@ body {
   }
 
   .posts-hero {
-    grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
-    margin-left: 10%;
-    padding: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    justify-content: space-evenly; /* Evenly distribute items */
+    margin-left: 5%;
+    gap: 20px; /* Add spacing between items (optional) */
   }
 
+  .posts-hero > * {
+    flex: 1 1 200px; /* Each item takes up at least 200px, but can shrink/grow */
+    max-width: 300px; /* Optional: Limit the max width of each item */
+  }
   .posts-hero img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Ensures consistent image size and fills the container */
+    display: block;
   }
-
+  .posts-hero .post-title {
+    font-size: 24px; /* Larger font for wide screens */
+    backdrop-filter: blur(3px); /* Minimal blur */
+  }
   .posts-hero .post-date {
-    width: 100%;
+    width: 90%;
   }
   .posts-hero .post-body {
     display: none;
