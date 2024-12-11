@@ -38,6 +38,7 @@ body {
   gap: 20px; /* Space between items */
   margin-left: -50px; /* Adjust left alignment */
 }
+
 .posts-hero > * {
   flex: 1 1 200px; /* Each item takes up at least 200px, but can shrink/grow */
   max-width: 300px; /* Optional: Limit the max width of each item */
@@ -51,22 +52,6 @@ body {
   text-align: center;
   gap: 10px;
   width: 200px;
-}
-
-.posts-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 2px solid white;
-  border-radius: 10px;
-  display: block;
-}
-
-.posts-hero .post {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden; /* Ensure content stays within bounds */
 }
 
 .posts-hero img {

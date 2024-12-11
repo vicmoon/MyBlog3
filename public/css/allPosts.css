@@ -6,13 +6,65 @@ body {
 
 .posts-grid {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center; /* Center-align items */
+  gap: 20px; /* Space between items */
+  margin-left: 8%;
+  margin-top: 8%;
+}
+.posts-grid > * {
+  flex: 1 1 300px; /* Each item takes up at least 300px, but can shrink/grow */
+  max-width: 300px; /* Optional: Limit the max width of each item */
+}
+.posts-grid .post-title {
+  position: absolute;
+  top: 50%; /* Position at the vertical center */
+  left: 50%; /* Position at the horizontal center */
+  transform: translate(-50%, -50%); /* Center the element perfectly */
+  width: 90%; /* Optional: Limit width for better readability */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: white;
+  text-align: center;
+  padding: 5px 10px; /* Add padding for better readability */
+  font-size: 18px;
+  font-weight: bold;
+
+  /* Add a blur effect */
+  backdrop-filter: blur(5px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.posts-grid .post {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
   align-items: center;
-  margin-left: -10%;
-  padding: 50px;
-  max-width: fit-content;
-  gap: 10px; /* Adds space between posts */
+  text-align: center;
+  gap: 10px;
+  width: 200px;
+}
+
+.posts-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: block;
 }
 
 .posts-grid a {
@@ -20,8 +72,7 @@ body {
 }
 
 .posts-grid .post-date {
-  margin-top: 5px;
-  width: 100%;
+  display: none;
 }
 
 .posts-grid a:hover {
@@ -99,14 +150,6 @@ form select {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
 }
 
-.posts-grid {
-  margin-top: 100px; /* Add margin to move posts down below the select */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-left: 200px;
-}
-
 /* Small devices (phones, 0px to 475px) */
 @media (max-width: 475px) {
   .posts-grid {
@@ -124,14 +167,12 @@ form select {
   }
 
   .posts-grid img {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
   }
   .posts-grid .post-title {
     font-size: 18px;
-    max-width: 200px;
-    margin-top: 10px;
   }
 
   form select {
@@ -150,8 +191,8 @@ form select {
   }
 
   .posts-grid img {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
   }
 
@@ -168,7 +209,6 @@ form select {
 
   .posts-grid .post-title {
     font-size: 18px;
-    max-width: 230px;
   }
 
   form select {
@@ -191,8 +231,8 @@ form select {
   }
 
   .posts-grid img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
   }
 
@@ -209,7 +249,7 @@ form select {
   }
 
   .posts-grid .post-title {
-    display: none;
+    font-size: 18px;
   }
 
   form select {
@@ -232,8 +272,8 @@ form select {
   }
 
   .posts-grid img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
   }
 
@@ -241,17 +281,17 @@ form select {
     display: none;
   }
 
-  .posts-grid .post-date {
+  /* .posts-grid .post-date {
     width: 80%;
     padding: 2px;
-  }
+  } */
 
   .posts-grid .post-body {
     display: none;
   }
 
   .posts-grid .post-title {
-    width: 80%;
+    font-size: 18px;
   }
 
   form select {
