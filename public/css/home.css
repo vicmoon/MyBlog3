@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+
   background-color: #201e43;
   background-image: url('/images/background.png');
   background-repeat: no-repeat;
@@ -21,7 +22,7 @@ body {
 .hero h1 {
   font-size: 90px;
   color: #fabc3f; /* Opaque text */
-  background: rgba(203, 128, 171, 0.5); /* 50% transparent background */
+  background: rgba(203, 128, 171, 0.5);
   padding: 20px;
   border-radius: 30px;
   text-align: center;
@@ -95,7 +96,7 @@ body {
 }
 
 .posts-hero .post-title {
-  color: #cb80ab;
+  color: #fab12f;
   font-size: 25px;
 }
 .posts-hero .post-date {
@@ -104,6 +105,16 @@ body {
 
 .posts-hero a {
   text-decoration: none;
+}
+
+.latest-posts {
+  display: block; /* Ensure the container is visible */
+}
+.latest-posts h3 {
+  display: block; /* Ensure the <h3> element is visible */
+  font-size: 30px; /* Optional: Adjust font size for better visibility */
+  color: #fabc3f; /* Optional: Ensure text is readable */
+  text-align: center; /* Optional: Align text */
 }
 
 /* Responsive Media Queries */
@@ -118,12 +129,10 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin-left: 15%;
+    margin-left: 10%;
   }
   .latest-posts {
-    display: flex;
-    flex-direction: row;
-    margin-left: 15%;
+    display: none;
   }
 
   .posts-hero img {
@@ -164,14 +173,15 @@ body {
   .hero h1,
   .hero,
   .latest-posts,
-  .post-date {
+  .post-date,
+  .post-body {
     display: none;
   }
 
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr;
-    margin-left: 15%;
+    margin-left: 25%;
     gap: 10px;
   }
 
@@ -181,12 +191,8 @@ body {
     padding: 15px 15px; /* Adjust padding for better spacing */
   }
   .posts-hero img {
-    width: 300px; /* Smaller images for mid-size devices */
-    height: 200px;
-  }
-
-  .latest-posts {
-    font-size: 20px;
+    width: 100%; /* Smaller images for mid-size devices */
+    height: 100%;
   }
 
   footer {
@@ -205,38 +211,28 @@ body {
 
 /* Large devices (tablets, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .hero h1 {
-    font-size: 75px; /* Larger font for tablets */
-  }
+  .hero h1,
   .hero {
     display: none;
-  }
-  .latest-posts {
-    font-size: 20px;
-    padding: 10px;
-    margin: 0;
-  }
-  .post-content {
-    display: flex;
-    flex-direction: column;
   }
 
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0;
-    padding: 30px;
+    margin-left: 15%;
+    gap: 10px;
   }
 
   .posts-hero img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
   }
   .posts-hero .post-title {
     font-size: 18px;
     backdrop-filter: blur(6px); /* Moderate blur */
     padding: 8px 12px; /* Slight padding adjustment */
   }
+
   .post-body {
     display: none;
   }
@@ -245,32 +241,16 @@ body {
     font-size: 18px;
     padding: 25px;
   }
-}
 
-@media (min-width: 781px) {
-  .posts-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 70px;
-    margin-left: 20%;
+  .latest-posts {
+    display: block; /* Ensure the container is visible */
   }
-
-  .posts-hero img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .posts-hero .post-date {
-    width: 80%;
-  }
-
-  .posts-hero .post-title {
-    font-size: 20px;
-    backdrop-filter: blur(5px); /* Slightly reduced blur */
-  }
-  .post-body p {
-    display: none;
+  .latest-posts h3 {
+    display: block; /* Ensure the <h3> element is visible */
+    font-size: 30px; /* Optional: Adjust font size for better visibility */
+    color: #fabc3f; /* Optional: Ensure text is readable */
+    text-align: center; /* Optional: Align text */
+    margin-top: 10px;
   }
 }
 
@@ -284,12 +264,18 @@ body {
     display: none;
   }
 
+  .hero h3 {
+    font-size: 50px;
+    padding: 10px;
+    margin: 0;
+  }
+
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     padding: 70px;
-    margin-left: 20%;
+    margin-left: 10%;
   }
 
   .posts-hero .post-body {
@@ -307,9 +293,14 @@ body {
   }
 
   .latest-posts {
-    font-size: 50px;
-    padding: 10px;
-    margin: 0;
+    display: block; /* Ensure the container is visible */
+  }
+  .latest-posts h3 {
+    display: block; /* Ensure the <h3> element is visible */
+    font-size: 30px; /* Optional: Adjust font size for better visibility */
+    color: #fabc3f; /* Optional: Ensure text is readable */
+    text-align: center; /* Optional: Align text */
+    margin-top: 10px;
   }
 
   .posts-hero .post-date {
@@ -357,6 +348,17 @@ body {
   }
   .posts-hero .post-date {
     width: 90%;
+  }
+
+  .latest-posts {
+    display: block; /* Ensure the container is visible */
+  }
+  .latest-posts h3 {
+    display: block; /* Ensure the <h3> element is visible */
+    font-size: 30px; /* Optional: Adjust font size for better visibility */
+    color: #fabc3f; /* Optional: Ensure text is readable */
+    text-align: center; /* Optional: Align text */
+    margin-top: 10px;
   }
   .posts-hero .post-body {
     display: none;
