@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-style: normal;
 }
 
@@ -30,7 +30,7 @@ body {
   border-radius: 30px;
 }
 
-/* .post-category span {
+/* .post-category {
   background-color: #f4ce14;
   color: #10375C;
   padding: 4px;
@@ -77,8 +77,6 @@ footer {
   width: 100%;
 }
 
-
-
 /* Responsive Media Queries */
 
 /* Small devices (phones, 0px to 475px) */
@@ -89,8 +87,7 @@ footer {
   }
 
   .post-category span {
-    font-size: 12px; /* Smaller text for mobile */
-    padding: 5px;
+    display: none;
   }
 
   .post-info span {
@@ -110,8 +107,6 @@ footer {
     margin-left: 0;
     padding: 10px;
   }
-
-  
 }
 
 /* Medium devices (larger phones and small tablets, 476px to 768px) */
@@ -121,8 +116,7 @@ footer {
   }
 
   .post-category span {
-    font-size: 13px;
-    padding: 7px;
+    display: none;
   }
 
   .post-info span {
@@ -162,8 +156,7 @@ footer {
   }
 
   .post-category span {
-    font-size: 14px;
-    padding: 8px;
+    display: none;
   }
 
   .post-info span {
@@ -202,7 +195,7 @@ footer {
   }
 
   .post-category span {
-    font-size: 15px;
+    display: none;
   }
 
   .post-info span {
@@ -237,7 +230,7 @@ footer {
   }
 
   .post-category span {
-    font-size: 16px;
+    display: none;
   }
 
   .post-info span {
@@ -264,6 +257,3 @@ footer {
     font-size: 1.5rem;
   }
 }
-
-
-/* All posts 
