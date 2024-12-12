@@ -20,8 +20,7 @@ const postSchema = new mongoose.Schema(
         'Creative Zone',
         'Stories',
         'Books',
-        'Jurnal crestin',
-        'Variety',
+        'Jurnal creștin',
       ],
     },
     image: {
