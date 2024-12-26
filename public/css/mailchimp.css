@@ -1,0 +1,38 @@
+/* Mailchimp Form Styles */
+#mc_embed_signup {
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 400px;
+  margin: auto;
+}
+
+#mc_embed_signup input[type='email'],
+#mc_embed_signup input[type='text'],
+#mc_embed_signup input[type='submit'] {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#mc_embed_signup input[type='submit'] {
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+#mc_embed_signup input[type='submit']:hover {
+  background-color: #005bb5;
+}
+
+#mc_embed_signup a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+#mc_embed_signup a:hover {
+  text-decoration: underline;
+}
