@@ -111,6 +111,9 @@ body {
     margin-left: 9%;
   }
 
+  .contact-message {
+  }
+
   .card {
     max-width: 250px; /* Make sure the cards take full width */
     padding: 15px;

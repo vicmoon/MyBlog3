@@ -2,15 +2,18 @@
 #mc_embed_signup {
   clear: left;
   font: 14px Helvetica, Arial, sans-serif;
-  width: 400px;
+  width: 100%; /* Adjusts the container to fit the screen */
+  max-width: 400px; /* Limits the maximum width on larger screens */
   margin: auto;
+  padding: 10px; /* Adds some spacing around the form */
+  box-sizing: border-box; /* Ensures padding doesn't overflow the container */
 }
 
 #mc_embed_signup input[type='email'],
 #mc_embed_signup input[type='text'],
 #mc_embed_signup input[type='submit'] {
   display: block;
-  width: 100%;
+  width: 100%; /* Full width for all inputs */
   margin-bottom: 10px;
   padding: 10px;
   font-size: 14px;
@@ -35,4 +38,19 @@
 
 #mc_embed_signup a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 475px) {
+  #mc_embed_signup {
+    padding: 5px; /* Reduces padding for smaller screens */
+  }
+
+  #mc_embed_signup input[type='email'],
+  #mc_embed_signup input[type='text'],
+  #mc_embed_signup input[type='submit'] {
+    width: 100%; /* Ensures the inputs always fit within the screen width */
+    font-size: 12px; /* Adjusts font size for better fit */
+    padding: 8px; /* Slightly smaller padding */
+  }
 }
