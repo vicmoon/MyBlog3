@@ -40,10 +40,6 @@ body {
   margin-left: -50px; /* Adjust left alignment */
 }
 
-.posts-hero > * {
-  flex: 1 1 200px; /* Each item takes up at least 200px, but can shrink/grow */
-  max-width: 300px; /* Optional: Limit the max width of each item */
-}
 .posts-hero .post {
   display: flex;
   position: relative;
@@ -131,6 +127,7 @@ body {
     padding: 20px;
     margin-left: 10%;
   }
+
   .latest-posts {
     display: none;
   }
@@ -181,7 +178,7 @@ body {
   .posts-hero {
     display: grid;
     grid-template-columns: 1fr;
-    margin-left: 25%;
+    margin-left: 18%;
     gap: 10px;
   }
 
@@ -218,7 +215,7 @@ body {
 
   .posts-hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin-left: 15%;
     gap: 10px;
   }
@@ -272,10 +269,10 @@ body {
 
   .posts-hero {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     padding: 70px;
-    margin-left: 10%;
+    margin-left: 25%;
   }
 
   .posts-hero .post-body {
@@ -326,22 +323,28 @@ body {
 
   .posts-hero {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next row */
-    justify-content: space-evenly; /* Evenly distribute items */
-    margin-left: 5%;
-    gap: 20px; /* Add spacing between items (optional) */
+    flex-direction: column;
+
+    padding: 20px;
+    margin-left: 30%;
   }
 
-  .posts-hero > * {
-    flex: 1 1 200px; /* Each item takes up at least 200px, but can shrink/grow */
-    max-width: 300px; /* Optional: Limit the max width of each item */
+  .posts-hero .post-title {
+    font-size: 18px;
+    backdrop-filter: blur(3px);
+    padding: 8px 12px;
   }
+
   .posts-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures consistent image size and fills the container */
-    display: block;
+    width: 95%;
+    height: 95%;
+    border: 2px solid white; /* White solid border */
+    border-radius: 5px; /* Optional: Slight rounding for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 10px; /* Add spacing between images */
+    display: block; /* Prevent inline space issues */
   }
+
   .posts-hero .post-title {
     font-size: 24px; /* Larger font for wide screens */
     backdrop-filter: blur(3px); /* Minimal blur */
@@ -349,7 +352,6 @@ body {
   .posts-hero .post-date {
     width: 90%;
   }
-
   .latest-posts {
     display: block; /* Ensure the container is visible */
   }
