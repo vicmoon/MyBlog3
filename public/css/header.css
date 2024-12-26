@@ -27,7 +27,7 @@ nav {
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for width and height */
   z-index: 1000;
-  border-right: 2px dashed #a6aebf; /* Dashed border for decoration */
+  border-right: 2px solid #a6aebf; /* Dashed border for decoration */
 
   /* Add a shadow on the right */
   box-shadow: 2px 0 8px rgba(223, 217, 217, 0.2); /* Horizontal shadow to the right */
