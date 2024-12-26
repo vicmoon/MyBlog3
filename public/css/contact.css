@@ -6,10 +6,25 @@ body {
 
 .contact {
   width: 100%;
-  max-width: 1200px; /* Prevents content from going beyond screen */
-
+  /* Prevents content from going beyond screen */
   padding: 10px;
   display: grid;
+}
+
+.contact-message {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #fcde70;
+}
+
+.contact-message a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.contact-message a:hover {
+  text-decoration: underline;
 }
 
 .card-container {

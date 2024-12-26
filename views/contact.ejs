@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favicon -->
     <link rel="icon" href="/images/victoria_m.jpg" type="image/x-icon" />
-  
+
     <!-- Fontawesome -->
     <script
       src="https://kit.fontawesome.com/42a182743f.js"
       crossorigin="anonymous"
     ></script>
     <!-- CSS -->
-   
     <link rel="stylesheet" href="/css/contact.css" />
 
     <script
@@ -21,18 +20,26 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <title> My Contacts 📞</title>
+    <title>My Contacts 📞</title>
   </head>
   <body>
     <!-- nav -->
     <%-include('./partials/header.ejs')%>
-     
-    <section class="contact">
-      
-      <div class="card-container">
 
-        //Portfolio 
-        
+    <section class="contact">
+      <!-- New Contact Element -->
+      <div class="contact-message">
+        <span>
+          Write directly:
+          <a
+            href="https://us21.list-manage.com/contact-form?u=e6380098ece52bf064ac7138c&form_id=f25d505929d57162a3e645f684f0dc97"
+          >
+            Contact Form
+          </a>
+        </span>
+      </div>
+      <div class="card-container">
+        <!-- Portfolio -->
         <div class="card">
           <a href="https://victoriamunteanuportfolio.net/" class="btn-primary">
             <div class="card-header">
@@ -42,7 +49,8 @@
           <div class="card-body">
             <h5 class="card-title">Explore My Work</h5>
             <p class="card-text">
-              A comprehensive look at my projects, background, and professional aspirations.
+              A comprehensive look at my projects, background, and professional
+              aspirations.
             </p>
             <a
               href="https://victoriamunteanuportfolio.net/"
@@ -52,15 +60,19 @@
           </div>
         </div>
         <div class="card">
-          <a  href="https://www.linkedin.com/in/victoriamunteanu/" class="btn-primary">
-          <div class="card-header">
-            LinkedIn <i class="fa-brands fa-linkedin"></i></i>
-          </div>
-        </a>
+          <a
+            href="https://www.linkedin.com/in/victoriamunteanu/"
+            class="btn-primary"
+          >
+            <div class="card-header">
+              LinkedIn <i class="fa-brands fa-linkedin"></i>
+            </div>
+          </a>
           <div class="card-body">
             <h5 class="card-title">Connect with Me</h5>
             <p class="card-text">
-              Connect with me on LinkedIn to follow my work-related updates, achievements, and insights.
+              Connect with me on LinkedIn to follow my work-related updates,
+              achievements, and insights.
             </p>
             <a
               href="https://www.linkedin.com/in/victoriamunteanu/"
@@ -70,20 +82,23 @@
           </div>
         </div>
         <div class="card">
-          <a  href="https://github.com/vicmoon" class="btn-primary">
-          <div class="card-header">GitHub <i class="fa-brands fa-github"></i></div>
+          <a href="https://github.com/vicmoon" class="btn-primary">
+            <div class="card-header">
+              GitHub <i class="fa-brands fa-github"></i>
+            </div>
           </a>
           <div class="card-body">
             <h5 class="card-title">See My Code in Action</h5>
             <p class="card-text">
-              Explore my code repositories and track my near-daily progress on various projects.
-              
+              Explore my code repositories and track my near-daily progress on
+              various projects.
             </p>
             <a href="https://github.com/vicmoon" class="btn btn-primary">Go!</a>
           </div>
         </div>
       </div>
     </section>
+
     <%-include('./partials/footer.ejs')%>
   </body>
 </html>
