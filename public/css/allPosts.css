@@ -1,323 +1,165 @@
-/* Grid layout for posts */
+/* General Styling */
 body {
   background-color: #201e43 !important;
   font-family: 'Fira Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.posts-grid {
+/* Filter Form Styling */
+.filter-form {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center-align items */
-  gap: 20px; /* Space between items */
-  margin-left: 8%;
-  margin-top: 8%;
-}
-
-.posts-grid .post-title {
-  position: absolute;
-  top: 50%; /* Position at the vertical center */
-  left: 50%; /* Position at the horizontal center */
-  transform: translate(-50%, -50%); /* Center the element perfectly */
-  width: 90%; /* Optional: Limit width for better readability */
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-  color: white;
-  text-align: center;
-  padding: 5px 10px; /* Add padding for better readability */
-  font-size: 18px;
-  font-weight: bold;
-
-  /* Add a blur effect */
-  backdrop-filter: blur(5px);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-}
-
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
-}
-
-.posts-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 2px solid white;
-  border-radius: 10px;
-  display: block;
-}
-
-.posts-grid a {
-  text-decoration: none;
-}
-
-.posts-grid .post-date {
-  display: none;
-}
-
-.posts-grid a:hover {
-  color: #f4ce14;
-  transform: scale(1.1); /* Enlarges the text by 10% */
-  transition: transform 0.3s ease; /* Adds a smooth transition */
-}
-
-.posts-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Ensures consistent image size and fills the container */
-  display: block;
-  border-radius: 30px;
-}
-
-.posts-grid .post-title {
-  color: #fab12f;
-  font-size: 20px;
-}
-
-.posts-grid .post-body {
-  color: #f4f6ff;
-}
-.post-category span {
-  background-color: #f4ce14;
-  color: #10375c;
-  padding: 4px;
-  border-radius: 20px;
-  font-size: 15px;
-  position: absolute;
-  top: 9px;
-  left: -5px;
-}
-
-/* Style for the Back button */
-.back-button {
-  display: block;
-  margin: 40px auto 20px auto;
-  max-width: 100px;
-  padding: 12px 24px;
-  background-color: #fff6e3; /* Button background */
-  color: #1a1a19; /* Text color */
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 18px;
-  text-align: center;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-}
-
-.back-button span {
-  background-color: transparent; /* Text background */
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #dff2eb; /* Darker button background */
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-form select {
-  position: absolute; /* Absolute positioning within the container */
-  top: 5%; /* Position it above the posts */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  justify-content: center; /* Center the dropdown horizontally */
+  margin: 20px auto; /* Add spacing above and below */
   padding: 10px;
-  border-radius: 40px;
-  background-color: #b1afff;
-  z-index: 1000; /* Ensure it's layered above content */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  width: 100%; /* Ensure it spans the container width */
+  max-width: 400px; /* Limit the form's width */
 }
 
-/* Small devices (phones, 0px to 475px) */
+.filter-form select {
+  width: 100%; /* Make the dropdown span the full form width */
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+  border: 2px solid #fabc3f; /* Border color to match theme */
+  border-radius: 20px;
+  background-color: #201e43; /* Match the page's background */
+  color: #fff;
+  outline: none; /* Remove focus outline */
+  transition: border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.filter-form select:hover {
+  border-color: #f4ce14; /* Highlight border on hover */
+}
+
+.filter-form select:focus {
+  border-color: #fabc3f; /* Focus state border color */
+  box-shadow: 0 0 5px rgba(250, 188, 63, 0.5); /* Subtle focus glow */
+}
+
+/* Carousel Container */
+.posts-carousel {
+  display: flex; /* Use flexbox for alignment */
+  flex-wrap: wrap; /* Allow wrapping to new rows */
+  gap: 20px; /* Space between items */
+  justify-content: center; /* Center align items */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the entire carousel */
+}
+
+/* Individual Post Card */
+.post-card {
+  flex: 1 1 250px; /* Each card takes available space with a minimum width of 250px */
+  max-width: 300px; /* Limit the maximum width of cards */
+  overflow: hidden; /* Crop overflowing content */
+  border-radius: 15px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.post-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+}
+
+/* Post Image */
+.post-card img {
+  width: 100%;
+  height: 200px; /* Consistent height for images */
+  object-fit: cover; /* Ensure consistent image scaling */
+  border-radius: 10px; /* Slight rounding for a softer look */
+}
+
+/* Post Details */
+.post-details {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.post-title {
+  font-size: 18px;
+  color: #fabc3f;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.post-category {
+  font-size: 14px;
+  color: #b1afff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+
+/* Small Devices (Phones, 0px to 475px) */
 @media (max-width: 475px) {
-  .posts-grid {
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 20px 20px;
-    margin-left: 19%;
+  .posts-carousel {
+    margin-left: 15%;
+  }
+  .post-card {
+    flex: 1 1 100%; /* Cards take full width */
+    max-width: 100%; /* No max-width constraint */
   }
 
-  .post-info,
-  .post-body {
+  .post-card img {
+    height: 150px; /* Adjust image height for smaller screens */
+  }
+
+  .post-title {
+    font-size: 16px; /* Smaller title size */
+  }
+
+  .post-category {
     display: none;
+    /* font-size: 12px;
+    padding: 4px 8px; */
+  }
+  .filter-form {
+    margin: 10%; /* Reduce margin for smaller screens */
+    padding: 5px;
+    max-width: 80%; /* Expand form to take most of the screen width */
+    margin-left: 20%;
   }
 
-  .posts-grid img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-  }
-  .posts-grid .post-title {
-    font-size: 18px;
-  }
-
-  form select {
-    display: none;
+  .filter-form select {
+    padding: 8px 10px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
 
-/* Medium devices (larger phones and small tablets, 476px to 768px) */
+/* Medium Devices (Tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
-  .posts-grid {
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-left: 16%;
+  .post-card {
+    flex: 1 1 45%; /* Two cards per row */
+  }
+  .filter-form {
+    margin: 15px auto; /* Slightly larger margin for tablets */
+    padding: 8px;
+    max-width: 90%; /* Allow form to take most of the screen width */
   }
 
-  .posts-grid img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-  }
-
-  .posts-grid .post-category {
-    display: none;
-  }
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .posts-grid .post-date {
-    display: none;
-  }
-
-  .posts-grid .post-title {
-    font-size: 18px;
-  }
-
-  form select {
-    top: 3%; /* Adjust top positioning for larger tablets */
-    padding: 9px;
-    font-size: 18px;
+  .filter-form select {
+    padding: 10px 12px;
+    font-size: 15px; /* Slightly larger font size for tablets */
   }
 }
 
-/* Large devices (tablets, 769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .posts-grid {
-    margin-top: 150px;
-    margin-left: 20%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 60px;
-    margin-left: 20%;
-  }
-
-  .posts-grid img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-  }
-
-  .posts-grid .post-category {
-    display: none;
-  }
-
-  .posts-grid .post-date {
-    width: 80%;
-  }
-
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .posts-grid .post-title {
-    font-size: 18px;
-  }
-
-  form select {
-    top: 1%; /* Adjust top positioning for larger tablets */
-    padding: 9px;
-    font-size: 18px;
-  }
-}
-
-/* Extra large devices (small desktops, 1025px to 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .posts-grid {
-    margin-top: 100px;
-    margin-left: 20%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 60px;
-    margin-left: 20%;
-  }
-
-  .posts-grid img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-  }
-
-  .posts-grid .post-category {
-    display: none;
-  }
-
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .posts-grid .post-title {
-    font-size: 18px;
-  }
-
-  form select {
-    top: 1%; /* Adjust top positioning for larger tablets */
-    padding: 9px;
-    font-size: 18px;
-  }
-}
-
-/* Ultra large devices (large desktops and monitors, 1441px and up) */
-@media (min-width: 1441px) {
-  .posts-grid .post-body {
-    display: none;
-  }
-
-  .posts-grid {
-    margin-left: 20%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 5%;
-    margin-left: 25%;
-  }
-
-  .posts-hero .post-title {
-    font-size: 18px;
-    backdrop-filter: blur(3px);
-    padding: 8px 12px;
-  }
-
-  .posts-hero img {
-    width: 95%;
-    height: 95%;
-    border: 2px solid white; /* White solid border */
-    border-radius: 5px; /* Optional: Slight rounding for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin: 10px; /* Add spacing between images */
-    display: block; /* Prevent inline space issues */
-  }
-
-  .posts-hero .post-title {
-    font-size: 24px; /* Larger font for wide screens */
-    backdrop-filter: blur(3px); /* Minimal blur */
-  }
-  .posts-hero .post-date {
-    width: 90%;
+/* Large Devices (Desktops, 769px and Above) */
+@media (min-width: 769px) {
+  .post-card {
+    flex: 1 1 250px; /* Minimum width */
+    max-width: 300px; /* Maximum width */
   }
 }

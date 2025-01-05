@@ -35,6 +35,29 @@
        <section class="hero" >
         <h1> Bits and Scribbles</h1>
       </section>
+      <div class="latest-posts">
+        <h3>Latest Posts</h3>
+      </div>
+
+      <section class="posts-carousel">
+        <% if (posts && posts.length > 0) { %>
+          <% posts.forEach(post => { %>
+            <article class="post-card">
+              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+                <img src="<%= post.image %>" alt="Post image" class="post-image" />
+              </a>
+              <div class="post-details">
+                <h2 class="post-title">🔗<%= post.title %></h2>
+                <p class="post-date"><%= post.createdAt.toLocaleDateString() %></p>
+                <!-- <p class="post-body"><%- truncatePost(post.description) %></p> -->
+                <p class="post-category"><span><%= post.category %></span></p>
+              </div>
+            </article>
+          <% }) %>
+        <% } else { %>
+          <p>No posts available.</p>
+        <% } %>
+      </section>
       
      
         <%-include('./partials/footer.ejs')%>

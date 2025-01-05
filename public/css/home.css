@@ -31,345 +31,143 @@ body {
   letter-spacing: 5px; /* Spaced out letters */
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
-
-.posts-hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center-align items */
+/* Carousel Container */
+.posts-carousel {
+  display: flex; /* Use flexbox for alignment */
+  flex-wrap: wrap; /* Allow wrapping to new rows */
   gap: 20px; /* Space between items */
-  margin-left: -50px; /* Adjust left alignment */
+  justify-content: center; /* Center align items */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the entire carousel */
 }
 
-.posts-hero .post {
+/* Individual Post Card */
+.post-card {
+  flex: 1 1 250px; /* Each card takes available space with a minimum width of 250px */
+  max-width: 300px; /* Limit the maximum width of cards */
+  overflow: hidden; /* Crop overflowing content */
+  border-radius: 15px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
   display: flex;
-  position: relative;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 10px;
-  width: 200px;
+  justify-content: space-between;
+  padding: 10px;
+  height: 400px; /* Fix the height for all cards */
 }
 
-.posts-hero img {
+/* Post Image */
+.post-card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 2px solid white;
-  border-radius: 10px;
-  display: block;
+  height: 200px; /* Consistent height for images */
+  object-fit: cover; /* Ensure consistent image scaling */
+  border-radius: 10px; /* Slight rounding for a softer look */
 }
 
-.posts-hero .post-title {
-  position: absolute;
-  top: 50%; /* Position at the vertical center */
-  left: 50%; /* Position at the horizontal center */
-  transform: translate(-50%, -50%); /* Center the element perfectly */
-  width: 90%; /* Optional: Limit width for better readability */
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-  color: white;
+/* Post Details */
+.post-details {
   text-align: center;
-  padding: 5px 10px; /* Add padding for better readability */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure the remaining space is used */
+}
+
+.post-title {
   font-size: 18px;
+  color: #fabc3f;
   font-weight: bold;
-
-  /* Add a blur effect */
-  backdrop-filter: blur(5px);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
-}
+.post-date {
+  /* font-size: 14px;
+  color: #b1afff;
+  margin-bottom: 5px;
+   */
 
-.posts-hero .post-title {
-  color: #fab12f;
-  font-size: 25px;
+  display: none;
 }
-.posts-hero .post-date {
+.posts-carousel .post-card .post-details .post-body {
+  display: none !important;
+}
+.post-details .post-body {
+  /* font-size: 14px;
+  color: #fff;
+  line-height: 1.4;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  margin-bottom: 10px; */
+
   display: none;
 }
 
-.posts-hero a {
-  text-decoration: none;
+.post-category span {
+  display: none;
+  /* background-color: #f4ce14;
+  color: #10375c;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 10px; */
 }
 
-.latest-posts {
-  display: block; /* Ensure the container is visible */
-}
-.latest-posts h3 {
-  display: block; /* Ensure the <h3> element is visible */
-  font-size: 30px; /* Optional: Adjust font size for better visibility */
-  color: #fabc3f; /* Optional: Ensure text is readable */
-  text-align: center; /* Optional: Align text */
-}
+/* Responsive Design */
 
-/* Responsive Media Queries */
-/* Small devices (phones, 0px to 475px) */
+/* Small Devices (Phones, 0px to 475px) */
 @media (max-width: 475px) {
-  .hero h1,
   .hero {
     display: none;
   }
-
-  .posts-hero {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin-left: 10%;
+  .posts-carousel {
+    margin-left: 15%;
+  }
+  .post-card {
+    flex: 1 1 100%; /* Cards take full width */
+    max-width: 100%; /* No max-width constraint */
+    height: 350px; /* Adjust height for smaller screens */
   }
 
-  .latest-posts {
+  .post-card img {
+    height: 150px; /* Adjust image height for smaller screens */
+  }
+
+  .post-title {
+    font-size: 16px; /* Smaller title size */
+  }
+
+  .post-body {
     display: none;
-  }
-
-  .posts-hero img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
-    border: 2px solid white; /* White solid border */
-    border-radius: 5px; /* Optional: Slight rounding for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin: 10px; /* Add spacing between images */
-    display: block; /* Prevent inline space issues */
   }
 
   .post-category span {
-    display: none;
-  }
-  .posts-hero .post-title {
-    font-size: 18px;
-    max-width: 200px;
-    margin-left: 15%;
-  }
-
-  .post-body {
-    display: none;
-  }
-
-  .posts-hero .post-date {
-    display: none;
-  }
-
-  footer {
-    display: none;
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
 
-/* Medium devices (larger phones and small tablets, 476px to 768px) */
+/* Medium Devices (Tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
-  .hero h1,
-  .hero,
-  .latest-posts,
-  .post-date,
-  .post-body {
-    display: none;
+  .post-card {
+    flex: 1 1 45%; /* Two cards per row */
   }
-
-  .posts-hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-left: 18%;
-    gap: 10px;
-  }
-
-  .posts-hero .post-title {
-    font-size: 16px; /* Slightly smaller font */
-    backdrop-filter: blur(7px); /* Increased blur for better readability */
-    padding: 15px 15px; /* Adjust padding for better spacing */
-  }
-  .posts-hero img {
-    width: 100%; /* Smaller images for mid-size devices */
-    height: 100%;
-  }
-
-  footer {
-    padding: 20px;
-    font-size: 16px;
-  }
-
-  .post-date {
-    margin-top: 3px;
-    background-color: #ffeac5;
-    border-radius: 10px;
-    width: 200px;
-    justify-content: flex-end;
+  .posts-carousel {
+    margin-left: 10%;
   }
 }
 
-/* Large devices (tablets, 769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero h1,
-  .hero {
-    display: none;
+/* Large Devices (Desktops, 769px and Above) */
+@media (min-width: 769px) {
+  .post-card {
+    flex: 1 1 250px; /* Minimum width */
+    max-width: 300px; /* Maximum width */
   }
-
-  .posts-hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-left: 15%;
-    gap: 10px;
-  }
-
-  .posts-hero img {
-    width: 100%;
-    height: 100%;
-  }
-  .posts-hero .post-title {
-    font-size: 18px;
-    backdrop-filter: blur(6px); /* Moderate blur */
-    padding: 8px 12px; /* Slight padding adjustment */
-  }
-
-  .post-body {
-    display: none;
-  }
-
-  footer {
-    font-size: 18px;
-    padding: 25px;
-  }
-
-  .latest-posts {
-    display: block; /* Ensure the container is visible */
-  }
-  .latest-posts h3 {
-    display: block; /* Ensure the <h3> element is visible */
-    font-size: 30px; /* Optional: Adjust font size for better visibility */
-    color: #fabc3f; /* Optional: Ensure text is readable */
-    text-align: center; /* Optional: Align text */
-    margin-top: 10px;
-  }
-}
-
-/* Extra large devices (small desktops, 1025px to 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .hero {
-    display: none;
-  }
-
-  .hero h1 {
-    display: none;
-  }
-
-  .hero h3 {
-    font-size: 50px;
-    padding: 10px;
-    margin: 0;
-  }
-
-  .posts-hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 70px;
-    margin-left: 25%;
-  }
-
-  .posts-hero .post-body {
-    display: none;
-  }
-
-  .posts-hero .post-title {
-    font-size: 22px;
-    backdrop-filter: blur(4px); /* Minimal blur for readability */
-  }
-
-  .posts-hero img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .latest-posts {
-    display: block; /* Ensure the container is visible */
-  }
-  .latest-posts h3 {
-    display: block; /* Ensure the <h3> element is visible */
-    font-size: 30px; /* Optional: Adjust font size for better visibility */
-    color: #fabc3f; /* Optional: Ensure text is readable */
-    text-align: center; /* Optional: Align text */
-    margin-top: 10px;
-  }
-
-  .posts-hero .post-date {
-    margin-top: 3px;
-    background-color: #ffeac5;
-    border-radius: 10px;
-    width: 80%;
-    justify-content: flex-end;
-  }
-
-  footer {
-    height: 20px;
-    font-size: 20px;
-    padding: 30px;
-  }
-}
-
-/* Ultra large devices (large desktops and monitors, 1441px and up) */
-@media (min-width: 1441px) {
-  .hero h1 {
-    font-size: 100px; /* Large text for ultra-wide monitors */
-  }
-
-  .posts-hero {
-    display: flex;
-    flex-direction: column;
-
-    padding: 20px;
-    margin-left: 30%;
-  }
-
-  .posts-hero .post-title {
-    font-size: 18px;
-    backdrop-filter: blur(3px);
-    padding: 8px 12px;
-  }
-
-  .posts-hero img {
-    width: 95%;
-    height: 95%;
-    border: 2px solid white; /* White solid border */
-    border-radius: 5px; /* Optional: Slight rounding for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin: 10px; /* Add spacing between images */
-    display: block; /* Prevent inline space issues */
-  }
-
-  .posts-hero .post-title {
-    font-size: 24px; /* Larger font for wide screens */
-    backdrop-filter: blur(3px); /* Minimal blur */
-  }
-  .posts-hero .post-date {
-    width: 90%;
-  }
-  .latest-posts {
-    display: block; /* Ensure the container is visible */
-  }
-  .latest-posts h3 {
-    display: block; /* Ensure the <h3> element is visible */
-    font-size: 30px; /* Optional: Adjust font size for better visibility */
-    color: #fabc3f; /* Optional: Ensure text is readable */
-    text-align: center; /* Optional: Align text */
-    margin-top: 10px;
-  }
-  .posts-hero .post-body {
-    display: none;
-  }
-  footer {
-    font-size: 22px;
-    padding: 35px;
-  }
-}
-
-@media (min-width: 1441px) {
 }

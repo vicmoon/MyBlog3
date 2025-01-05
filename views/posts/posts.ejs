@@ -29,45 +29,37 @@
 
     <!-- Main Section with Flex Container for Posts -->
     <main>
-      <form method="GET" action="/api/v1/posts">
+      <form class="filter-form" method="GET" action="/api/v1/posts">
         <select id="category" name="category" onchange="this.form.submit()">
           <option value="" <%= !category ? 'selected' : '' %>>All</option>
           <option value="Dev Diaries" <%= category === 'Dev Diaries' ? 'selected' : '' %>>Dev Diaries</option>
           <option value="Creative Zone" <%= category === 'Creative Zone' ? 'selected' : '' %>>Creative Zone</option>
           <option value="Books" <%= category === 'Books' ? 'selected' : '' %>>Books</option>
           <option value="Jurnal creștin" <%= category === 'Jurnal creștin' ? 'selected' : '' %>>Jurnal creștin</option>
-          <!-- <option value="Other" <%= category === 'Variety' ? 'selected' : '' %>>Variety</option> -->
         </select>
       </form>
       
+      
 
-      <section class="posts-grid">
-        <% if (posts && posts.length > 0) { %> <% posts.forEach(post => { %>
-        <article class="post-content">
-          <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
-            <img src="<%= post.image %>" alt="post image" class="post-image"
-          /></a>
-          <p class="post-info">
-            <span class="post-date">
-              <%= post.createdAt.toLocaleDateString() %>
-            </span>
-          </p>
-          <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
-            <h1 class="post-title">🔗<%= post.title %></h1>
-          </a>
-          <div class="post-body">
-            <%- post.description.length > 100 ? post.description.substring(0,
-            100) + "..." : post.description %>
-          </div>
-
-          <div class="post-category">
-            <span><%= post.category %></span>
-          </div>
-        </article>
-        <% }) %> <% } else { %>
-        <p>No posts available for this category.</p>
+      <section class="posts-carousel">
+        <% if (posts && posts.length > 0) { %>
+          <% posts.forEach(post => { %>
+            <article class="post-card">
+              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+                <img src="<%= post.image %>" alt="Post image" class="post-image" />
+              </a>
+              <div class="post-details">
+                <h2 class="post-title"><%= post.title %></h2>
+                <p class="post-category"><%= post.category %></p>
+              </div>
+            </article>
+          <% }) %>
+        <% } else { %>
+          <p>No posts available for this category.</p>
         <% } %>
       </section>
+      
+      
     </main>
     <a href="/" class="back-button"><span>Back</span></a>
     <%- include("../partials/footer.ejs") %>
