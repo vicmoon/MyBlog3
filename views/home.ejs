@@ -35,42 +35,7 @@
        <section class="hero" >
         <h1> Bits and Scribbles</h1>
       </section>
-      <div class="latest-posts">
-        <h3>Latest Posts</h3>
-      </div>
-      <section class="posts-hero">
-        <% if (posts && posts.length > 0) { %> 
-          <% posts.forEach(post => { %>
-            <article class="post-content">
-              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
-                <img src="<%= post.image %>" alt="post image" class="post-image" />
-              </a>
-              
-              <p class="post-info">
-                <div class="post-date">
-                  <span id="date">
-                    <%= post.createdAt.toLocaleDateString() %>
-                  </span>
-                </div>
-              </p>
-              
-              <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
-                <h1 class="post-title">🔗<%= post.title %></h1>
-              </a>
       
-              <!-- Styled Post Body (truncated) -->
-               <span class="post-body"><%- truncatePost(post.description) %></span>
-
-              <!-- Category Badge -->
-              <div class="post-category">
-                <span><%= post.category %></span>
-              </div>
-            </article>
-          <% }) %> 
-        <% } else { %>
-          <p>No posts available.</p>
-        <% } %>
-      </section>
      
         <%-include('./partials/footer.ejs')%>
     </div>
