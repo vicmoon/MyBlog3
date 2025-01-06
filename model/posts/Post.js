@@ -15,13 +15,7 @@ const postSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: [
-        'Dev Diaries',
-        'Creative Zone',
-        'Stories',
-        'Books',
-        'Jurnal creștin',
-      ],
+      enum: ['Dev Diaries', 'Stories', 'Books', 'Jurnal creștin'],
     },
     image: {
       type: String,
