@@ -128,15 +128,16 @@ body {
     display: none;
   }
   .posts-carousel {
-    margin-left: 15%;
+    margin-left: 17%;
   }
   .post-card {
     flex: 1 1 100%; /* Cards take full width */
     max-width: 100%; /* No max-width constraint */
-    height: 350px; /* Adjust height for smaller screens */
+    height: 250px; /* Adjust height for smaller screens */
   }
 
   .post-card img {
+    margin-top: 10px;
     height: 150px; /* Adjust image height for smaller screens */
   }
 
@@ -156,8 +157,13 @@ body {
 
 /* Medium Devices (Tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
+  .hero {
+    display: none;
+  }
+
   .post-card {
     flex: 1 1 45%; /* Two cards per row */
+    height: 320px;
   }
   .posts-carousel {
     margin-left: 10%;
@@ -165,9 +171,21 @@ body {
 }
 
 /* Large Devices (Desktops, 769px and Above) */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 968px) {
+  .hero {
+    display: none;
+  }
+
+  .posts-carousel {
+    margin-left: 10%;
+  }
   .post-card {
     flex: 1 1 250px; /* Minimum width */
-    max-width: 300px; /* Maximum width */
+    height: 320px;
+  }
+
+  .post-card img {
+    margin-top: 10px;
+    height: 150px; /* Adjust image height for smaller screens */
   }
 }
