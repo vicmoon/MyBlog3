@@ -41,23 +41,24 @@ body {
   margin-bottom: 20px; /* Space below the post content */
 }
 
-.post-title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #a18fee;
-}
+/* .post-body {
+  padding: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+} */
 
+.post-title {
+  padding: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #a18fee;
+  align-items: center;
+}
 .post-info {
   display: none;
 }
-
-/* Post Image */
-/* .post-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-} */
 
 .posts button {
   display: block;
@@ -124,8 +125,11 @@ body {
   .post-content {
     word-wrap: break-word;
     overflow-wrap: break-word;
-    margin-left: 38%;
-    width: 80%;
+    margin-left: 18%;
+    width: 90%;
+  }
+  .post-body {
+    font-size: 18px;
   }
 
   .related-post-content {
@@ -137,15 +141,14 @@ body {
 @media (max-width: 475px) {
   .post-content {
     margin-left: 18%;
-    width: 75%;
-  }
-
-  .post-title {
-    font-size: 2rem;
+    width: 80%;
   }
 
   .post-body {
     font-size: 1rem;
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .related-post-content {
@@ -178,16 +181,14 @@ body {
     width: 75%; /* Make the content and related posts take full width */
   }
 
-  .post-title {
-    font-size: 1rem;
-  }
-
-  .post-body {
-    font-size: 13px;
-  }
-
   .related-post-content {
     margin-bottom: 10px;
+  }
+  .post-body {
+    font-size: 1rem;
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .related-posts {
@@ -206,9 +207,6 @@ body {
     width: 65%; /* More space for larger devices */
   }
 
-  .post-title {
-    font-size: 2.5rem;
-  }
   .related-posts {
     margin-left: 30%;
     width: 60%;
@@ -218,20 +216,13 @@ body {
 }
 
 /* Extra large devices (desktops, 1025px and up) */
-@media (min-width: 1025px) {
+@media (max-width: 1025px) {
   .post-content {
     margin-top: 5%;
     margin-left: 35%;
     width: 80%; /* Set default width for desktops */
   }
 
-  .post-content {
-    margin-left: 10%;
-  }
-
-  .post-title {
-    font-size: 2.8rem;
-  }
   .related-posts {
     margin-left: 10%;
     flex-direction: row;
@@ -240,26 +231,41 @@ body {
   }
 }
 
-@media (min-width: 1034px) {
+@media (max-width: 1034px) {
   .post-content {
     margin-top: 5%;
     margin-left: 12%;
     width: 80%; /* Set default width for desktops */
   }
+  .post-body {
+    padding: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
-@media (min-width: 1156px) {
+@media (max-width: 1156px) {
   .post-content {
     margin-top: 5%;
     margin-left: 12%;
     width: 80%; /* Set default width for desktops */
   }
+  .post-body {
+    padding: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
-@media (min-width: 1556px) {
+@media (max-width: 1556px) {
+  .post-body {
+    padding: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .post-content {
     margin-top: 5%;
-    margin-left: 12%;
-    width: 80%; /* Set default width for desktops */
+    margin-left: 17%;
+    width: 70%; /* Set default width for desktops */
   }
 }
