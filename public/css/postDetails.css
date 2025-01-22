@@ -2,7 +2,7 @@ body {
   background-color: #fff1db; /* Paper-like background color */
   margin: 0;
   padding: 0;
-  font-family: 'Fira Sans', sans-serif !important; /* Optional for better appearance */
+  font-family: 'Fira Sans', sans-serif !important;
 }
 
 /* Flex Container */
@@ -10,7 +10,7 @@ body {
 /* Style for the Back button */
 .back-button {
   display: block;
-  margin: 40px auto 20px auto; /* Adds space around the button */
+  margin: 40px auto 20px auto;
   max-width: 200px;
   padding: 10px 20px;
   background-color: #b1afff;
@@ -19,7 +19,7 @@ body {
   border-radius: 30px;
   font-size: 18px;
   text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
 }
 
@@ -31,79 +31,55 @@ body {
 .post-content {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  width: 100%; /* Set a default width for the post content */
-  padding: 10px;
-  margin-top: 2%;
-  margin-left: 15%;
+  width: 90%; /* Adjust width to ensure it doesn't stretch too far */
+  padding: 15px;
+  margin: 2% auto; /* Center the post content */
+  margin-left: 20%; /* Space for the vertical nav on the left */
   border-radius: 20px;
   background-color: #fff1db;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add some shadow for visibility */
-  margin-bottom: 20px; /* Space below the post content */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.post-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 10px;
+  text-align: left; /* Keep text aligned to the left */
 }
 
-/* .post-body {
-  padding: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
-} */
-
 .post-title {
-  padding: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: #a18fee;
-  align-items: center;
-}
-.post-info {
-  display: none;
+  text-align: center;
 }
 
-.posts button {
-  display: block;
-  margin: 40px auto 20px auto; /* Adds space around the button */
-  max-width: 200px;
-  padding: 10px 20px;
-  background-color: #b1afff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 18px;
-  text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
-  transition: background-color 0.3s ease;
-}
 /* Related Posts Section */
 .related-posts {
   width: 90%;
   color: #fffcf2;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 20px;
+  margin-left: 8%;
+  justify-content: space-evenly;
 }
 
 .related-post-content {
   background-color: #a2d2df;
-  width: 300px;
+  width: 250px;
   padding: 15px;
   border-radius: 20px;
   border: 2px solid #333;
   margin-bottom: 15px;
   box-shadow: 0 6px 12px rgba(80, 66, 66, 0.15);
+  text-align: center;
 }
 
 .related-post-content img {
-  width: 60%;
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
-}
-
-.related-posts h2,
-.related-posts h3 {
-  color: #cb80ab;
   margin-bottom: 10px;
 }
 
@@ -121,151 +97,42 @@ body {
 /* MEDIA QUERIES */
 /* --------------------------------------- */
 
-@media (max-width: 375px) {
+/* Small devices (phones, max-width: 576px) */
+@media (max-width: 576px) {
   .post-content {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    margin-left: 18%;
-    width: 90%;
-  }
-  .post-body {
-    font-size: 18px;
+    width: 85%; /* Reduce width for better readability */
+    margin-left: 10%; /* Adjust margin for smaller screens */
   }
 
-  .related-post-content {
-    width: 230px;
+  .post-body {
+    font-size: 0.9rem; /* Slightly smaller text for small screens */
+    line-height: 1.5;
   }
 }
 
-/* Small devices (phones, 0px to 475px) */
-@media (max-width: 475px) {
+/* Medium devices (tablets, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
   .post-content {
-    margin-left: 18%;
-    width: 80%;
+    width: 90%; /* Make use of available space */
+    margin-left: 15%; /* Space for the vertical nav */
   }
 
   .post-body {
     font-size: 1rem;
-    padding: 5px;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .related-post-content {
-    margin-bottom: 10px;
-  }
-
-  .related-posts {
-    margin-left: 24%;
-    flex-direction: column-reverse;
-    width: 40%;
-  }
-
-  .related-post-content {
-    width: 220px;
-  }
-  .post-read-more h3 {
-    font-size: 18px;
-  }
-
-  .back-button {
-    max-width: 100px;
-    margin: 50px auto 20px auto; /* Adds space around the button */
+    line-height: 1.6;
   }
 }
 
-/* Medium devices (larger phones and small tablets, 476px to 768px) */
-@media (min-width: 476px) and (max-width: 768px) {
+/* Large devices (desktops, 769px and up) */
+@media (min-width: 769px) {
   .post-content {
-    margin-left: 16%;
-    width: 75%; /* Make the content and related posts take full width */
+    width: 70%;
+    margin: 2% auto;
+    margin-left: 15%; /* Space for vertical nav */
   }
 
-  .related-post-content {
-    margin-bottom: 10px;
-  }
   .post-body {
-    font-size: 1rem;
-    padding: 5px;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .related-posts {
-    margin-left: 28%;
-    flex-direction: column;
-    width: 60%;
-    justify-content: space-around;
-  }
-}
-
-/* Large devices (tablets, 769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .post-content {
-    margin-top: 10%;
-    margin-left: 19%;
-    width: 65%; /* More space for larger devices */
-  }
-
-  .related-posts {
-    margin-left: 30%;
-    width: 60%;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-  }
-}
-
-/* Extra large devices (desktops, 1025px and up) */
-@media (max-width: 1025px) {
-  .post-content {
-    margin-top: 5%;
-    margin-left: 35%;
-    width: 80%; /* Set default width for desktops */
-  }
-
-  .related-posts {
-    margin-left: 10%;
-    flex-direction: row;
-    width: 50%;
-    justify-content: space-evenly;
-  }
-}
-
-@media (max-width: 1034px) {
-  .post-content {
-    margin-top: 5%;
-    margin-left: 12%;
-    width: 80%; /* Set default width for desktops */
-  }
-  .post-body {
-    padding: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 1156px) {
-  .post-content {
-    margin-top: 5%;
-    margin-left: 12%;
-    width: 80%; /* Set default width for desktops */
-  }
-  .post-body {
-    padding: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 1556px) {
-  .post-body {
-    padding: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .post-content {
-    margin-top: 5%;
-    margin-left: 17%;
-    width: 70%; /* Set default width for desktops */
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 }
