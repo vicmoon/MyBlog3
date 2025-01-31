@@ -25,9 +25,8 @@ app.set('views', path.join(__dirname, '/views'));
 //to serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
-// Set the view engine (e.g., EJS, Pug, Handlebars, etc.)
-app.set('view engine', 'ejs'); // Assuming you're using EJS, change if needed.
-
+// Set the view engine
+app.set('view engine', 'ejs');
 // helpers
 app.locals.truncatePost = truncatePost;
 
@@ -81,7 +80,6 @@ app.get('/', async (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('contact');
 });
-
 // Render signup success
 app.get('/signup_success', (req, res) => {
   res.render('signup_success');
