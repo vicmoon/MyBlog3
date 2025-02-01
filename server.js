@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Set the view engine (e.g., EJS, Pug, Handlebars, etc.)
-app.set('view engine', 'ejs'); // Assuming you're using EJS, change if needed.
+app.set('view engine', 'ejs');
 
 // helpers
 app.locals.truncatePost = truncatePost;
