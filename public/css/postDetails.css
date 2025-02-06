@@ -39,6 +39,9 @@ body {
   background-color: #fff1db;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
+.post-info {
+  display: none;
+}
 .post-body {
   font-size: 1rem;
   line-height: 1.6;
@@ -107,6 +110,10 @@ body {
   .post-body {
     font-size: 0.9rem; /* Slightly smaller text for small screens */
     line-height: 1.5;
+    margin-left: 6%;
+  }
+  .post-title {
+    margin-left: 5%;
   }
 }
 
@@ -114,7 +121,7 @@ body {
 @media (min-width: 577px) and (max-width: 768px) {
   .post-content {
     width: 90%; /* Make use of available space */
-    margin-left: 15%; /* Space for the vertical nav */
+    margin-left: 16%; /* Space for the vertical nav */
   }
 
   .post-body {
