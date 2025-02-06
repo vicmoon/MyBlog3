@@ -143,6 +143,7 @@ body {
 /* Medium Devices (Tablets, 476px to 768px) */
 @media (min-width: 476px) and (max-width: 768px) {
   .post-card {
+    flex: 1 1 250px; /* Minimum width */
     margin-left: 10%;
   }
   .filter-form {
