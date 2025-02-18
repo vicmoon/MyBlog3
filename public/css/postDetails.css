@@ -36,7 +36,7 @@ body {
   margin: 2% auto; /* Center the post content */
   margin-left: 20%; /* Space for the vertical nav on the left */
   border-radius: 20px;
-  background-color: #fff1db;
+  background-color: #fce7c8;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 .post-info {
@@ -44,15 +44,16 @@ body {
 }
 .post-body {
   font-size: 1rem;
+  width: 100%;
   line-height: 1.6;
   padding: 10px;
   text-align: left; /* Keep text aligned to the left */
 }
 
 .post-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 10px;
-  color: #a18fee;
+  color: #27445d;
   text-align: center;
 }
 
@@ -70,7 +71,7 @@ body {
 }
 
 .related-post-content {
-  background-color: #a2d2df;
+  background-color: #143d60;
   width: 250px;
   padding: 15px;
   border-radius: 20px;
@@ -84,10 +85,6 @@ body {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
-
-.related-posts h3:hover {
-  color: #ffb84c;
 }
 
 .post-read-more {
