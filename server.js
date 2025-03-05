@@ -1,6 +1,6 @@
 // app.js
 // require('dotenv').config();
-const config = require('./config.json');
+const config = require('./utils/config.json');
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
