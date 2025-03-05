@@ -1,5 +1,6 @@
 // app.js
-require('dotenv').config();
+// require('dotenv').config();
+const config = require('./config.json');
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -44,11 +45,11 @@ app.use(methodOverride('_method'));
 //session config gives access to the req.session in each route
 app.use(
   session({
-    secret: process.env.SESSION_KEY,
+    secret: config.SESSION_KEY,
     resave: false,
     saveUninitialized: true,
     store: mongoStore.create({
-      mongoUrl: process.env.MONGO_URL,
+      mongoUrl: config.MONGO_URL,
       ttl: 24 * 60 * 60, // saves the user session for 1 day
     }),
   })

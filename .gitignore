@@ -4,6 +4,7 @@
 # .gitignore
 node_modules/
 .env
+config.json
 
 # dependencies
 /node_modules
