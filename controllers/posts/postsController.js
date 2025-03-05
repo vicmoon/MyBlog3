@@ -10,9 +10,11 @@ const postPostController = async (req, res, next) => {
       // return next(appError("Missing details, all fields are required"));
       return res.render('posts/addPost', { error: 'All fields are required' });
     }
-    // find the user
-    const userID = req.session.userAuth;
-    const userFound = await User.findById(userID);
+    // // find the user
+    // const userID = req.session.userAuth;
+    // const userFound = await User.findById(userID);
+
+    // console.log(userFound);
 
     //create the post
 
@@ -21,14 +23,13 @@ const postPostController = async (req, res, next) => {
       description,
       category,
       image: req.file.path,
-      user: userFound._id,
     });
 
-    // push the post in the array user's posts
-    userFound.posts.push(postCreated._id);
+    // // push the post in the array user's posts
+    // userFound.posts.push(postCreated._id);
 
-    //save the user because we made changes
-    await userFound.save();
+    // //save the user because we made changes
+    // await userFound.save();
     console.log('Post created');
     res.redirect('/');
   } catch (error) {

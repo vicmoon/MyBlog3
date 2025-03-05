@@ -23,19 +23,23 @@
           >
         </p>
 
-        <!-- Wrap post description with Quill class to apply styles -->
         <div class="post-body"><%- post.description %></div>
       </article>
 
       <% if (post.user && post.user._id && userAuth && post.user._id.toString()
       === userAuth.toString()) { %>
-      <form action="/api/v1/posts/<%= post._id %>?_method=DELETE" method="post">
-        <button>Delete</button>
-      </form>
-      <a href="/api/v1/posts/updatePost/<%= post._id %>"
-        ><button>Update</button></a
-      >
-      <% } %>
+      <div class="admin_buttons">
+        <form
+          action="/api/v1/posts/<%= post._id %>?_method=DELETE"
+          method="post"
+        >
+          <button>Delete</button>
+        </form>
+        <a href="/api/v1/posts/updatePost/<%= post._id %>"
+          ><button>Update</button></a
+        >
+        <% } %>
+      </div>
       <a href="/" class="back-button">Back</a>
     </main>
 

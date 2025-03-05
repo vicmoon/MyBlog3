@@ -27,6 +27,9 @@ body {
   background-color: #a18fee;
 }
 
+.admin_buttons {
+  text-align: center;
+}
 /* Main Post Content */
 .post-content {
   word-wrap: break-word;
