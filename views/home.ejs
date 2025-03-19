@@ -57,7 +57,12 @@
                 <img src="<%= post.image %>" alt="Post image" class="post-image" />
               </a>
               <div class="post-details">
-                <h2 class="post-title">🔗<%= post.title %></h2>
+                <h2 class="post-title">
+                  <a href="/api/v1/posts/<%= post._id %>" class="post-read-more">
+                    🔗<%= post.title %>
+                    <img src="<%= post.image %>" alt="Post image" class="post-image" />
+                  </a>
+                </h2>
                 <p class="post-date"><%= post.createdAt.toLocaleDateString() %></p>
                 <!-- <p class="post-body"><%- truncatePost(post.description) %></p> -->
                 <p class="post-category"><span><%= post.category %></span></p>
