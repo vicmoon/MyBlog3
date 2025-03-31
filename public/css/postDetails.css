@@ -1,6 +1,4 @@
 body {
-  background-color: #fff1db; /* Paper-like background color */
-  margin: 0;
   padding: 0;
   font-family: 'Fira Sans', sans-serif !important;
 }
@@ -37,8 +35,8 @@ body {
   margin: 2% auto; /* Center the post content */
   margin-left: 20%; /* Space for the vertical nav on the left */
   border-radius: 20px;
-  background-color: #fce7c8;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  /* background-color: #fce7c8; */
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
 }
 .post-info {
   display: none;
@@ -68,7 +66,8 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
   margin-left: 8%;
-  justify-content: space-evenly;
+  gap: 3px;
+  justify-content: center;
 }
 
 .related-post-content {
