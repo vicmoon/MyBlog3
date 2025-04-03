@@ -87,25 +87,18 @@ body {
 }
 
 .post-date {
-  /* font-size: 14px;
-  color: #b1afff;
-  margin-bottom: 5px;
-   */
-
   display: none;
 }
 .posts-carousel .post-card .post-details .post-body {
   display: none !important;
 }
-.post-details .post-body {
-  /* font-size: 14px;
-  color: #fff;
-  line-height: 1.4;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
-  margin-bottom: 10px; */
 
+.post-title a {
+  text-decoration: none;
+  color: #fabc3f;
+}
+
+.post-details .post-body {
   display: none;
 }
 
