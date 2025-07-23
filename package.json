@@ -11,7 +11,7 @@
   "keywords": [
     "blog"
   ],
-  "author": "Victoria Munteanu",
+  "author": "Victoria",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -25,7 +25,7 @@
     "express-session": "^1.18.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.9.6",
-    "multer": "^2.0.1",
+    "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^3.1.9",
     "serverless-http": "^3.2.0",
